@@ -10,7 +10,7 @@ export default function GuestGuard({ children }) {
   const { user } = useAuth();
 
   if (user) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/admin"} />;
   }
 
   return <>{children}</>;
