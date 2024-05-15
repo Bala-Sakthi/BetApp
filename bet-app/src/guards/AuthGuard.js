@@ -17,7 +17,7 @@ export default function AuthGuard({ children }) {
       setRequestedLocation(pathname);
     }
     if (!user) {
-      return <Navigate to={"/"} />;
+      return <Navigate to={"/admin"} />;
     }
   }
 
