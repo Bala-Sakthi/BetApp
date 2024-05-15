@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainLogo from "../../assets/logo5.png";
+import MainLogo from "../../assets/images/logoMIG.png";
 import "./MainNav.css";
 import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -139,7 +139,7 @@ const MainNav = () => {
                 className="rounded-circle p-2"
                 alt="..."
               />
-              Trains On Wheels
+              Meet In Ground
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body style={{ backgroundColor: " #FFFFFF" }}>

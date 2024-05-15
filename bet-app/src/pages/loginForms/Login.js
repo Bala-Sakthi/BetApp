@@ -8,7 +8,7 @@ import TextInput from "../../components/TextInput";
 import { useLoginUserMutation } from "../../redux/api/AuthApi";
 import { toast } from "react-toastify";
 import BasicButton from "../../components/BasicButton";
-import login from "../../assets/loginlogo2.webp";
+import login from "../../assets/images/loginlogo2.webp";
 
 const Login = () => {
   const [passwordIcon, setPasswordIcon] = useState(false);
