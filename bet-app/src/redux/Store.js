@@ -4,6 +4,9 @@ import { AuthApi } from "./api/AuthApi";
 import { UserListApi } from "./api/UserListApi";
 import { PostApi } from "./api/PostApi";
 import { DashboardApi } from "./api/DashboardApi";
+import { IssuesApi } from "./api/IssuesApi";
+import { FeedbackApi } from "./api/FeedBackApi";
+
 
 
 
@@ -17,6 +20,8 @@ export const store = configureStore({
     [UserListApi.reducerPath]:UserListApi.reducer,
     [PostApi.reducerPath]:PostApi.reducer,
     [DashboardApi.reducerPath]:DashboardApi.reducer,
+    [IssuesApi.reducerPath]:IssuesApi.reducer,
+    [FeedbackApi.reducerPath]:FeedbackApi.reducer,
   
   },
   devTools: process.env.NODE_ENV === "development",
@@ -26,6 +31,8 @@ export const store = configureStore({
       UserListApi.middleware,
       PostApi.middleware,
       DashboardApi.middleware,
+      IssuesApi.middleware,
+      FeedbackApi.middleware,
 
     ]),
 });
