@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.boxShadow{
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 20px;
+  background-color: white;
+}
+.link-unstyled {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.pagination {
+  user-select: none;
+}
+
+.time-input {
+  display: flex;
+}
+
+.am-pm {
+  margin-left: 5px;
+  align-self: center;
+}
+
+.mt-10{
+  margin-top: 100px;
+}
