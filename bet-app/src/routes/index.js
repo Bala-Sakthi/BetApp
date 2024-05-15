@@ -53,6 +53,22 @@ export default function Router() {
             </AuthGuard>
           ),
         },
+        {
+          path: "/admin/issue",
+          element: (
+            <AuthGuard>
+              <Issues />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/feedback",
+          element: (
+            <AuthGuard>
+              <FeedBack />
+            </AuthGuard>
+          ),
+        },
         
       ],
     },
@@ -73,6 +89,10 @@ const NotFound = Loadable(lazy(() => import("../pages/404/Page404")));
 const UserList = Loadable(lazy(() => import("../pages/UserList/UserList")));
 const Post = Loadable(lazy(() => import("../pages/ViewPost/Post")));
 const Dashboard = Loadable(lazy(() => import("../pages/Dashboard/Dashboard")));
+const Issues = Loadable(lazy(() => import("../pages/Issues/Issues")));
+const FeedBack = Loadable(lazy(() => import("../pages/FeedBack/FeedBack")));
+
+
 
 
 
