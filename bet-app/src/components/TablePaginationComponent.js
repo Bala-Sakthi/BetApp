@@ -154,14 +154,14 @@ const BasicTable = (props) => {
                 containerClassName="pagination"
                 previousLabel={
                   <IconContext.Provider
-                    value={{ color: "#0077B2", size: "28px" }}
+                    value={{ color: "#6B78B7", size: "28px" }}
                   >
                     <AiFillLeftCircle />
                   </IconContext.Provider>
                 }
                 nextLabel={
                   <IconContext.Provider
-                    value={{ color: "#0077B2", size: "28px" }}
+                    value={{ color: "#6B78B7", size: "28px" }}
                   >
                     <AiFillRightCircle />
                   </IconContext.Provider>
@@ -171,7 +171,7 @@ const BasicTable = (props) => {
             <Col className="d-flex d-sm-flex d-md-flex d-xxl-none d-xl-none d-lg-none justify-content-end align-items-center">
               <Button
                 // variant="warning"/
-                style={{ backgroundColor: "#0077B2", border: "none" }}
+                style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={() => props.setCurrentPage(props.currentPage - 1)}
                 disabled={props.currentPage === 1}
                 className="m-2"
@@ -180,7 +180,7 @@ const BasicTable = (props) => {
               </Button>
               <Button
                 // variant="warning"
-                style={{ backgroundColor: "#0077B2", border: "none" }}
+                style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={() => {
                   props.setCurrentPage(props.currentPage + 1);
                 }}

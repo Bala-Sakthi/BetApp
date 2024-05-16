@@ -160,7 +160,7 @@ const Dashboard = () => {
           <Link to="/admin/user-list" className="link-unstyled">
             <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <PiUserListBold size={45} style={{color:"0077B2"}}/>
+              <PiUserListBold size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Users Count</div>
@@ -176,7 +176,7 @@ const Dashboard = () => {
           <Link to="/admin/feedback" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <MdFeedback size={45} style={{color:"0077B2"}}/>
+              <MdFeedback size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Feedback Count</div>
@@ -192,7 +192,7 @@ const Dashboard = () => {
           <Link to="/admin/withdraw-request" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <BiMoneyWithdraw size={45} style={{color:"0077B2"}}/>
+              <BiMoneyWithdraw size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Withdraw Requests</div>
@@ -208,7 +208,7 @@ const Dashboard = () => {
           <Link to="/admin/train" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <FaStreetView size={45} style={{color:"0077B2"}}/>
+              <FaStreetView size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Total Posts</div>
@@ -221,10 +221,10 @@ const Dashboard = () => {
         </Col>
 
         <Col xs={12} sm={6} lg={4} className="mb-3">
-          <Link to="/admin/station" className="link-unstyled">
+          <Link to="/admin/issue" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <AiOutlineIssuesClose size={45} style={{color:"0077B2"}}/>
+              <AiOutlineIssuesClose size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Total Issues</div>
@@ -240,7 +240,7 @@ const Dashboard = () => {
           <Link to="/admin/metro-train" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
-              <PiTrainRegionalFill size={45} style={{color:"0077B2"}}/>
+              <PiTrainRegionalFill size={45} style={{color:"#6B78B7"}}/>
 
                 <div className="ms-3">
                   <div className="fs-5 fw-bolder">Total Metro Trains</div>
