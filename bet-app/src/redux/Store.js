@@ -6,6 +6,10 @@ import { PostApi } from "./api/PostApi";
 import { DashboardApi } from "./api/DashboardApi";
 import { IssuesApi } from "./api/IssuesApi";
 import { FeedbackApi } from "./api/FeedBackApi";
+import { GeneralNotificationApi } from "./api/GeneralNotificationApi";
+import { IndividualNotificationApi } from "./api/IndividualNotificationApi";
+import { WithdrawRequestApi } from "./api/WithdrawRequestApi";
+
 
 
 
@@ -22,6 +26,9 @@ export const store = configureStore({
     [DashboardApi.reducerPath]:DashboardApi.reducer,
     [IssuesApi.reducerPath]:IssuesApi.reducer,
     [FeedbackApi.reducerPath]:FeedbackApi.reducer,
+    [GeneralNotificationApi.reducerPath]:GeneralNotificationApi.reducer,
+    [IndividualNotificationApi.reducerPath]:IndividualNotificationApi.reducer,
+    [WithdrawRequestApi.reducerPath]:WithdrawRequestApi.reducer,
   
   },
   devTools: process.env.NODE_ENV === "development",
@@ -33,6 +40,8 @@ export const store = configureStore({
       DashboardApi.middleware,
       IssuesApi.middleware,
       FeedbackApi.middleware,
-
+      GeneralNotificationApi.middleware,
+      IndividualNotificationApi.middleware,
+      WithdrawRequestApi.middleware,
     ]),
 });
