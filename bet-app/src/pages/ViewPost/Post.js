@@ -161,7 +161,7 @@ console.log(PostData);
                 </span>
                 <input
                   type="text"
-                  placeholder="Search Rewards..."
+                  placeholder="Search Posts..."
                   className="form-control"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
@@ -181,7 +181,7 @@ console.log(PostData);
             sm={3}
             md={3}>
                 <Button
-                style={{ backgroundColor: "#0077B2", border: "none" }}
+                style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching}
               >
