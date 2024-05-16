@@ -1,8 +1,13 @@
 
-import { MdAdminPanelSettings, MdFeedback } from 'react-icons/md';
+import { MdAdminPanelSettings, MdFeedback, MdPerson } from 'react-icons/md';
 import { FiUser  } from 'react-icons/fi';
 import { FaStreetView } from "react-icons/fa";
 import { AiOutlineIssuesClose } from 'react-icons/ai';
+import { HiMiniUserGroup } from 'react-icons/hi2';
+import { IoMdNotifications } from 'react-icons/io';
+import { IoPersonCircleSharp } from "react-icons/io5";
+import { BiMoneyWithdraw } from 'react-icons/bi';
+
 
 
 
@@ -49,5 +54,50 @@ export const sidebarItems = [
     "order_index": 2,
     "url": "/admin/post",
   },
+  {
+    "id": 5,
+    "label": "Notification",
+    "parent_id": null,
+    "icon": <IoMdNotifications size={20}  />,
+    "order_index": 5,
+    "url": "/",
+    "style": { color: 'white' },
+    "children": [
+      {
+        "id": 6,
+        "label": "General",
+        "parent_id": null,
+        "icon": <IoPersonCircleSharp size={20}/>,
+        "order_index":1,
+        "url": "/admin/general"
+      },
+      {
+        "id": 7,
+        "label": "Individual",
+        "parent_id": null,
+        "icon":<MdPerson size={20}/>,
+        "order_index": 2,
+        "url": "/admin/individual"
+      }
+      ,
+      {
+        "id": 8,
+        "label": "Group",
+        "parent_id": null,
+        "icon":<HiMiniUserGroup size={20}/>,
+        "order_index": 3,
+        "url": "/admin/group-notification"
+      }
+    ]
+  }, 
+  {
+    "id": 6,
+    "label": "Withdraw request",
+    "parent_id": null,
+    "icon":<BiMoneyWithdraw size={20}/>,
+    "order_index": 6,
+    "url": "/admin/withdraw-request",
+  },
+  
    
 ];
