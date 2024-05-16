@@ -32,7 +32,7 @@ const MainNav = () => {
           position: "sticky",
           top: "0",
           zIndex: 1000,
-          backgroundColor: "#0077B2",
+          backgroundColor: "#6B78B7",
         }}
       >
         <Row className="d-flex flex-row flex-wrap-wrap justify-content-around align-items-center p-2">
@@ -48,7 +48,7 @@ const MainNav = () => {
             className="d-lg-flex d-none d-sm-none flex-row flex-wrap-wrap justify-content-between align-items-center"
             style={{ marginRight: "100px" }}
           >
-            <img src={MainLogo} width={30} className="pointer" alt="MainLogoImage1" title="MainLogoImage1"></img>
+            <img src={MainLogo} width={45} className="pointer" alt="MainLogoImage1" title="MainLogoImage1"></img>
           </Col>
         </Row>
 
@@ -125,7 +125,7 @@ const MainNav = () => {
       {/* Conditionally render Offcanvas for large screens */}
       <Row className="d-none d-lg-flex d-xl-flex d-xxl-flex">
         <Offcanvas scroll={false} show={show} onHide={handleClose}>
-          <Offcanvas.Header style={{ backgroundColor: "#0077B2" }} closeButton>
+          <Offcanvas.Header style={{ backgroundColor: "#6B78B7" }} closeButton>
             <Offcanvas.Title
               className="custom-title"
               style={{

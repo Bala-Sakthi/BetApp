@@ -9,7 +9,7 @@ const Loader = () => (
       visible={true}
       height="96"
       width="96"
-      strokeColor="#0077B2"
+      strokeColor="#6B78B7"
       strokeWidth="5"
       animationDuration="0.75"
       ariaLabel="rotating-lines-loading"

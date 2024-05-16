@@ -38,7 +38,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
               className='fs-15 text-bolder'
               active={isActive}
               rootStyles={{
-                backgroundColor: isActive ? '#dcf2fc' : '#FFFFFF',
+                backgroundColor: isActive ? '#bcc3e6' : '#FFFFFF',
                 color: isActive ? 'black' : 'black',
               }}
               key={item.id}
