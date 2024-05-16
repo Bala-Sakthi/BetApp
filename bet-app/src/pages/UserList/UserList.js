@@ -33,7 +33,10 @@ const UserList = () => {
     }
   }, [UserListData, currentPage]);
 
+
+
 console.log(UserListData);
+
   const handleClear = () => {
     setSearchInput("");
     setSearchTerm("");
@@ -131,7 +134,7 @@ console.log(UserListData);
                 </span>
                 <input
                   type="text"
-                  placeholder="Search Rewards..."
+                  placeholder="Search UserLists..."
                   className="form-control"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
@@ -151,7 +154,7 @@ console.log(UserListData);
             sm={3}
             md={3}>
                 <Button
-                style={{ backgroundColor: "#0077B2", border: "none" }}
+                style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching}
               >
