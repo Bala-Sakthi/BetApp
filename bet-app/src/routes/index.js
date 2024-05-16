@@ -69,6 +69,38 @@ export default function Router() {
             </AuthGuard>
           ),
         },
+        {
+          path: "/admin/general",
+          element: (
+            <AuthGuard>
+              <General />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/group-notification",
+          element: (
+            <AuthGuard>
+              <GroupNotification />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/individual",
+          element: (
+            <AuthGuard>
+              <Individual />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/withdraw-request",
+          element: (
+            <AuthGuard>
+              <WithdrawRequest />
+            </AuthGuard>
+          ),
+        },
         
       ],
     },
@@ -91,6 +123,11 @@ const Post = Loadable(lazy(() => import("../pages/ViewPost/Post")));
 const Dashboard = Loadable(lazy(() => import("../pages/Dashboard/Dashboard")));
 const Issues = Loadable(lazy(() => import("../pages/Issues/Issues")));
 const FeedBack = Loadable(lazy(() => import("../pages/FeedBack/FeedBack")));
+const General = Loadable(lazy(() => import("../pages/Notification/General/General")));
+const GroupNotification = Loadable(lazy(() => import("../pages/Notification/Group/GroupNotification")));
+const Individual = Loadable(lazy(() => import("../pages/Notification/individual/Individual")));
+const WithdrawRequest = Loadable(lazy(() => import("../pages/WithdrawRequest/WithdrawRequest")));
+
 
 
 
