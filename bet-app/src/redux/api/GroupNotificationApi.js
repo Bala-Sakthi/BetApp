@@ -1,54 +1,37 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import CustomFetchBase from "./CustomFetchBase";
 
-export const GeneralNotificationApi = createApi({
-  reducerPath: "NotificationApi",
+export const GroupNotificationApi = createApi({
+  reducerPath: "GroupNotificationApi",
   baseQuery: CustomFetchBase,
-  tagTypes: ["NOTIFICATION"],
+  tagTypes: ["GROUPNOTIFICATION"],
   endpoints: (build) => ({
-    getNotification: build.query({
+    getGroupNotification: build.query({
       query: ({page,search}) => ({
-        url: `/admin/viewGeneralNotifications?page=${page}&search=${search}`,
+        url: `/admin/viewGroupNotifications?page=${page}&search=${search}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
       }),
-      providesTags: ["NOTIFICATION"],
+      providesTags: ["GROUPNOTIFICATION"],
     }),
-  
 
-    addNotification: build.mutation({
-      query: ({ title, body, image }) => {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('body', body);
-        formData.append('image', image);
-    
-        return {
-          url: `/admin/sendGeneralNotifications`,
-          method: "POST",
-          body: formData,
-          headers: {
-           
-          },
-        };
-      },
-      invalidatesTags: ["NOTIFICATION"],
-    }),
-    
-    deleteNotification: build.mutation({
+   
+     
+
+    deleteGroupNotification: build.mutation({
       query: (id) => ({
-        url: `/admin/deleteGeneralNotification/${id}`,
+        url: `/admin/deleteGroupNotification/${id}`,
         method: "DELETE",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
       }),
-      invalidatesTags: ["NOTIFICATION"],
+      invalidatesTags: ["GROUPNOTIFICATION"],
     }),
   }),
 });
 
-export const { useGetNotificationQuery,useDeleteNotificationMutation,
-    useAddNotificationMutation} = GeneralNotificationApi;
+export const { useGetGroupNotificationQuery,useDeleteGroupNotificationMutation,
+    } = GroupNotificationApi;
