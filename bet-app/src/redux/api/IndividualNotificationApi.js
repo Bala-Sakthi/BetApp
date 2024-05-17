@@ -14,7 +14,7 @@ export const IndividualNotificationApi = createApi({
         formData.append('image', image);
     
         return {
-          url: `/admin/sendIndividualNotification/${phoneNumber}`,
+          url: `admin/sendIndividualNotification/${phoneNumber}`,
           method: "POST",
           body: formData,
           headers: {
@@ -35,7 +35,17 @@ export const IndividualNotificationApi = createApi({
         }),
         providesTags: ["INDIVIDUALNOTIFICATION"],
       }),
+      getPhoneNumber: build.query({
+        query: (search) => ({
+          url: `/admin/getPhoneNumbers?search=${search}`,
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        }),
+        providesTags: ["INDIVIDUALNOTIFICATION"],
+      }),
   }),
 });
 
-export const { useAddIndividualNotificationMutation ,useGetIndividualNotificationQuery} = IndividualNotificationApi;
+export const { useAddIndividualNotificationMutation,useGetPhoneNumberQuery ,useGetIndividualNotificationQuery} = IndividualNotificationApi;

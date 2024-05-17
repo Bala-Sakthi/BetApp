@@ -9,6 +9,7 @@ import { FeedbackApi } from "./api/FeedBackApi";
 import { GeneralNotificationApi } from "./api/GeneralNotificationApi";
 import { IndividualNotificationApi } from "./api/IndividualNotificationApi";
 import { WithdrawRequestApi } from "./api/WithdrawRequestApi";
+import { GroupNotificationApi } from "./api/GroupNotificationApi";
 
 
 
@@ -29,6 +30,7 @@ export const store = configureStore({
     [GeneralNotificationApi.reducerPath]:GeneralNotificationApi.reducer,
     [IndividualNotificationApi.reducerPath]:IndividualNotificationApi.reducer,
     [WithdrawRequestApi.reducerPath]:WithdrawRequestApi.reducer,
+    [GroupNotificationApi.reducerPath]:GroupNotificationApi.reducer,
   
   },
   devTools: process.env.NODE_ENV === "development",
@@ -43,5 +45,6 @@ export const store = configureStore({
       GeneralNotificationApi.middleware,
       IndividualNotificationApi.middleware,
       WithdrawRequestApi.middleware,
+      GroupNotificationApi.middleware,
     ]),
 });

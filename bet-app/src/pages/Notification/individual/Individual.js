@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import BasicTable from ".././../../components/TablePaginationComponent";
 import Loader from "../../../pages/Loader/Loader";
-// import {useGetNumberQuery} from "../../../redux/features/api/WithdrawRequestApi";
-import { useGetIndividualNotificationQuery ,useAddIndividualNotificationMutation} from "../../../redux/api/IndividualNotificationApi";
+import { useGetIndividualNotificationQuery ,useAddIndividualNotificationMutation, useGetPhoneNumberQuery} from "../../../redux/api/IndividualNotificationApi";
 import { toast } from "react-toastify";
 import { IoIosSend } from "react-icons/io";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
+import Select from 'react-select';
+
+
 
 
 const IndividualNotification = () => {
-  const navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [startIndex, setStartIndex] = useState(1);
   const [endIndex, setEndIndex] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItem] = useState();
-  const [number, setNumber] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [file, setFile] = useState(null); 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState(""); 
-  const [numberOptions, setNumberOptions] = useState([]);
   const [sendRequestShow, setSendRequestShow] = useState(false);
   const [isSearching, setIsSearching] = useState(false); 
   const [addIndividualNotification] = useAddIndividualNotificationMutation();
-  // const { data: NumberData } = useGetNumberQuery();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumberList, setPhoneNumberList] = useState("");
+  const { data: PhoneNumberData } = useGetPhoneNumberQuery(phoneNumberList); 
   const { data: getIndividualNotificationData, isLoading ,refetch} = useGetIndividualNotificationQuery({ page: currentPage, search: searchTerm });
 
   useEffect(() => {
@@ -45,11 +46,13 @@ const IndividualNotification = () => {
 
  console.log(getIndividualNotificationData);
 
-  // useEffect(() => {
-  //   if (NumberData && NumberData.data) {
-  //     setNumberOptions(NumberData.data);
-  //   }
-  // }, [NumberData]);
+console.log(phoneNumberList);
+console.log(title);
+console.log(body);
+console.log(file);
+
+
+
 
   const handleSendRequestClose = () => {
     setSendRequestShow(false);
@@ -78,7 +81,7 @@ const IndividualNotification = () => {
   const handleSendRequest = async () => {
     try {
       const response = await addIndividualNotification({
-        phoneNumber:number,
+        phoneNumber:phoneNumber,
         title: title,
         body: body,
         image:file,
@@ -87,8 +90,7 @@ const IndividualNotification = () => {
       if (response?.data) {
         toast.success(response?.data?.message, { autoClose: 1000 });
         setSendRequestShow(false);
-        navigate("/admin/individual");
-        setNumber("")
+        setPhoneNumber("")
         setTitle("")
         setBody("")
         setFile("")
@@ -96,10 +98,7 @@ const IndividualNotification = () => {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
         console.log(response.error);
-        setNumber("")
-        setTitle("")
-        setBody("")
-        setFile("")
+    
       }
     } catch (error) {
       console.error(error);
@@ -109,6 +108,10 @@ const IndividualNotification = () => {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]); 
+  };
+
+  const handleInputChange = (newValue) => {
+    setPhoneNumberList(newValue);
   };
   const COLUMNS = [
     {
@@ -244,19 +247,24 @@ const IndividualNotification = () => {
             <Modal.Body>
               <Form>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Phone Number </Form.Label>
-                  {/* <Form.Control
-                    as="select"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-                  >
-                    <option value="">Select an Number</option>
-                    {numberOptions.map((option, index) => (
-                      <option key={index} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </Form.Control> */}
+                <Form.Label>PhoneNumber</Form.Label>
+                <Select
+  
+  placeholder="Enter PhoneNumber"
+  onInputChange={handleInputChange}
+  options={(PhoneNumberData?.data || []).map((data) => ({
+    value:  data, 
+     label: `${data}`,
+  }))}
+  value={PhoneNumberData?.data?.find((option) => option.value === phoneNumber)}
+  onChange={(selectedOption) => {
+    console.log("Selected input data:", selectedOption.value);
+    setPhoneNumber(selectedOption.value);
+    console.log(phoneNumber);
+    
+    console.log(PhoneNumberData.data);
+  }}
+/>
                 </Form.Group>
                 <Form.Group controlId="formBasicUPI">
                   <Form.Label>Title</Form.Label>
