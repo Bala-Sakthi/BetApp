@@ -10,6 +10,8 @@ import { GeneralNotificationApi } from "./api/GeneralNotificationApi";
 import { IndividualNotificationApi } from "./api/IndividualNotificationApi";
 import { WithdrawRequestApi } from "./api/WithdrawRequestApi";
 import { GroupNotificationApi } from "./api/GroupNotificationApi";
+import { RatingsApi } from "./api/RatingApi";
+import { TransactionhistoryApi } from "./api/TransactionHistoryApi";
 
 
 
@@ -31,6 +33,8 @@ export const store = configureStore({
     [IndividualNotificationApi.reducerPath]:IndividualNotificationApi.reducer,
     [WithdrawRequestApi.reducerPath]:WithdrawRequestApi.reducer,
     [GroupNotificationApi.reducerPath]:GroupNotificationApi.reducer,
+    [RatingsApi.reducerPath]:RatingsApi.reducer,
+    [TransactionhistoryApi.reducerPath]:TransactionhistoryApi.reducer,
   
   },
   devTools: process.env.NODE_ENV === "development",
@@ -46,5 +50,7 @@ export const store = configureStore({
       IndividualNotificationApi.middleware,
       WithdrawRequestApi.middleware,
       GroupNotificationApi.middleware,
+      RatingsApi.middleware,
+      TransactionhistoryApi.middleware,
     ]),
 });

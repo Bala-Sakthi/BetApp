@@ -173,7 +173,7 @@ const GroupNotification = () => {
                 <h4 className="fw-bold "> Group Notification</h4>
                 <div>
                   <Button
-                    style={{ backgroundColor: "#0077B2", border: "none" }}
+                    style={{ backgroundColor: "#6B78B7", border: "none" }}
                     className="p-2 m-1"
                     onClick={handleNavigateAddForm}
                   >
@@ -212,7 +212,7 @@ const GroupNotification = () => {
             sm={3}
             md={3}>
               <Button
-                style={{ backgroundColor: "#0077B2", border: "none" }}
+                style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching} 
               >

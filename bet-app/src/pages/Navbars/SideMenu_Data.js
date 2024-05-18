@@ -1,10 +1,10 @@
 
-import { MdAdminPanelSettings, MdFeedback, MdPerson } from 'react-icons/md';
+import { MdAdminPanelSettings, MdFeedback, MdOutlineWorkHistory, MdPerson } from 'react-icons/md';
 import { FiUser  } from 'react-icons/fi';
 import { FaStreetView } from "react-icons/fa";
 import { AiOutlineIssuesClose } from 'react-icons/ai';
 import { HiMiniUserGroup } from 'react-icons/hi2';
-import { IoMdNotifications } from 'react-icons/io';
+import { IoIosStar, IoMdNotifications } from 'react-icons/io';
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { BiMoneyWithdraw } from 'react-icons/bi';
 
@@ -98,6 +98,20 @@ export const sidebarItems = [
     "order_index": 6,
     "url": "/admin/withdraw-request",
   },
-  
-   
+  {
+    "id": 7,
+    "label": "Ratings",
+    "parent_id": null,
+    "icon":<IoIosStar   size={20}/>,
+    "order_index": 8,
+    "url": "/admin/ratings",
+  },
+  {
+    "id": 8,
+    "label": "Transaction history",
+    "parent_id": null,
+    "icon":<MdOutlineWorkHistory  size={20}/>,
+    "order_index": 7,
+    "url": "/admin/transaction-history",
+  },
 ];

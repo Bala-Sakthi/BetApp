@@ -101,6 +101,30 @@ export default function Router() {
             </AuthGuard>
           ),
         },
+        {
+          path: "/admin/ratings",
+          element: (
+            <AuthGuard>
+              <Rating />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/transaction-history",
+          element: (
+            <AuthGuard>
+              <TransactionHistory />
+            </AuthGuard>
+          ),
+        },
+        {
+          path: "/admin/add-transaction",
+          element: (
+            <AuthGuard>
+              <AddTransactionHistory />
+            </AuthGuard>
+          ),
+        },
         
       ],
     },
@@ -127,6 +151,12 @@ const General = Loadable(lazy(() => import("../pages/Notification/General/Genera
 const GroupNotification = Loadable(lazy(() => import("../pages/Notification/Group/GroupNotification")));
 const Individual = Loadable(lazy(() => import("../pages/Notification/individual/Individual")));
 const WithdrawRequest = Loadable(lazy(() => import("../pages/WithdrawRequest/WithdrawRequest")));
+const Rating = Loadable(lazy(() => import("../pages/Ratings/Rating")));
+const TransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/TransactionHistory")));
+const AddTransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/AddTransactionHistory")));
+
+
+
 
 
 
