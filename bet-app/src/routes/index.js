@@ -125,6 +125,14 @@ export default function Router() {
             </AuthGuard>
           ),
         },
+        {
+          path: "/admin/group",
+          element: (
+            <AuthGuard>
+              <Group />
+            </AuthGuard>
+          ),
+        },
         
       ],
     },
@@ -154,6 +162,8 @@ const WithdrawRequest = Loadable(lazy(() => import("../pages/WithdrawRequest/Wit
 const Rating = Loadable(lazy(() => import("../pages/Ratings/Rating")));
 const TransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/TransactionHistory")));
 const AddTransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/AddTransactionHistory")));
+const Group = Loadable(lazy(() => import("../pages/Notification/Group/Group")));
+
 
 
 

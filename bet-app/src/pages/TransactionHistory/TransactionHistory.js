@@ -127,8 +127,8 @@ const Transactionhistory = () => {
       },
     },
     {
-      Header: 'Created At',
-      accessor: 'createdAt',
+      Header: 'Paid On',
+      accessor: 'paidOn',
       Cell: ({ value }) => {
         const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
         return <span>{formattedDateTime}</span>;
