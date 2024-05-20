@@ -19,6 +19,7 @@ const AddTransactionhistory = () => {
   const [amount, setAmount] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [image, setImage] = useState("");
+  const [paidOn, setpaidOn] = useState("");
   const [TransactionhistoryAddData,{isLoading}]=useAddTransactionhistoryMutation();
   
   console.log(phoneNumber);
@@ -27,6 +28,8 @@ const AddTransactionhistory = () => {
   console.log(amount);
   console.log(transactionId);
   console.log(image);
+  console.log(paidOn);
+
 
 
 
@@ -43,6 +46,7 @@ const AddTransactionhistory = () => {
     amount: "",
     transactionId: "",
     image: "",
+    paidOn:"",
    
     
   };
@@ -55,6 +59,7 @@ const AddTransactionhistory = () => {
         amount: amount,
         transactionId: transactionId,
         image:image,
+        paidOn:paidOn,
        
      
       
@@ -69,6 +74,7 @@ const AddTransactionhistory = () => {
         setAmount("");
         setTransactionId("");
         setImage("");
+        setpaidOn("")
         toast.success(response?.data?.message, { autoClose: 1000 });
         setTimeout(() => navigate("/admin/transaction-history"), 3000);
         console.log(response.error.data);
@@ -242,6 +248,29 @@ const AddTransactionhistory = () => {
                         }
                       />
                     </Col>
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
+                      <TextInput
+                        label="Image"
+                        type="file" 
+                        name="image"
+                        className={`form-control ${
+                          touched.image && errors.image ? "is-invalid" : ""
+                        }`}
+                        onChange={(e) => {
+                          setImage(e.target.files[0]); 
+                          handleChange(e);
+                        }}
+                        onBlur={handleBlur}
+                        validation={
+                          touched.image && errors.image ? (
+                            <p className="text-danger">{errors.image}</p>
+                          ) : (
+                            ""
+                          )
+                        }
+                      />
+                    </Col>
+
                     </Col>
 
 
@@ -313,28 +342,37 @@ const AddTransactionhistory = () => {
                       />
                     </Col>
 
-                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
+                   
+                    <Col
+                      className="m-2"
+                      lg="6"
+                      xxl="6"
+                      xl="12"
+                      md="12"
+                      sm="12"
+                    >
                       <TextInput
-                        label="Image"
-                        type="file" 
-                        name="image"
+                        label="Paid On"
+                        type="date"
+                        name="padiOn"
                         className={`form-control ${
-                          touched.image && errors.image ? "is-invalid" : ""
+                          touched.paidOn && errors.paidOn ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
-                          setImage(e.target.files[0]); 
+                            setpaidOn(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
                         validation={
-                          touched.image && errors.image ? (
-                            <p className="text-danger">{errors.image}</p>
+                          touched.paidOn && errors.paidOn ? (
+                            <p className="text-danger">{errors.paidOn}</p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
+
 
 
 
