@@ -12,141 +12,162 @@ const Loadable = (Component) => (props) => {
 };
 export default function Router() {
   return useRoutes([
-    {
-      path: "/",
-      element: (
-        <GuestGuard>
-          <Login />
-        </GuestGuard>
-      ),
-    },
-    {
-      path: "/admin",
-      element: (
-        <AuthGuard>
-          <DashboardLayout />
-        </AuthGuard>
-      ),
       
-      children: [
-        {
-          path: "/admin/user-list",
-          element: (
-            <AuthGuard>
-              <UserList />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/post",
-          element: (
-            <AuthGuard>
-              <Post />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/dashboard",
-          element: (
-            <AuthGuard>
-              <Dashboard />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/issue",
-          element: (
-            <AuthGuard>
-              <Issues />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/feedback",
-          element: (
-            <AuthGuard>
-              <FeedBack />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/general",
-          element: (
-            <AuthGuard>
-              <General />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/group-notification",
-          element: (
-            <AuthGuard>
-              <GroupNotification />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/individual",
-          element: (
-            <AuthGuard>
-              <Individual />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/withdraw-request",
-          element: (
-            <AuthGuard>
-              <WithdrawRequest />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/ratings",
-          element: (
-            <AuthGuard>
-              <Rating />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/transaction-history",
-          element: (
-            <AuthGuard>
-              <TransactionHistory />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/add-transaction",
-          element: (
-            <AuthGuard>
-              <AddTransactionHistory />
-            </AuthGuard>
-          ),
-        },
-        {
-          path: "/admin/group",
-          element: (
-            <AuthGuard>
-              <Group />
-            </AuthGuard>
-          ),
-        },
-        
-      ],
-    },
-    
-    {
-      path: "404",
-      element: <NotFound />,
-    },
-    {
-      path: "*",
-      element: <Navigate to="/404" replace />,
-    },
-  ]);
-}
+  
+      {
+        path: "/",
+        children: [
+          {
+            path: "/",
+            element: (
+              <GuestGuard>
+                <MeetInGround />
+              </GuestGuard>
+            ),
+          },
+          {
+            path: "login",
+            element: (
+              <GuestGuard>
+                <Login />
+              </GuestGuard>
+            ),
+          },
+        ],
+      },
+      {
+        path: "/admin",
+        element: (
+          <AuthGuard>
+            <DashboardLayout />
+          </AuthGuard>
+        ),
+        children: [
+          {
+            path: "user-list",
+            element: (
+              <AuthGuard>
+                <UserList />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "post",
+            element: (
+              <AuthGuard>
+                <Post />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "dashboard",
+            element: (
+              <AuthGuard>
+                <Dashboard />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "issue",
+            element: (
+              <AuthGuard>
+                <Issues />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "feedback",
+            element: (
+              <AuthGuard>
+                <FeedBack />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "general",
+            element: (
+              <AuthGuard>
+                <General />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "group-notification",
+            element: (
+              <AuthGuard>
+                <GroupNotification />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "individual",
+            element: (
+              <AuthGuard>
+                <Individual />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "withdraw-request",
+            element: (
+              <AuthGuard>
+                <WithdrawRequest />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "ratings",
+            element: (
+              <AuthGuard>
+                <Rating />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "transaction-history",
+            element: (
+              <AuthGuard>
+                <TransactionHistory />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "add-transaction",
+            element: (
+              <AuthGuard>
+                <AddTransactionHistory />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "group",
+            element: (
+              <AuthGuard>
+                <Group />
+              </AuthGuard>
+            ),
+          },
+          {
+            path: "user-details/:phonenumber",
+            element: (
+              <AuthGuard>
+                <UserDetails />
+              </AuthGuard>
+            ),
+          },
+        ],
+      },
+      {
+        path: "404",
+        element: <NotFound />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/404" replace />,
+      },
+    ]);
+  }
+
 const Login = Loadable(lazy(() => import("../pages/loginForms/Login")));
 const DashboardLayout = Loadable(lazy(() => import("../pages/Dashboard/DashboardLayout")));
 const NotFound = Loadable(lazy(() => import("../pages/404/Page404")));
@@ -163,8 +184,13 @@ const Rating = Loadable(lazy(() => import("../pages/Ratings/Rating")));
 const TransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/TransactionHistory")));
 const AddTransactionHistory = Loadable(lazy(() => import("../pages/TransactionHistory/AddTransactionHistory")));
 const Group = Loadable(lazy(() => import("../pages/Notification/Group/Group")));
+const UserDetails = Loadable(lazy(() => import("../pages/UserList/UserDetails")));
 
 
+
+
+
+const MeetInGround = Loadable(lazy(() => import("../pages/BetWebsite/MeetInGround/MeetInGround")));
 
 
 
