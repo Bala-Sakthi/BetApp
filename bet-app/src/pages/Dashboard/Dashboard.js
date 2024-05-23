@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { PiUserListBold } from "react-icons/pi";
 import { MdFeedback } from "react-icons/md";
 import { BiMoneyWithdraw } from "react-icons/bi";
-import { PiTrainRegionalFill } from "react-icons/pi";
+// import { PiTrainRegionalFill } from "react-icons/pi";
 import { AiOutlineIssuesClose } from "react-icons/ai";
 import { FaStreetView } from "react-icons/fa";
 import { format } from "date-fns";
@@ -205,7 +205,7 @@ const Dashboard = () => {
         </Col>
 
         <Col xs={12} sm={6} lg={4} className="mb-3">
-          <Link to="/admin/train" className="link-unstyled">
+          <Link to="/admin/post" className="link-unstyled">
           <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
               <FaStreetView size={45} style={{color:"#6B78B7"}}/>

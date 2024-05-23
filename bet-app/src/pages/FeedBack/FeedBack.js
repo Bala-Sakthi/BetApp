@@ -36,14 +36,14 @@ const Feedback = () => {
     }
   }, [getFeedbackData, currentPage]);
 
-//   const deleteHandleClose = () => {
-//     setDeleteShow(false);
-//   };
+  const deleteHandleClose = () => {
+    setDeleteShow(false);
+  };
 
-//   const deleteHandleShow = (id) => {
-//     setIdToDelete(id);
-//     setDeleteShow(true);
-//   };
+  const deleteHandleShow = (id) => {
+    setIdToDelete(id);
+    setDeleteShow(true);
+  };
 
   const handleClear = () => {
     setSearchInput("");
@@ -114,20 +114,20 @@ const Feedback = () => {
         return <span>{formattedDateTime}</span>;
       },
     },
-    // {
-    //   Header: "ACTIONS",
-    //   accessor: "action",
-    //   Cell: (props) => {
-    //     const rowIdx = props.row.original._id;
-    //     return (
-    //       <div className="d-flex align-items-center justify-content-center flex-row">
-    //         <Button variant="danger" className="m-1" onClick={() => deleteHandleShow(rowIdx)}>
-    //           <MdDelete />
-    //         </Button>
-    //       </div>
-    //     );
-    //   },
-    // },
+    {
+      Header: "ACTIONS",
+      accessor: "action",
+      Cell: (props) => {
+        const rowIdx = props.row.original._id;
+        return (
+          <div className="d-flex align-items-center justify-content-center flex-row">
+            <Button variant="danger" className="m-1" onClick={() => deleteHandleShow(rowIdx)}>
+              <MdDelete />
+            </Button>
+          </div>
+        );
+      },
+    },
   ];
 
   return (
@@ -192,13 +192,13 @@ const Feedback = () => {
       ) : (
         <Loader />
       )}
-      {/* <DeleteModel
+      <DeleteModel
         YES={deleteFeedback}
         DELETESTATE={deleteShow}
         ONCLICK={deleteHandleClose}
         DESCRIPTION="Are you sure you want to delete this Feedback"
         DELETETITLE="Feedback"
-      /> */}
+      />
     </div>
   );
 };

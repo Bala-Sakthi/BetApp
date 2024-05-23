@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router-dom";
 import BasicTable from "../../components/TablePaginationComponent";
 import BasicHeader from "../../components/BasicHeader";
 import DeleteModel from "../../components/DeleteModel";
@@ -29,9 +27,7 @@ const Issue = () => {
   const { data: getIssueData, isLoading, refetch } = useGetIssueQuery({ page: currentPage, search: searchTerm });
   console.log(getIssueData);
   const[deleteStationApi] = useDeleteIssueMutation();
-//   const navigate = useNavigate();
 
-//   const handleNavigateAddForm = () => navigate(`/admin/add-station`);
 
   useEffect(() => {
     if (getIssueData && getIssueData.data) {
@@ -120,10 +116,7 @@ const Issue = () => {
         Header: "Status",
         accessor: "status",
       },
-      {
-        Header: "Admin Comments",
-        accessor: "adminComments",
-      },
+    
     {
       Header: 'Created At',
       accessor: 'createdAt',
@@ -147,11 +140,7 @@ const Issue = () => {
         const rowIdx = props.row.original._id;
         return (
           <div className="d-flex align-items-center justify-content-center flex-row">
-             <Link to={`/admin/edit-station/${rowIdx}`}>
-              <Button variant="warning">
-                <FaEdit />
-              </Button>
-            </Link>
+        
             <Button variant="danger" className="m-1" onClick={() => deleteHandleShow(rowIdx)}>
               <MdDelete /> 
             </Button>
@@ -236,8 +225,8 @@ const Issue = () => {
         YES={deleteStation}
         DELETESTATE={deleteShow}
         ONCLICK={deleteHandleClose}
-        DESCRIPTION="Are you sure you want to delete this Station"
-        DELETETITLE="Station"
+        DESCRIPTION="Are you sure you want to delete this Issue"
+        DELETETITLE="Issue"
       />
     </div>
   );

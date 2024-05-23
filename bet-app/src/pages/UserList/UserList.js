@@ -8,6 +8,7 @@ import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const UserList = () => {
@@ -26,16 +27,6 @@ const UserList = () => {
   const [isSubmit, setIsSumbit] = useState(false); 
   const { data: UserListData, isLoading ,refetch } = useGetUserListQuery({ page: currentPage, search: searchTerm });
 
-  // useEffect(() => {
-  //   if (UserListData && UserListData.data) {
-  //     setData(UserListData.data);
-  //     setStartIndex(UserListData.pagination.startIndex);
-  //     setCurrentPage(currentPage);
-  //     setTotalItem(UserListData.pagination.totalItems);
-  //     setEndIndex(UserListData.pagination.endIndex)
-  //     setTotalPages(UserListData.pagination.totalPages);
-  //   }
-  // }, [UserListData, currentPage]);
 
   useEffect(() => {
     if (seconddata && seconddata.data) {
@@ -116,12 +107,30 @@ console.log(UserListData);
   const COLUMNS = [
     {
       Header: "ID",
-      accessor:"s_no",
+      accessor: "s_no",
     },
     {
-        Header: "User Name",
-        accessor:"userName",
-      },
+      Header: "User Name",
+      accessor: "userName",
+      Cell: (props) => {
+        const userName = props.value;
+        let phoneNumber = props.row.original.phoneNumber; // Access phone number from the row data
+        
+        // Remove the "+91" prefix if it exists
+        if (phoneNumber.startsWith("+91")) {
+          phoneNumber = phoneNumber.replace("+91", "");
+        }
+        
+        console.log("Phone Number:", phoneNumber); // Log phone number to console
+    
+        return (
+          <Link to={`/admin/user-details/${phoneNumber}`}>
+            {userName}
+          </Link>
+        );
+      }
+    },
+    
     {
       Header: "Phone Number",
       accessor: "phoneNumber",
@@ -131,25 +140,25 @@ console.log(UserListData);
       accessor: "referralId",
     },
     {
-        Header: "Sport",
-        accessor: "sport",
+      Header: "Sports",
+      accessor: "sport",
+    },
+    {
+      Header: "Location",
+      accessor: "location",
+    },
+    {
+      Header: "Profile Img",
+      accessor: "profileImg",
+      Cell: (props) => {
+        const imageUrl = props.value;
+        return imageUrl ? (
+          <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+        ) : (
+          <HiMiniUserCircle size={30} />
+        );
       },
-      {
-        Header: "Location",
-        accessor: "location",
-      },
-      {
-        Header: "Profile Img",
-        accessor: "profileImg",
-        Cell: (props) => {
-            const imageUrl = props.value;
-            return imageUrl ? (
-              <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-            ) : (
-              <HiMiniUserCircle  size={30} />
-            );
-          },
-      },
+    },
     {
       Header: 'Created At',
       accessor: 'createdAt',
@@ -159,17 +168,15 @@ console.log(UserListData);
       },
     },
     {
-        Header: 'Updated At',
-        accessor: 'updatedAt',
-        Cell: ({ value }) => {
-          const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
-          return <span>{formattedDateTime}</span>;
-        },
+      Header: 'Updated At',
+      accessor: 'updatedAt',
+      Cell: ({ value }) => {
+        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        return <span>{formattedDateTime}</span>;
       },
-   
-   
+    },
   ];
-
+  
   return (
     <div>
       {!isLoading ? (

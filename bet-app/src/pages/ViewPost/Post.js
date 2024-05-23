@@ -62,7 +62,7 @@ console.log(PostData);
       accessor:"s_no",
     },
     {
-        Header: "Sport",
+        Header: "Sports",
         accessor:"sport",
       },
     {
