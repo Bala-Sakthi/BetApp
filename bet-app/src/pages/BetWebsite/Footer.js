@@ -9,7 +9,7 @@ function Footer() {
     <h5 className="text-white mb-4">Get In Touch</h5>
     <p><i className="fas fa-map-marker-alt me-3"></i>Tirupathur,Tamil Nadu 635653</p>
     <p><i className="fas fa-phone-alt me-3"></i>+91 6381475573</p>
-    <p><i className="fas fa-envelope me-3"></i>trainsonwheel@gmail.com</p>
+    <p><i className="fas fa-envelope me-3"></i>meetinground@gmail.com</p>
     <div className="d-flex pt-2">
         <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>
         <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-facebook-f"></i></a>
