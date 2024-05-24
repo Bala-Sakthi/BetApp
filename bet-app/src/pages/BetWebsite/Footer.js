@@ -28,8 +28,8 @@ function Footer() {
                        
                     </div>
                     <div className="col-md-6 col-lg-3">
-                        <h5 className="text-white mb-4">For Trainsonwheels</h5>
-                        <p>Gain immediate access to reliable, genuine, and up-to-the-minute details regarding Indian train network. Discover live train locations, timetables, passenger services, amenities, and much more, all at your convenience</p>
+                        <h5 className="text-white mb-4">For MeetInGround</h5>
+                        <p>"Gain immediate access to reliable, genuine, and up-to-the-minute details regarding sports events and games. Discover live match updates, schedules, player statistics, betting options, and much more, all at your convenience."</p>
 
                         <div className="position-relative w-100 mt-3">
                          
@@ -41,7 +41,7 @@ function Footer() {
                 <div className="copyright">
                     <div className="row">
                         <div className="col-md-12 text-center mb-3 mb-md-0">
-                            <a className="border-bottom" href="#">Copyright © 2024 -TrainsonWheels<br/> </a>
+                            <a className="border-bottom" href="#">Copyright © 2024 -MeetInGround<br/> </a>
                             <a className="border-bottom" href="#">All rights Reserved </a>
                         </div>
                        

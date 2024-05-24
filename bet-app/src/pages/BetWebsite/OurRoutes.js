@@ -1,50 +1,58 @@
 
 import React from 'react'
-import Hydrabad from '../../assets/images/Hydrabad.jpg'
-import Pune from '../../assets/images/Pune.jpg'
-import Chennai from '../../assets/images/Chennai.webp'
-import Bangalore from '../../assets/images/Bangalore.avif'
+import Cricket from '../../assets/images/Crickets.png'
+import Volleyball from '../../assets/images/Volleyball.png'
+import Football from '../../assets/images/Football.png'
+import Basketball from '../../assets/images/basketball.png'
 export const OurRoute = () => {
   return (
     <>
      <div className="container-xxl py-5" id="pricingDiv">
       <div className="container px-lg-5">
         <div className="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-          <h2 className="mt-2">Our Routes</h2>
+          <h2 className="mt-2">Sports Like...</h2>
         </div>
         <div className="row g-4">
-          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div className="card">
-              <img src={ Chennai} className="card-img-top" alt="Chennai" />
+        <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="card" style={{borderRadius:"15px"}}>
+              <img src={Cricket} className="card-img-top" alt="Bangalore" width="311px" height="195px" />
               <div className="card-body">
-                <h5 className="card-title">Chennai</h5>
+                <h5 className="card-title">Cricket</h5>
               </div>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div className="card">
-              <img src={Bangalore} className="card-img-top" alt="Bangalore" width="311px" height="195px" />
+            <div className="card" style={{borderRadius:"15px"}}>
+              <img src={Volleyball} className="card-img-top" alt="Hyderabad" width="311px" height="195px" />
               <div className="card-body">
-                <h5 className="card-title">Bangalore</h5>
+                <h5 className="card-title">Volleyball</h5>
               </div>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div className="card">
-              <img src={Hydrabad} className="card-img-top" alt="Hyderabad" width="311px" height="195px" />
+            <div className="card" style={{borderRadius:"15px"}}>
+              <img src={Football} className="card-img-top" alt="Bangalore" width="311px" height="195px" />
               <div className="card-body">
-                <h5 className="card-title">Hyderabad</h5>
+                <h5 className="card-title">Football</h5>
               </div>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="card" style={{borderRadius:"15px"}}>
+              <img src={Basketball} className="card-img-top" alt="Hyderabad" width="311px" height="195px" />
+              <div className="card-body">
+                <h5 className="card-title">Basketball</h5>
+              </div>
+            </div>
+          </div>
+          {/* <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div className="card">
-              <img src={Pune} className="card-img-top" alt="Pune" width="311px" height="195px" />
+              <img src={""} className="card-img-top" alt="Pune" width="311px" height="195px" />
               <div className="card-body">
                 <h5 className="card-title">Pune</h5>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

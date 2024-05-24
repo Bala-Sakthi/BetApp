@@ -7,6 +7,7 @@ import { OurRoute } from "../OurRoutes";
 import DownloadApp from "../Download";
 import Header from '../Header';
 import Footer from '../Footer';
+import UpArrowButton from '../../../components/UpArrow';
 
 const MeetInGround = () => {
   return (
@@ -14,11 +15,12 @@ const MeetInGround = () => {
    <Header/>
    <Home/>
    <Choose/>
-   <Video/>
+   {/* <Video/> */}
    <Work/> 
    <OurRoute/>
    <DownloadApp/>
    <Footer/>
+   <UpArrowButton/>
     </>
   )
 }

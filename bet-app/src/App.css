@@ -13,6 +13,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -67,14 +69,37 @@
 }
 
 
+/* UpArrow styles */
+.up-arrow-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color:#6B78B7;
+  color:white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  transition:  0.3s ease-in-out;
+}
+.up-arrow-button.visible {
+  display: block;
+}
+.link{
+  text-decoration: none;
+}
+
+
+
+
 /*  landing page styles */
 
 
 /********** Template CSS **********/
 
 :root {
-  --primary: #0077b2;
-  --secondary: #0077b2;
+  --primary: #6B78B7;
+  --secondary: #6B78B7;
   --light: #F7FAFF;
   --dark: #1D1D27;
 }
@@ -82,7 +107,7 @@
 
 
 .bg-custom{
-  background-color: #0077b2 !important;
+  background-color: #6B78B7 !important;
 }
 
 /* Add any additional CSS styling as needed */
@@ -173,7 +198,7 @@ h6,
 
 /*** Section Title ***/
 
-.section-title::before {
+/* .section-title::before {
   position: absolute;
   content: "";
   width: 45px;
@@ -181,9 +206,9 @@ h6,
   bottom: 0;
   left: 0;
   background: var(--dark);
-}
+} */
 
-.section-title::after {
+/* .section-title::after {
   position: absolute;
   content: "";
   width: 4px;
@@ -191,7 +216,7 @@ h6,
   bottom: 0;
   left: 50px;
   background: var(--dark);
-}
+} */
 
 .section-title.text-center::before {
   left: 50%;
@@ -588,7 +613,7 @@ Generic layout (demo looks)
 .btn-new {
   padding: 18px;
   width: 35%;
-  background-color: #0077b2;
+  background-color: #6B78B7;
 
 }
 
@@ -628,7 +653,7 @@ Generic layout (demo looks)
   .navbar-light .navbar-nav .nav-link {
     
     font-weight: 500;
-    color: #0077b2;
+    color: #6B78B7;
     text-transform: uppercase;
     font-size: 14px;
    margin-left: 0px;
@@ -651,7 +676,7 @@ Generic layout (demo looks)
 @media (min-width: 768px) and (max-width: 991.98px) {
   .navbar-light .navbar-nav .nav-link {
     font-weight: 500;
-    color: #0077b2;
+    color: #6B78B7;
     text-transform: uppercase;
     font-family: 'Poppins, sans-serif' !important;
     font-size: 16px;
@@ -663,7 +688,7 @@ Generic layout (demo looks)
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .navbar-light .navbar-nav .nav-link {
     font-weight: 500;
-    color: #0077b2;
+    color: #6B78B7;
     text-transform: uppercase;
     font-size: 16px;
     font-family: 'Poppins, sans-serif' !important;
@@ -683,7 +708,7 @@ Generic layout (demo looks)
   }
 }
 .navcustom{
-  background-color: #0077b2;
+  background-color: #6B78B7;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -715,9 +740,11 @@ Generic layout (demo looks)
 }
 
 .sticky-top.navbar-light .navbar-brand img {
+  margin-bottom: 6px;
   max-height: 45px;
-  margin-left: 42px;
+  margin-left: 0px;
 }
+
 
 @media (max-width: 991.98px) {
   .sticky-top.navbar-light {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainLogo from "../../assets/images/logoMIG.png";
+import MainLogo from "../../assets/images/Frame 25.png";
 import "./MainNav.css";
 import { Col, Container, Dropdown, Offcanvas, Row } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";

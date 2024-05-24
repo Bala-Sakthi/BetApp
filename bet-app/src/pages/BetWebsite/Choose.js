@@ -11,15 +11,17 @@ const Choose = () => {
                     <div class="col-lg-6  fade-in-up" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             
-                            <h1 class="mt-2"><br/>why choose with Trains on wheels services
+                            <h1 class="mt-2"><br/>why choose with MeetInGround services
                             </h1>
                         </div>
-                        <p class="mb-4">Trains on Wheels: Your Ultimate Companion for Indian Railways - Seamlessly book tickets, reserve preferred seats, modify travel details, receive live updates, and earn rewards, all in one convenient app!
+                        <p class="mb-4">"MeetInGround: Your Ultimate Companion for Games and Sports - Seamlessly place bets, play your favorite games, track live updates, and earn rewards, all in one convenient app!"
+
+!
                         </p>
                         
                         <div class="d-flex align-items-center mt-4">
-                            <a class="btn btn-primary rounded-pill px-4 me-3 btn-new"
-                                href="https://www.flawkapp.com/User/register" target="_blank">Get Started</a>
+                            <a style={{backgroundColor:"#6B78B7",color:"white"}} class="btn  rounded-pill px-4 me-3 btn-new text-wrap"
+                                href="" target="_blank">Get Started</a>
                            
                         </div>
                     </div>
