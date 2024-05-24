@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 navcustom sticky-top">
             <a href="/" className="navbar-brand p-0">
-                <h1 className="m-0" style={{fontSize:"20px"}}> <img src={NavLogo} alt="Logo" /> MeetInGround</h1>
+                <h1 className="m-0" style={{fontSize:"18px"}}> <img src={NavLogo} alt="Logo" /> MeetInGround</h1>
             </a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>

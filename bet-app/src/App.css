@@ -742,7 +742,7 @@ Generic layout (demo looks)
 .sticky-top.navbar-light .navbar-brand img {
   margin-bottom: 6px;
   max-height: 45px;
-  margin-left: 35px;
+  margin-left: -15px;
 }
 
 
