@@ -5,7 +5,7 @@ function Footer() {
         <div className="container-fluid bg-custom text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s" style={{ marginTop: "0px !important" }}>
             <div className="container py-5 px-lg-5">
                 <div className="row g-5">
-                <div className="col-md-6 col-lg-5">
+                <div className="col-md-6 col-lg-5 ">
     <h5 className="text-white mb-4">Get In Touch</h5>
     <p><i className="fas fa-map-marker-alt me-3"></i>Tirupathur,Tamil Nadu 635653</p>
     <p><i className="fas fa-phone-alt me-3"></i>+91 6381475573</p>
@@ -20,14 +20,14 @@ function Footer() {
 </div>
 
                     <div className="col-md-6 col-lg-3">
-                        <h5 className="text-white mb-4">Useful Link</h5>
-                        <a className="btn btn-link" href="">About Us</a>
-                        <a className="btn btn-link" href="">Faq</a>
-                        <a className="btn btn-link" href="">Privacy Policy</a>
-                        <a className="btn btn-link" href="">Terms & Condition</a>
+                        <h5 className="text-white mb-4 mx-2">Useful Link</h5>
+                        <a className="btn text-white" href="">About Us</a><br/>
+                        <a className="btn text-white" href="faq">Faq</a><br/>
+                        <a className="btn text-white" href="privacy-policy">Privacy Policy</a><br/>
+                        <a className="btn text-white" href="terms-condition">Terms & Condition</a>
                        
                     </div>
-                    <div className="col-md-6 col-lg-3">
+                    <div className="col-md-6 col-lg-4">
                         <h5 className="text-white mb-4">For MeetInGround</h5>
                         <p>"Gain immediate access to reliable, genuine, and up-to-the-minute details regarding sports events and games. Discover live match updates, schedules, player statistics, betting options, and much more, all at your convenience."</p>
 

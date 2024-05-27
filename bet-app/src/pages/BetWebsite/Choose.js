@@ -11,7 +11,7 @@ const Choose = () => {
                     <div class="col-lg-6  fade-in-up" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             
-                            <h1 class="mt-2"><br/>why choose with MeetInGround services
+                            <h1 class="mt-2"><br/>Why Choose Us
                             </h1>
                         </div>
                         <p class="mb-4">"MeetInGround: Your Ultimate Companion for Games and Sports - Seamlessly place bets, play your favorite games, track live updates, and earn rewards, all in one convenient app!"

@@ -16,7 +16,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
             active={isActive}
             rootStyles={{
               backgroundColor: isActive ? 'white' : '#FFFFFF',
-              color: 'black',
+              color:"black",
             }}
             key={item.id}
             title={item.label}
@@ -32,7 +32,6 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
             className='textDecoration-none color-white'
             to={item.url}
             style={{ textDecoration: 'none' }}
-            key={item.id} // Ensure unique key for each link
           >
             <MenuItem
               onClick={onClick}
@@ -42,6 +41,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
                 backgroundColor: isActive ? '#bcc3e6' : '#FFFFFF',
                 color: isActive ? 'black' : 'black',
               }}
+              key={item.id}
               icon={item.icon}
             >
               {item.label}
@@ -53,18 +53,18 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
   };
 
   return (
-    <div className="sidebar-container" style={{ width: 'auto', height: '100vh', overflow: 'hidden' }}>
+    <div className="sidebar-container">
       <Sidebar
         backgroundColor='#FFFFFF'
         rootStyles={{
           backgroundColor: '#313947',
           color: 'white',
           fontWeight: 'bolder',
-          height: '100%',
-          overflow: 'hidden', 
+          width: '100%',
+          height:"100%",
         }}
       >
-        <div className="menu-container">
+        <div className="menu-container" style={{height:"100vh",width:"auto"}}>
           <Menu iconShape='circle'>{renderMenuItems(sidebarItems)}</Menu>
         </div>
       </Sidebar>

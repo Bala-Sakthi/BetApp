@@ -1,5 +1,5 @@
 import React from 'react'
-import Download from '../../assets/images/downloadapp.png'
+import Download from '../../assets/images/mobileimages.png'
 const DownloadApp = () => {
   return (
     <>
@@ -17,7 +17,7 @@ const DownloadApp = () => {
             </div>
             <p className="mb-4">Wherever you're going, we're right there with you</p>
             <p>"Download the Bet and Play app today. Get access to trusted, authentic, and real-time information about sports events, game schedules, betting odds, player stats, and more at your fingertips."</p>
-            <img src="https://tow-admin-web.onrender.com/static/media/play-store-badge-en.471c6e6366da0bee65f0.webp" alt="playstore" srcSet="" width="200px" />
+            <img src="https://tow-admin-web.onrender.com/static/media/play-store-badge-en.471c6e6366da0bee65f0.webp" alt="playstore" srcSet=""      style={{ Width: "40px", height: "40px" }}  />
             <img src="https://www.avantiwestcoast.co.uk/-/media/images/android-rating.png?h=29&w=118" alt="android-rating" srcSet="" />
           </div>
         </div>

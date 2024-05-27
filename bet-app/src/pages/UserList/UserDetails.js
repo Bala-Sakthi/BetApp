@@ -255,7 +255,7 @@ const UserDetails = () => {
                     <h4 onClick={handleCancel}>
                       <AiOutlineArrowLeft size={30} />
                     </h4>
-                    <h4>UserList Details</h4>
+                    <h4>User Details</h4>
                   </Col>
           </Row>
           <Tabs defaultActiveKey="postData" id="uncontrolled-tab-example" className="mb-3">

@@ -81,7 +81,7 @@ console.log(UserListData);
     setIsSumbit(true);
     try {
       const response = await axios.get(
-        `https://api-trainsonwheels.onrender.com/admin/users/${searchTerm}?date=${date}`
+        `https://bet-x-new.onrender.com/admin/viewUsers${searchTerm}?date=${date}`
       );
   
       if (response.data) {
@@ -114,14 +114,13 @@ console.log(UserListData);
       accessor: "userName",
       Cell: (props) => {
         const userName = props.value;
-        let phoneNumber = props.row.original.phoneNumber; // Access phone number from the row data
+        let phoneNumber = props.row.original.phoneNumber;
         
-        // Remove the "+91" prefix if it exists
+       
         if (phoneNumber.startsWith("+91")) {
           phoneNumber = phoneNumber.replace("+91", "");
         }
         
-        console.log("Phone Number:", phoneNumber); // Log phone number to console
     
         return (
           <Link to={`/admin/user-details/${phoneNumber}`}>

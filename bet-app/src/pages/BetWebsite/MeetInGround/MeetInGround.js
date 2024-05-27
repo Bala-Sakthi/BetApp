@@ -12,7 +12,7 @@ import UpArrowButton from '../../../components/UpArrow';
 const MeetInGround = () => {
   return (
     <>
-   <Header/>
+   {/* <Header/> */}
    <Home/>
    <Choose/>
    {/* <Video/> */}

@@ -13,9 +13,9 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav ms-auto py-0">
                     <li className="nav-item"><a href="/" className="nav-link active homeLink">Home</a></li>
-                    <li className="nav-item"><a href="/" className="nav-link aboutLink">Coach Position</a></li>
+                    {/* <li className="nav-item"><a href="/" className="nav-link aboutLink">Coach Position</a></li>
                     <li className="nav-item"><a href="/" className="nav-link featuresLink">Pnr Status</a></li>
-                    <li className="nav-item"><a href="/" className="nav-link pricingLink">Live Train</a></li>
+                    <li className="nav-item"><a href="/" className="nav-link pricingLink">Live Train</a></li> */}
                 </ul>
                 <a href="" target="_blank" className="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3" rel="noopener noreferrer">More Feature</a>
             </div>

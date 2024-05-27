@@ -804,3 +804,19 @@ Generic layout (demo looks)
       color: var(--primary);
   }
 }
+
+
+
+/* common faq question answers */
+
+faq-toggle-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  margin-top: 13px;
+  margin-bottom: 2px;
+}
+.faq-question {
+  flex-grow: 1;
+  text-align: left;
+}

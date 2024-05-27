@@ -156,7 +156,7 @@ const Issue = () => {
         <Container fluid className="mt-3">
         <Row className="boxShadow p-4 mb-4 mt-4">
             <Col>
-            <BasicHeader HEADING="Issue" />
+            <BasicHeader HEADING="Issues" />
             </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}

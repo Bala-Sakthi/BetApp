@@ -8,7 +8,7 @@ export const UserListDetailsApi = createApi({
     endpoints: (build) => ({
       getUserListPostDetails: build.query({
         query: ({phonenumber,page,search}) => ({
-            url: `/admin/viewUsersPosts${search}?phoneNumber=${phonenumber}&page=${page} `,
+            url: `/admin/viewUsersPosts/${search}?phoneNumber=${phonenumber}&page=${page} `,
           method: "GET",
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
@@ -19,7 +19,7 @@ export const UserListDetailsApi = createApi({
 
       getUserListRequestDetails: build.query({
         query: ({phonenumber,search,page}) => ({
-          url: `/admin/viewUsersRequests${search}?phoneNumber=${phonenumber}&page=${page} `,
+          url: `/admin/viewUsersRequests/${search}?phoneNumber=${phonenumber}&page=${page} `,
           method: "GET",
           headers: {
             "Content-Type": "application/json; charset=UTF-8",

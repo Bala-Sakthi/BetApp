@@ -26,15 +26,42 @@ export default function Router() {
             ),
           },
           {
-            path: "login",
+            path: "/login",
             element: (
               <GuestGuard>
                 <Login />
               </GuestGuard>
             ),
           },
+          {
+            path: "/terms-condition",
+            element: (
+              <GuestGuard>
+                <TermsCondition />
+              </GuestGuard>
+            ),
+          },
+          {
+            path: "/privacy-policy",
+            element: (
+              <GuestGuard>
+                <PrivacyPolicy />
+              </GuestGuard>
+            ),
+          },
+          {
+            path: "/faq",
+            element: (
+              <GuestGuard>
+                <Faq />
+              </GuestGuard>
+            ),
+          },
         ],
       },
+
+
+
       {
         path: "/admin",
         element: (
@@ -155,6 +182,7 @@ export default function Router() {
               </AuthGuard>
             ),
           },
+          
         ],
       },
       {
@@ -191,6 +219,12 @@ const UserDetails = Loadable(lazy(() => import("../pages/UserList/UserDetails"))
 
 
 const MeetInGround = Loadable(lazy(() => import("../pages/BetWebsite/MeetInGround/MeetInGround")));
+const TermsCondition = Loadable(lazy(() => import("../pages/BetWebsite/Terms&Condition/TermsCondition")));
+const PrivacyPolicy = Loadable(lazy(() => import("../pages/BetWebsite/PrivacyPolicy/PrivacyPolicy")));
+const Faq = Loadable(lazy(() => import("../pages/BetWebsite/Faq/Faq")));
+
+
+
 
 
 
