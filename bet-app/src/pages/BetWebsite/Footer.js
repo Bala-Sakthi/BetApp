@@ -9,7 +9,7 @@ function Footer() {
     <h5 className="text-white mb-4">Get In Touch</h5>
     <p><i className="fas fa-map-marker-alt me-3"></i>Tirupathur,Tamil Nadu 635653</p>
     <p><i className="fas fa-phone-alt me-3"></i>+91 6381475573</p>
-    <p><i className="fas fa-envelope me-3"></i>meetinground@gmail.com</p>
+    <i className="fas fa-envelope me-3"></i><a className='text-white' href="mailto:meetinground@gmail.com">meetinground@gmail.com</a>
     <div className="d-flex pt-2">
         <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>
         <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-facebook-f"></i></a>
@@ -41,8 +41,8 @@ function Footer() {
                 <div className="copyright">
                     <div className="row">
                         <div className="col-md-12 text-center mb-3 mb-md-0">
-                            <a className="border-bottom" href="#">Copyright © 2024 -MeetInGround<br/> </a>
-                            <a className="border-bottom" href="#">All rights Reserved </a>
+                            <a className="text-white" href="#">Copyright © 2024 -MeetInGround<br/> </a>
+                            <a className="text-white" href="#">All rights Reserved </a>
                         </div>
                        
                     </div>

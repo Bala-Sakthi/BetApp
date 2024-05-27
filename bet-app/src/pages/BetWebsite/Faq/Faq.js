@@ -34,12 +34,12 @@ const questions = [
     {
         id: 4,
         title: 'How do I post a bet match request?',
-        answer: 'To post a bet match request, navigate to the ‘Post a Match’ section, fill in the match details, set the terms, and submit your request. Other users can then see your request and challenge you to play.'
+        answer: 'To post a bet match request, navigate to the Post a Match section, fill in the match details, set the terms, and submit your request. Other users can then see your request and challenge you to play.'
     },
     {
         id: 5,
         title: 'How can I accept a bet match request?',
-        answer: 'To accept a match request, go to the ‘Match Requests’ section, find a match that interests you, and click on ‘Accept Request’. Both parties will be notified, and you can proceed to play the match according to the agreed terms.'
+        answer: 'To accept a match request, go to the Match Request’s section, find a match that interests you, and click on ‘Accept Request’. Both parties will be notified, and you can proceed to play the match according to the agreed terms.'
     },
     {
         id: 6,

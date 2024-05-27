@@ -12,7 +12,7 @@ export const Work = () => {
     <div className="container-xxl py-5" id="featuresDiv">
       <div className="container px-lg-5">
         <div className="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-          <h1 className="mt-2">Getting Started</h1>
+          <h1 className="mt-2">Get Started</h1>
         </div>
         <div className="row text-center justify-content-center">
           <img className="img-fluid flex-shrink-0" src={Workstep} style={{ width: '65%', height: '70px', objectFit: 'contain', marginBottom: '30px' }} />
@@ -25,7 +25,7 @@ export const Work = () => {
                 <img className="img-fluid flex-shrink-0" src={Login} style={{ width: '70px', height: '70px', objectFit: 'contain', marginBottom: '30px' }} />
               </div>
               <h5 className="mb-3">Step 1: Login</h5>
-              <p>"Login to the Bet and Play app to elevate your betting experience. Download it now from the Play Store."</p>
+              <p>"Log-in to the Bet and Play app to elevate your betting experience. Download it now from the Play Store."</p>
             </div>
           </div>
           <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
