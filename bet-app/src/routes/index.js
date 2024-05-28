@@ -57,6 +57,14 @@ export default function Router() {
               </GuestGuard>
             ),
           },
+          {
+            path: "/about-us",
+            element: (
+              <GuestGuard>
+                <AboutUs />
+              </GuestGuard>
+            ),
+          },
         ],
       },
 
@@ -222,6 +230,8 @@ const MeetInGround = Loadable(lazy(() => import("../pages/BetWebsite/MeetInGroun
 const TermsCondition = Loadable(lazy(() => import("../pages/BetWebsite/Terms&Condition/TermsCondition")));
 const PrivacyPolicy = Loadable(lazy(() => import("../pages/BetWebsite/PrivacyPolicy/PrivacyPolicy")));
 const Faq = Loadable(lazy(() => import("../pages/BetWebsite/Faq/Faq")));
+const AboutUs = Loadable(lazy(() => import("../pages/BetWebsite/AboutUs/AboutUs")));
+
 
 
 
