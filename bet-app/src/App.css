@@ -742,7 +742,7 @@ Generic layout (demo looks)
 .sticky-top.navbar-light .navbar-brand img {
   margin-bottom: 6px;
   max-height: 45px;
-  margin-left: -15px;
+  margin-left: 25px;
 }
 
 
@@ -819,4 +819,25 @@ faq-toggle-icon {
 .faq-question {
   flex-grow: 1;
   text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+.custom-navbar {
+  height: 50px; /* Adjust this value to your desired height */
+}
+
+.custom-navbar .navbar-brand img {
+  max-height: 30px; /* Adjust this value to fit the reduced navbar height */
+}
+
+.custom-navbar .navbar-collapse {
+  align-items: center; /* Center the items vertically */
 }

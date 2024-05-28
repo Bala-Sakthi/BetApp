@@ -1,26 +1,68 @@
-import React from 'react';
-import NavLogo from "../../assets/images/Group 30.png"
+import React, { useState } from "react";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import Logo3 from "../../assets/images/headerlogo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+function Header() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [toggleIcon, setToggleIcon] = useState(faBars);
 
-const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 navcustom sticky-top">
-            <a href="/" className="navbar-brand p-0">
-                <h1 className="m-0" style={{fontSize:"18px"}}> <img src={NavLogo} alt="Logo" /> MeetInGround</h1>
-            </a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarCollapse">
-                <ul className="navbar-nav ms-auto py-0">
-                    <li className="nav-item"><a href="/" className="nav-link active homeLink">Home</a></li>
-                    {/* <li className="nav-item"><a href="/" className="nav-link aboutLink">Coach Position</a></li>
-                    <li className="nav-item"><a href="/" className="nav-link featuresLink">Pnr Status</a></li>
-                    <li className="nav-item"><a href="/" className="nav-link pricingLink">Live Train</a></li> */}
-                </ul>
-                <a href="" target="_blank" className="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3" rel="noopener noreferrer">More Feature</a>
-            </div>
-        </nav>
-    );
+  const handleToggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+    setToggleIcon(isCollapsed ? faTimes : faBars);
+  };
+  return (
+    <Navbar
+  className="custom-navbar shadow navcustom"
+  style={{ backgroundColor: "whitesmoke" }}
+  collapseOnSelect
+  expand="lg"
+  variant="light"
+  fixed="top"
+>
+  <div className="container">
+    {/* Begin Logo */}
+    <Navbar.Brand href="#" className="">
+      <img
+        src={Logo3}
+        alt="TrainsOnWheels"
+        className="img-fluid"
+        style={{ width: "auto", height: "auto",marginLeft:"30px" }}
+      />
+    </Navbar.Brand>
+    {/* End Logo */}
+    <Navbar.Toggle
+      aria-controls="basic-navbar-nav responsive-navbar-nav"
+      onClick={handleToggleCollapse}
+      style={{ marginRight: "15px", color: "white" }}
+    >
+      <FontAwesomeIcon icon={toggleIcon} style={{ color: "black" }} />
+    </Navbar.Toggle>
+    {/* Begin Menu */}
+    <Navbar.Collapse
+      id="responsive-navbar-nav"
+      className="custom-navbar-collapse"
+    >
+      {/* <Nav className="ml-auto">
+        <Nav.Link href="/pnr-status">PNR Status</Nav.Link>
+        <Nav.Link href="/coach-position">Coach Position</Nav.Link>
+        <Nav.Link href="/live-train">Live Train</Nav.Link>
+        <Nav.Link href="/advertisement">Advertisement</Nav.Link>
+        <NavDropdown title="More Features" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/fare">Fare Calculator</NavDropdown.Item>
+          <NavDropdown.Item href="/fare-comparison">
+            Fare Comparison
+          </NavDropdown.Item>
+          <NavDropdown.Item href="/seat-availability">
+            Seat Availability
+          </NavDropdown.Item>
+        </NavDropdown>
+      </Nav> */}
+    </Navbar.Collapse>
+    {/* End Menu */}
+  </div>
+</Navbar>
+
+  );
 }
-
-export default Navbar;
+export default Header;

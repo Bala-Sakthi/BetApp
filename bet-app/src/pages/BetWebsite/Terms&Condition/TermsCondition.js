@@ -2,14 +2,15 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import Footer from "../Footer";
+import Header from "../Header";
 
 const TermCondition = () => {
   return (
     <>
-
+<Header/>
       <Container
         
-        className="justify-content-start align-items-start  mb-5"
+        className="justify-content-start align-items-start mt-5 mb-5"
       >
         <Row className="justify-content-start ">
           <Col xs={12} md={12}>
@@ -32,6 +33,7 @@ const TermCondition = () => {
                 fontSize: "18px",
                 letterSpacing: "1px",
                 textAlign: "start",
+                
               }}
             >
               By installing or utilizing the app, you are automatically bound by

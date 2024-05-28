@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import Uparrow from '../../../assets/images/faqup.png';
 import Downarrow from '../../../assets/images/faqdown.png';
+import Header from '../Header';
 const FaqData = ({ questions }) => {
   const [isOpen, setIsOpen] = useState(Array(questions.length).fill(false));
   const toggleFaq = (index) => {
@@ -10,7 +11,9 @@ const FaqData = ({ questions }) => {
     );
   };
   return (
-    <Container className=' mb-4'>
+    <>
+    <Header/>
+    <Container className=' mb-4 mt-4'>
       <Row>
         <Col xs={12} md={12} className='mt-5'>
           <h1 className='d-flex justify-content-center align-items-center' style={{ fontSize: '45px', color: '#6B78B7', letterSpacing: '1px', fontWeight: 'bold' }}>FAQ</h1>
@@ -48,6 +51,7 @@ const FaqData = ({ questions }) => {
         ))}
       </div>
     </Container>
+    </>
   );
 };
 export default FaqData;

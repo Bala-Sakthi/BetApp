@@ -2,14 +2,15 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import Footer from "../Footer";
+import Header from "../Header";
 
 const PrivacyPolicy = () => {
   return (
     <>
-     
+     <Header/>
       <Container
         
-        className="justify-content-start align-items-start  mb-5 "
+        className="justify-content-start align-items-start mt-5  mb-5 "
       >
         <Row className="justify-content-center ">
           <Col xs={12} md={12}>
