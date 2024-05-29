@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import Logo3 from "../../assets/images/header.png";
+import Logo3 from "../assets/images/header.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 function Header() {
@@ -45,7 +45,7 @@ function Header() {
         >
           <Nav className="ml-auto" style={{marginRight:"35px"}}>
 {/* <Nav.Link href="/pnr-status">Home</Nav.Link> */}
-  {/* <Nav.Link className="nav-link" href="/"style={{color:"#6B78B7",fontSize:"18px",marginRight:"35px"}}>Home</Nav.Link> */}
+  <Nav.Link className="nav-link" href="/"style={{color:"#6B78B7",fontSize:"18px",marginRight:"35px"}}>Home</Nav.Link>
   <Nav.Link className="nav-link" href="/about-us"style={{color:"#6B78B7",fontSize:"18px",marginRight:"35px"}}>About Us</Nav.Link>
   <Nav.Link className="nav-link" href="/faq"style={{color:"#6B78B7",fontSize:"18px"}}>FAQ</Nav.Link>
   {/* <Nav.Link href="/advertisement">Advertise</Nav.Link>

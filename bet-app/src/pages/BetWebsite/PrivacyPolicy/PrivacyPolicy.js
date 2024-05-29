@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import Footer from "../Footer";
-import Header from "../Header";
+import Header from "../../../components/WebsiteHeader"
 
 const PrivacyPolicy = () => {
   return (
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-             Welcome to MeetInGround! Please read these terms and conditions prior to using the products and services offered by Driftmark Technology. By using the product, you agree to be legally bound by the terms and conditions, privacy policy and of services (including without limitations all disclaimers, exclusion of warranties and limitations of liability contained therein). If you do not agree with these terms, please do not use the products and services offered by Driftmark Technology.
+             Welcome to MeetInGround! Please read these terms and conditions prior to using the products and services offered by Driftmark Technology. By using the product, you agree to be legally bound by the terms and conditions, privacy policy, and services (including without limitations all disclaimers, exclusion of warranties, and limitations of liability contained therein). If you do not agree with these terms, please do not use the products and services offered by Driftmark Technology.
             </p>
           </Col>
 
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
                 letterSpacing: "1px",
               }}
             >
-              Personal Identification Information
+             Personal Identification Information
             </p>
             <p
               style={{
@@ -58,7 +58,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-              We may collect personal identification information from Users in various ways, including but not limited to when Users visit our Service. Users may be asked for, as appropriate, their name, email address, mailing address, phone number, profile image, GPS and other details. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personal identification information, except that it may prevent them from engaging in certain Service-related activities.
+             We may collect personal identification information from Users in various ways, including but not limited to when Users visit our Service. Users may be asked for, as appropriate, their name, email address, phone number, profile image, payment details, and other relevant information. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personal identification information, except that it may prevent them from engaging in certain Service-related activities.
             </p>
           </Col>
 
@@ -81,8 +81,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-              Driftmark Technology may collect and use User's personal
-              information for the following purposes:
+             Driftmark Technology may collect and use User's personal information for the following purposes:
             </p>
             <ul
               style={{
@@ -93,15 +92,16 @@ const PrivacyPolicy = () => {
               }}
             >
               <li>
-                <b>To improve customer service:</b> To improve customer service: The information you provide helps us respond to your customer service requests and support needs more efficiently.
+                <b>To improve customer service:</b> The information you provide helps us respond to your customer service requests and support needs more efficiently.
               </li>
               <li>
-                <b>To personalize user experience:</b> We may use information in
-                the aggregate to understand how our Users as a group use the
-                services and resources provided on our Service.
+                <b>To personalize user experience:</b> We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Service.
               </li>
               <li>
-                <b>To improve our Service:</b> We may use the feedback you provide to improve our products and Services.
+                <b>To improve our Service:</b> We may use the feedback to improve our products and Services.
+              </li>
+              <li>
+                <b>To process transactions:</b> We may use the information Users provide about themselves when placing a bet or engaging in game activities to provide service to that order.
               </li>
             </ul>
           </Col>
@@ -125,10 +125,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-              We adopt appropriate data collection, storage, and processing
-              practices and security measures to protect against unauthorized
-              access, alteration, disclosure, or destruction of your personal
-              information stored on our Service.
+             We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information stored on our Service.
             </p>
           </Col>
 
@@ -151,11 +148,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-              We do not sell, trade, or rent User's personal identification
-              information to others. We may share generic aggregated demographic
-              information not linked to any personal identification information
-              regarding visitors and users with our business partners, trusted
-              affiliates, and advertisers for the purposes outlined above.
+             We do not sell, trade, or rent User's personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates, and advertisers for the purposes outlined above.
             </p>
           </Col>
 
@@ -178,7 +171,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-              Our app doesn’t against with Children Online Privacy Protection Act.
+      Our app doesn’t against with Children Online Privacy Protection Act.
               
             </p>
           </Col>
@@ -200,7 +193,7 @@ const PrivacyPolicy = () => {
                 letterSpacing: "1px",
                 textAlign: "start",
               }}>
-              Driftmark Technology has the discretion to update this privacy policy at any time. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and be aware of any changes.
+             Driftmark Technology reserves the right to modify this privacy policy at any time. We encourage Users to review this page regularly to stay informed about how we are protecting the personal information we collect. By continuing to use the Service after any changes to this policy are posted, you acknowledge and accept those changes.
             </p>
           </Col>
 
@@ -221,8 +214,17 @@ const PrivacyPolicy = () => {
                 letterSpacing: "1px",
                 textAlign: "start",
               }}>
-              By using this Service, you signify your acceptance of this policy. If you disagree with this policy, please consider using our Service. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes. If you have any questions about this Privacy Policy, the practices of this Service, or your dealings with this Service, please contact us at
+             By using this Service, you signify your acceptance of this policy. If you disagree with this policy, please do not use our Service. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes. If you have any questions about this Privacy Policy, the practices of this Service, or your dealings with this Service, please contact us at 
               <a href="mailto:meetinground@gmail.com"> info@meetinground</a>
+
+              <p
+              style={{
+                color: "black",
+                fontSize: "18px",
+                letterSpacing: "1px",
+                textAlign: "start",
+              }}
+              >Thank you for choosing MeetInGround! Enjoy betting on your favorite sports like cricket, football, basketball, volleyball, tennis, and more.</p>
             </p>
           </Col>
         </Row>

@@ -7,7 +7,7 @@ import Support from "../../../assets/images/aboutusupport.webp";
 import Ourmisson from "../../../assets/images/Ourmission.webp";
 import ScrollTrigger from "react-scroll-trigger";
 import Footer from "../Footer";
-import Header from "../Header";
+import Header from "../../../components/WebsiteHeader"
 
 const AboutUs = () => {
   const [counterOn, setCounteron] = useState(false);
@@ -50,7 +50,7 @@ const AboutUs = () => {
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <Col xs={12} lg={6}>
+          <Col xs={12} lg={10}>
     
               <p
                 style={{

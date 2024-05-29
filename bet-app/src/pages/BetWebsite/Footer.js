@@ -21,7 +21,7 @@ function Footer() {
 
                     <div className="col-md-6 col-lg-3">
                         <h5 className="text-white mb-4 mx-2">Useful Link</h5>
-                        <a className="btn text-white" href="">About Us</a><br/>
+                        <a className="btn text-white" href="about-us">About Us</a><br/>
                         <a className="btn text-white" href="faq">Faq</a><br/>
                         <a className="btn text-white" href="privacy-policy">Privacy Policy</a><br/>
                         <a className="btn text-white" href="terms-condition">Terms & Condition</a>

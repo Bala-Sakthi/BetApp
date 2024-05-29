@@ -687,7 +687,7 @@ faq-toggle-icon {
 
 
 .Aboutus-row {
-  background-image: url("/src/assets/images/Aboutusbg.webp");
+  background-image: url("/src/assets/images/AboutUsimg.webp");
   background-size: cover;
   padding: 180px 10px;
   position: relative;
@@ -707,3 +707,23 @@ faq-toggle-icon {
   transform: translate(-50%, -50%);
   width: 100%;
 }
+
+
+
+
+/* dashboard table styles */
+
+.table td,
+.table th {
+  border: 0.5px solid #ddd !important; 
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05); 
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075); 
+}
+

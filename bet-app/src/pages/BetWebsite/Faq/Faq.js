@@ -1,6 +1,6 @@
 import React from 'react';
 import Data from './FaqData'
-// import WebsiteNavbar from '../../../components/WebsiteNavbar'
+import WebsiteHeader from '../../../components/WebsiteHeader';
 import Footer from "../Footer";
 const questions = [
     {
@@ -57,7 +57,7 @@ const questions = [
 const Faq = () => {
   return (
     <div>
-      
+      <WebsiteHeader/>
       <Data questions={questions} />
       <Footer />
     </div>

@@ -8,8 +8,8 @@ const Choose = () => {
    <div class="container-xxl py-5" id="aboutDiv">
             <div class="container px-lg-5">
                 <div class="row g-5">
-                    <div class="col-lg-6  fade-in-up" data-wow-delay="0.1s">
-                        <div class="section-title position-relative mb-4 pb-2">
+                    <div class="col-lg-6  fade-in-up" data-wow-delay="0.1s ">
+                        <div class="section-title position-relative mb-4 pb-2 mt-4">
                             
                             <h1 class="mt-2"><br/>Why Choose Us
                             </h1>

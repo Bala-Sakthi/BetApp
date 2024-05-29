@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import {
   useTable,
@@ -13,6 +12,7 @@ import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 import { IconContext } from "react-icons/lib";
 import "./FilterComponent.css";
+
 const BasicTable = (props) => {
   const columns = useMemo(() => props.COLUMNS, [props.COLUMNS]);
   const data = useMemo(() => props.MOCK_DATA || [], [props.MOCK_DATA]);
@@ -32,20 +32,20 @@ const BasicTable = (props) => {
     useSortBy,
     usePagination
   );
+
   return (
     <div>
       <Container fluid className="ml-xxl-n4 ml-xl-n4 ml-lg-n4">
         <Row>
-        <Table
+          <Table
             className="justify-content-center align-items-center"
             striped
-            bordered
             hover
             {...getTableProps()}
             responsive={true}
             style={{ width: "100%" }}
           >
-           <thead>
+            <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
                   {headerGroup.headers.map((column) => (
@@ -106,10 +106,7 @@ const BasicTable = (props) => {
                 })
               ) : (
                 <tr>
-                  <td
-                    colSpan={columns.length}
-                    className="text-center text-dark"
-                  >
+                  <td colSpan={columns.length} className="text-center text-dark">
                     No Data Found
                   </td>
                 </tr>
@@ -128,14 +125,8 @@ const BasicTable = (props) => {
                   {props.startIndex} to {props.endIndex} of <strong className="m-2"> {props.totalItems} entries</strong>
                 </strong>
               </span>
-              {/* <Row>
-                <span className="m-1">
-                  {""}
-                  of<strong className="m-2"> {props.totalItems} entries</strong>
-                </span>
-              </Row> */}
             </Col>
-            <Col className="d-none d-sm-none d-md-none d-xxl-flex d-xl-flex d-lg-flex justify-content-end align-items-center">
+            <Col className=" mt-3 d-none d-sm-none d-md-none d-xxl-flex d-xl-flex d-lg-flex justify-content-end align-items-center">
               <ReactPaginate
                 breakLabel="..."
                 onPageChange={(selectedPage) =>
@@ -170,7 +161,6 @@ const BasicTable = (props) => {
             </Col>
             <Col className="d-flex d-sm-flex d-md-flex d-xxl-none d-xl-none d-lg-none justify-content-end align-items-center">
               <Button
-                // variant="warning"/
                 style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={() => props.setCurrentPage(props.currentPage - 1)}
                 disabled={props.currentPage === 1}
@@ -179,7 +169,6 @@ const BasicTable = (props) => {
                 <BiLeftArrow size={14} />
               </Button>
               <Button
-                // variant="warning"
                 style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={() => {
                   props.setCurrentPage(props.currentPage + 1);
