@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import BasicTable from "../../components/TablePaginationComponent";
 import BasicHeader from "../../components/BasicHeader";
-import { useGetPostQuery } from "../../redux/api/PostApi";
+import { useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
 import Loader from "../../pages/Loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
-import { HiMiniUserCircle } from "react-icons/hi2";
+import { HiUserCircle } from "react-icons/hi";
+import ApprovedImage from "../../assets/images/approved.png";
+import HoldImage from "../../assets/images/hold.png";
+import RejectedImage from  "../../assets/images/rejected.png";
+import { toast } from "react-toastify";
 
 
 const Post = () => {
-
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [startIndex, setStartIndex] = useState(1);
@@ -20,20 +23,22 @@ const Post = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState(""); 
   const [isSearching, setIsSearching] = useState(false);
-  const { data: PostData, isLoading ,refetch } = useGetPostQuery({ page: currentPage, search: searchTerm });
+  const { data: postData, isLoading, refetch } = useGetPostQuery({ page: currentPage, search: searchTerm });
+
+
+  const [editPostData] = useEditPostMutation();
 
   useEffect(() => {
-    if (PostData && PostData.data) {
-      setData(PostData.data);
-      setStartIndex(PostData.pagination.startIndex);
+    if (postData && postData.data) {
+      setData(postData.data);
+      setStartIndex(postData.pagination.startIndex);
       setCurrentPage(currentPage);
-      setTotalItem(PostData.pagination.totalItems);
-      setEndIndex(PostData.pagination.endIndex)
-      setTotalPages(PostData.pagination.totalPages);
+      setTotalItem(postData.pagination.totalItems);
+      setEndIndex(postData.pagination.endIndex)
+      setTotalPages(postData.pagination.totalPages);
     }
-  }, [PostData, currentPage]);
+  }, [postData, currentPage]);
 
-console.log(PostData);
   const handleClear = () => {
     setSearchInput("");
     setSearchTerm("");
@@ -46,7 +51,6 @@ console.log(PostData);
       setIsSearching(false); 
     });
   };
-
   
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -55,7 +59,34 @@ console.log(PostData);
   };
 
 
+  
+  
 
+  const handleEditData = async (rowData, status) => {
+    const postId = rowData._id; 
+  
+  // console.log('rowData:', rowData); 
+  // console.log('postId:', postId); 
+
+    try {
+      const response = await editPostData({
+        id: postId,
+        data: {
+          status: status,
+        },
+      });
+      
+      if (response?.data) {
+        toast.success(response?.data?.message, { autoClose: 1000 });
+      } else {
+        toast.error(response?.error?.data.error, { autoClose: 1000 });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  
   const COLUMNS = [
     {
       Header: "ID",
@@ -81,7 +112,7 @@ console.log(PostData);
             return imageUrl ? (
               <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
             ) : (
-              <HiMiniUserCircle  size={30} />
+              <HiUserCircle  size={30} />
             );
           },
       },
@@ -113,7 +144,7 @@ console.log(PostData);
             return imageUrl ? (
               <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
             ) : (
-              <HiMiniUserCircle  size={30} />
+              <HiUserCircle  size={30} />
             );
           },
       },
@@ -139,9 +170,25 @@ console.log(PostData);
           return <span>{formattedDateTime}</span>;
         },
       },
-   
-   
+      {
+        Header: "Actions",
+        accessor: "action",
+        Cell: ({ row }) => {
+          const rowData = row.original;
+          return (
+            <div className="d-flex align-items-center justify-content-center flex-row">
+              <img onClick={() => handleEditData(rowData, 'Approved')} src={ApprovedImage} alt="Approved" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Approved" />
+              <img onClick={() => handleEditData(rowData, 'Hold')} src={HoldImage} alt="Hold" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Hold" />
+              <img onClick={() => handleEditData(rowData, 'Rejected')} src={RejectedImage} alt="Rejected" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Rejected" />
+            </div>
+          );
+        }
+      }
+      
   ];
+
+
+
 
   return (
     <div>
@@ -149,11 +196,10 @@ console.log(PostData);
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4">
             <Col>
-            <BasicHeader HEADING="Post" />
+              <BasicHeader HEADING="Post" />
             </Col>
           </Row>
-          {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
-          <Row className="  boxShadow p-3 mb-4  d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
+          <Row className="boxShadow p-3 mb-4  d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
             <Col className="my-4 mx-2" xxl={3} xl={3} lg={3} sm={6} md={6}>
               <div className="input-group">
                 <span className="input-group-text">
@@ -174,13 +220,8 @@ console.log(PostData);
                 )}
               </div>
             </Col>
-            <Col  className="d-flex flex-column text-center my-4"
-            xxl={2}
-            xl={2}
-            lg={2}
-            sm={3}
-            md={3}>
-                <Button
+            <Col className="d-flex flex-column text-center my-4" xxl={2} xl={2} lg={2} sm={3} md={3}>
+              <Button
                 style={{ backgroundColor: "#6B78B7", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching}
@@ -205,7 +246,6 @@ console.log(PostData);
       ) : (
         <Loader />
       )}
-     
     </div>
   );
 };

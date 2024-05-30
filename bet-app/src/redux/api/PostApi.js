@@ -17,10 +17,20 @@ export const PostApi = createApi({
         providesTags: ["POSTAPI"],
       }),
      
-  
+      editPost: build.mutation({
+        query: ({ id, data }) => ({
+          url: `/admin/updatePost/${id}`,
+          method: "PATCH",
+          body: data,
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        }),
+        invalidatesTags: ["POSTAPI"],
+      }),
      
     }),
   });
 
 
-export const { useGetPostQuery} = PostApi;
+export const { useGetPostQuery,useEditPostMutation} = PostApi;
