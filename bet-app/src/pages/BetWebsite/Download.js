@@ -1,5 +1,5 @@
 import React from 'react'
-import Download from '../../assets/images/mobileimages.png'
+import Download from '../../assets/images/mobileimages.webp'
 const DownloadApp = () => {
   return (
     <>
