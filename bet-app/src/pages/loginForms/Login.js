@@ -32,7 +32,7 @@ const Login = () => {
         email,
         password,
       });
-console.log("login2");
+      console.log("login2");
       if (response?.data) {
         console.log(response);
         console.log("login3");
@@ -79,7 +79,7 @@ console.log("login2");
           xl={6}
           className="d-flex flex-column justify-content-center align-items-center "
         >
-          <Row className="shadow p-4  bg-body rounded d-flex flex-column justify-content-center align-items-center">
+          <Row className="shadow p-4 bg-body rounded d-flex flex-column justify-content-center align-items-center">
             <Col className="d-flex flex-column justify-content-center align-items-center">
               <h5>Login</h5>
               <p className="text-secondary text-noWarp">
@@ -108,81 +108,79 @@ console.log("login2");
                     className="d-flex flex-column justify-content-center"
                     onSubmit={handleSubmit}
                   >
-                    <Col className="align-items-start">
-                      <TextInput
-                        htmlFor="email"
-                        label={"Email"}
-                        name="email"
-                        type="email"
-                        size="md"
-                        id="email"
-                        placeholder="Enter your email"
-                        className={`form-control ${
-                          touched.email && errors.email ? "is-invalid" : ""
-                        }`}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        validation={
-                          touched.email && errors.email ? (
-                            <p className="text-danger">{errors.email}</p>
-                          ) : (
-                            ""
-                          )
-                        }
-                      />
-                    </Col>
-                    <Row className="d-flex mt-2 flex-row justify align-items-center">
-                      <Col className="d-flex flex-row justify-end align-items-center">
-                        <Form.Label
-                          htmlFor="password*"
-                          className="d-flex flex-row justify-start"
-                        >
-                          Password<span className="text-danger">*</span>
-                        </Form.Label>
-                      </Col>
-                    </Row>
-                    <Row className="d-flex flex-row justify-between align-items-center">
-                      <Col className="d-flex flex-row justify-content-end align-items-center">
-                        <Form.Control
-                          name="password"
-                          type={passwordIcon ? "text" : "password"}
-                          size="md"
-                          id="password"
-                          placeholder="Enter your password"
-                          className={`position-relative form-control ${
-                            touched.password && errors.password
-                              ? "border-danger"
-                              : ""
+                    <Row>
+                      <Col xs={12}>
+                        <TextInput
+                          htmlFor="email"
+                          label="Email"
+                          name="email"
+                          type="email"
+                          id="email"
+                          placeholder="Enter your email"
+                          className={`form-control ${
+                            touched.email && errors.email ? "is-invalid" : ""
                           }`}
                           onChange={handleChange}
                           onBlur={handleBlur}
+                          validation={
+                            touched.email && errors.email ? (
+                              <p className="text-danger">{errors.email}</p>
+                            ) : (
+                              ""
+                            )
+                          }
                         />
-                        <div
-                          className="position-absolute m-2 pointer"
-                          onClick={showPassword}
-                        >
-                          {passwordIcon ? (
-                            <AiOutlineEye />
-                          ) : (
-                            <AiOutlineEyeInvisible />
-                          )}
-                        </div>
                       </Col>
                     </Row>
-                    {touched.password && errors.password ? (
-                      <p className="text-danger">{errors.password}</p>
-                    ) : (
-                      ""
-                    )}
-
-                    <BasicButton
-                      className="mt-3"
-                      variant={"warning"}
-                      type="submit"
-                      disabled={isSubmitting}
-                      isLoading={isLoading}
-                      label={"Login"}
-                    />
+                    <Row className="mt-3">
+                      <Col xs={12}>
+                        <Form.Label htmlFor="password">
+                          Password<span className="text-danger">*</span>
+                        </Form.Label>
+                        <div className="d-flex position-relative">
+                          <Form.Control
+                            name="password"
+                            type={passwordIcon ? "text" : "password"}
+                            id="password"
+                            placeholder="Enter your password"
+                            className={`form-control ${
+                              touched.password && errors.password
+                                ? "is-invalid"
+                                : ""
+                            }`}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                          />
+                          <div
+                            className="position-absolute end-0 me-3 cursor-pointer"
+                            onClick={showPassword}
+                          >
+                            {passwordIcon ? (
+                              <AiOutlineEye />
+                            ) : (
+                              <AiOutlineEyeInvisible />
+                            )}
+                          </div>
+                        </div>
+                        {touched.password && errors.password ? (
+                          <p className="text-danger">{errors.password}</p>
+                        ) : (
+                          ""
+                        )}
+                      </Col>
+                    </Row>
+                    <Row className="mt-3">
+                      <Col>
+                        <BasicButton
+                          variant="warning"
+                          type="submit"
+                          disabled={isSubmitting}
+                          isLoading={isLoading}
+                          label="Login"
+                          className="w-100"
+                        />
+                      </Col>
+                    </Row>
                   </Form>
                 )}
               </Formik>
