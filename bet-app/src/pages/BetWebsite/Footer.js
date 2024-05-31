@@ -15,9 +15,9 @@ const Footer = () => {
             >
                <h5 className="text-white mb-4">Get In Touch</h5>
     <p><i className="fas fa-map-marker-alt me-3"></i>Tirupathur,Tamil Nadu 635653</p>
-    <p><i className="fas fa-phone-alt me-3"></i>+91 6381475573</p>
+    <p><i className="fa-solid fa-phone me-3"></i>+91 6381475573</p>
     <i className="fas fa-envelope me-3"></i><a className='text-white' href="mailto:meetinground@gmail.com">meetinground@gmail.com</a>
-    <div className="d-flex pt-2">
+    <div className="d-flex pt-2 mt-3">
         <a className="btn btn-outline-light btn-social m-1" href="#"><i className="fab fa-twitter"></i></a>
         <a className="btn btn-outline-light btn-social m-1" href="#"><i className="fab fa-facebook-f"></i></a>
         <a className="btn btn-outline-light btn-social m-1" href="#"><i className="fab fa-youtube"></i></a>

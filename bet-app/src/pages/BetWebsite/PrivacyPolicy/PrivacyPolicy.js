@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}
             >
-             Welcome to MeetInGround! Please read these terms and conditions prior to using the products and services offered by Driftmark Technology. By using the product, you agree to be legally bound by the terms and conditions, privacy policy, and services (including without limitations all disclaimers, exclusion of warranties, and limitations of liability contained therein). If you do not agree with these terms, please do not use the products and services offered by Driftmark Technology.
+             Welcome to "Meet In Ground"! Please read these terms and conditions prior to using the products and services offered by Driftmark Technology. By using the product, you agree to be legally bound by the terms and conditions, privacy policy, and services (including without limitations all disclaimers, exclusion of warranties, and limitations of liability contained therein). If you do not agree with these terms, please do not use the products and services offered by Driftmark Technology.
             </p>
           </Col>
 
@@ -215,7 +215,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}>
              By using this Service, you signify your acceptance of this policy. If you disagree with this policy, please do not use our Service. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes. If you have any questions about this Privacy Policy, the practices of this Service, or your dealings with this Service, please contact us at 
-              <a href="mailto:meetinground@gmail.com"> info@meetinground</a>
+             <a href="mailto:meetinground@gmail.com"> info@meetinground</a>
 
               <p
               style={{
@@ -224,7 +224,7 @@ const PrivacyPolicy = () => {
                 letterSpacing: "1px",
                 textAlign: "start",
               }}
-              >Thank you for choosing MeetInGround! Enjoy betting on your favorite sports like cricket, football, basketball, volleyball, tennis, and more.</p>
+              >Thank you for choosing "Meet In Ground"! Enjoy betting on your favorite sports like cricket, football, basketball, volleyball, tennis, and more.</p>
             </p>
           </Col>
         </Row>

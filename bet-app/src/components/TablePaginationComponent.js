@@ -43,7 +43,7 @@ const BasicTable = (props) => {
             hover
             {...getTableProps()}
             responsive={true}
-            style={{ width: "100%" }}
+            style={{ width: "100%" ,marginLeft:"25px"}}
           >
             <thead>
               {headerGroups.map((headerGroup) => (

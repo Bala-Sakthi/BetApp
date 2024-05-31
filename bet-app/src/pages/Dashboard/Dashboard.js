@@ -156,7 +156,7 @@ const Dashboard = () => {
       </Row>
 
       <Row className="mt-5">
-        <Col xs={12} sm={6} lg={4} className="mb-3">
+        <Col xs={12} sm={6} lg={4} className="mb-3" style={{textDecoration:"none",color:"inherit"}}>
           <Link to="/admin/user-list" className="link-unstyled">
             <p className="p-3 boxShadow">
               <div className="d-flex align-items-center">
@@ -253,8 +253,8 @@ const Dashboard = () => {
         </Col> */}
       </Row>
       <Row className="mt-3">
-        <Col xs={12} md={6} lg={12} className="mb-3">
-        <p className="p-3 boxShadow">
+        <Col xs={12} md={6} lg={12} className="mb-3 ">
+        <p className="p-5  boxShadow ">
             <h4 className="fs-4 mb-4 fw-bolder text-start">New User Join</h4>
           
               <TableComponents COLUMNS={COLUMNS} MOCK_DATA={recentFiveUsers} />
@@ -262,8 +262,8 @@ const Dashboard = () => {
           </p>
         </Col>
 
-        <Col xs={12} md={6} lg={12} className="mb-3">
-        <p className="p-3 boxShadow">
+        <Col xs={12} md={6} lg={12} className="mb-3  ">
+        <p className="p-5 boxShadow">
             <h4 className="fs-4 mb-4 fw-bolder text-start">New Withdraw Request</h4>
           
               <TableComponents COLUMNS={COLUMNSS} MOCK_DATA={recentFiveWithdrawRequests} />

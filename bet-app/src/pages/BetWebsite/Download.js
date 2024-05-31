@@ -42,10 +42,10 @@ const DownloadAppSection = () => {
                 Download Our App
               </h1>
             </div>
-            <p className="mb-4">
+            <p className="mb-4"style={{ fontSize: '20px' }}>
               Wherever you're going, we're right there with you
             </p>
-            <p>
+            <p style={{ fontSize: '20px' }}>
               "Download the Bet and Play app today. Get access to trusted,
               authentic, and real-time information about sports events, game
               schedules, betting odds, player stats, and more at your

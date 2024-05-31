@@ -1,8 +1,6 @@
 import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link, useLocation } from 'react-router-dom';
-
-
 const ReactSidebar = ({ sidebarItems, onClick }) => {
   const location = useLocation();
 
@@ -16,7 +14,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
             active={isActive}
             rootStyles={{
               backgroundColor: isActive ? 'white' : '#FFFFFF',
-              color:"black",
+              color: 'black',
             }}
             key={item.id}
             title={item.label}
@@ -32,6 +30,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
             className='textDecoration-none color-white'
             to={item.url}
             style={{ textDecoration: 'none' }}
+            key={item.id} // key should be on the Link component
           >
             <MenuItem
               onClick={onClick}
@@ -41,7 +40,6 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
                 backgroundColor: isActive ? '#bcc3e6' : '#FFFFFF',
                 color: isActive ? 'black' : 'black',
               }}
-              key={item.id}
               icon={item.icon}
             >
               {item.label}
@@ -61,10 +59,10 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
           color: 'white',
           fontWeight: 'bolder',
           width: '100%',
-          height:"100%",
+          height: '100%',
         }}
       >
-        <div className="menu-container" style={{height:"100vh",width:"auto"}}>
+        <div className="menu-container">
           <Menu iconShape='circle'>{renderMenuItems(sidebarItems)}</Menu>
         </div>
       </Sidebar>

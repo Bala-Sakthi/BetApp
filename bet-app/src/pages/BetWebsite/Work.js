@@ -61,7 +61,7 @@ export const Work = () => {
             />
           </div>
           <h5 className="mb-3">Step 1: Login</h5>
-          <p>
+          <p style={{ fontSize: '20px' }}>
             "Log-in to the Bet and Play app to elevate your betting
             experience. Download it now from the Play Store."
           </p>
@@ -91,7 +91,7 @@ export const Work = () => {
             />
           </div>
           <h5 className="mb-3">Step 2: Post</h5>
-          <p>
+          <p style={{ fontSize: '20px' }}>
             "Discover all you need to boost your betting experience with the
             Bet and Play app, your ultimate partner for games and sports."
           </p>
@@ -121,7 +121,7 @@ export const Work = () => {
             />
           </div>
           <h5 className="mb-3">Step 3: Play</h5>
-          <p>
+          <p style={{ fontSize: '20px' }}>
             "Get to your winning destination quickly and safely – you can
             enjoy every step of the journey with our Bet and Play app."
           </p>

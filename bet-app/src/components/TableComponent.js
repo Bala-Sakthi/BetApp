@@ -33,7 +33,7 @@ const BasicTable = (props) => {
 
   return (
     <div>
-      <Container fluid className="ml-xxl-n4 ml-xl-n4 ml-lg-n4">
+      <Container fluid className="ml-xxl-n4 ml-xl-n4 ml-lg-n4" >
         <Row className="d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
          
           <Table className="justify-content-center align-items-center"
@@ -42,7 +42,7 @@ const BasicTable = (props) => {
             hover
             {...getTableProps()}
             responsive={true}
-            style={{ width: "100%" }}
+            style={{ width: "100%",marginLeft:"25px" }}
           >
           <thead>
               {headerGroups.map((headerGroup) => (

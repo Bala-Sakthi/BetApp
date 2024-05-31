@@ -49,6 +49,13 @@
   color: inherit;
 }
 
+.link-unstyled:hover {
+  text-decoration: none;
+  color: #6B78B7;
+}
+
+
+
 
 
 .pagination {
@@ -726,6 +733,21 @@ faq-toggle-icon {
 
 .table-hover tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.075); 
+}
+
+
+
+/* ReactSidebar.css */
+.sidebar-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.menu-container {
+  height: 100%;
+  width: auto;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 

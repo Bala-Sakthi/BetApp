@@ -15,7 +15,7 @@ const questions = [
     },
     {
         id: 2,
-        title: 'How to contact MeetInGround?',
+        title: 'How to contact "Meet In Ground"?',
         answer: (
             <div>
                 Our committed team is available to assist you during daytime hours, ensuring personalized support and attention. English-speaking assistance is available 24/7.

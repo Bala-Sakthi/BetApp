@@ -36,7 +36,7 @@ const TermCondition = () => {
                 
               }}
             >
-              By installing or using the MeetInGround app, you agree to these terms. Please review them carefully before proceeding. Any attempt to replicate, alter, or use our trademarks is strictly prohibited. You are also prohibited from accessing the app's source code, translating it into other languages, or creating derivative versions. All intellectual property rights remain the sole property of DriftMark Technology. We reserve the right to modify the app or introduce charges at any time.
+              By installing or using the "Meet In Ground" app, you agree to these terms. Please review them carefully before proceeding. Any attempt to replicate, alter, or use our trademarks is strictly prohibited. You are also prohibited from accessing the app's source code, translating it into other languages, or creating derivative versions. All intellectual property rights remain the sole property of DriftMark Technology. We reserve the right to modify the app or introduce charges at any time.
             </p>
           </Col>
           <Col xs={12} md={12} className="text-start mt-2">
@@ -58,7 +58,7 @@ const TermCondition = () => {
                 textAlign: "start",
               }}
             >
-             The MeetInGround app processes your personal information to provide our services. Ensuring the security of your phone and access to the app is your responsibility. We strongly advise against jailbreaking or rooting your phone, which can expose it to security risks. The app integrates with third-party services, each with its own Terms and Conditions.
+             The "Meet In Ground" app processes your personal information to provide our services. Ensuring the security of your phone and access to the app is your responsibility. We strongly advise against jailbreaking or rooting your phone, which can expose it to security risks. The app integrates with third-party services, each with its own Terms and Conditions.
             </p>
 
             <p
@@ -79,7 +79,7 @@ const TermCondition = () => {
                 textAlign: "start",
               }}
             >
-             To enhance the app's functionality, MeetInGround may gather specific data, including:
+             To enhance the app's functionality, "Meet In Ground" may gather specific data, including:
             </p>
             <ul
               style={{
@@ -265,7 +265,7 @@ const TermCondition = () => {
                 textAlign: "start",
               }}
             >
-            Thank you for choosing MeetInGround! Enjoy betting on sports like cricket, football, basketball, volleyball, tennis, and more
+            Thank you for choosing "Meet In Ground"! Enjoy betting on sports like cricket, football, basketball, volleyball, tennis, and more
             </p>
           </Col>
         </Row>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import Logo3 from "../../src/assets/images/header.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -43,7 +43,7 @@ function Header() {
           className="custom-navbar-collapse justify-content-end"
         >
           <Nav className="">
-            {/* <Nav.Link href="/pnr-status">Home</Nav.Link> */}
+           
             <Nav.Link
               className="nav-link"
               href="/"
@@ -54,14 +54,14 @@ function Header() {
             <Nav.Link
               className="nav-link"
               href="/about-us"
-              style={{ color: "#6B78B7", fontSize: "16px" }}
+              style={{ color: "#6B78B7", fontSize: "18px" }}
             >
               About Us
             </Nav.Link>
             <Nav.Link
               className="nav-link"
               href="/faq"
-              style={{ color: "#6B78B7", fontSize: "16px" }}
+              style={{ color: "#6B78B7", fontSize: "18px" }}
             >
               FAQ
             </Nav.Link>
