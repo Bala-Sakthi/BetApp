@@ -1,12 +1,20 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Chooseimage from "../../assets/images/Flawk-img-0-min-e1605868710883.png";
+import Chooseimage from "../../assets/images/chooseimgss.png";
 import "animate.css/animate.min.css";
 const Choose = () => {
   return (
   <>
    <Container className="mt-2 mb-2">
         <Row>
+
+        <Col xs={12} xl={6} sm={12} xxl={6} md={6} lg={6}>
+            <img
+              class="img-fluid animated zoomIn justify-content-end align-items-end"
+              data-wow-delay="0.5s"
+              src={Chooseimage}
+            />
+          </Col>
           <Col
             xs={12}
             xl={6}
@@ -29,13 +37,7 @@ const Choose = () => {
                 live updates, and earn rewards, all in one convenient app."
               </p>
           </Col>
-          <Col xs={12} xl={6} sm={12} xxl={6} md={6} lg={6}>
-            <img
-              class="img-fluid animated zoomIn justify-content-end align-items-end"
-              data-wow-delay="0.5s"
-              src={Chooseimage}
-            />
-          </Col>
+          
         </Row>
       </Container>
   </>

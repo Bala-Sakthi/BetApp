@@ -71,8 +71,8 @@ const Footer = () => {
             <div className="copyright">
                 <Row className="">
                 <div className="col-md-12 text-center  mt-5 mb-5">
-                            <a className="text-white" href="#">Copyright © 2024 -MeetInGround<br/> </a>
-                            <a className="text-white" href="#">All rights Reserved </a>
+                            <p className="text-white" >Copyright © 2024 -MeetInGround<br/> </p>
+                            <p className="text-white" >All rights Reserved </p>
                         </div>
                 </Row>
             </div>

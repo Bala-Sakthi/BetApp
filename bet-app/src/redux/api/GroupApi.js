@@ -30,9 +30,9 @@ export const GroupApi = createApi({
 
       addGroupNotification: build.mutation({
         query: ({ groupName, title, body }) => ({
-          url: `/admin/sendGroupNotification/${groupName}`,
+          url: `/admin/sendGroupNotification`,
           method: "POST",
-          body: { title, body },
+          body: { title, body ,groupName},
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
           },
@@ -40,10 +40,10 @@ export const GroupApi = createApi({
         invalidatesTags: ["GROUP"],
       }),
       addGroup: build.mutation({
-        query: ({groupname,phoneNumbers}) => ({
-          url: `/admin/addGroup/${groupname}`,
+        query: ({groupName,phoneNumbers}) => ({
+          url: `/admin/addGroup`,
           method: "POST",
-          body: { groupname: groupname, phoneNumbers: phoneNumbers },
+          body: { groupName, phoneNumbers },
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
           },

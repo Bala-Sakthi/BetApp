@@ -265,7 +265,7 @@ const TermCondition = () => {
                 textAlign: "start",
               }}
             >
-            Thank you for choosing "Meet In Ground"! Enjoy betting on sports like cricket, football, basketball, volleyball, tennis, and more
+            Thank you for choosing "Meet In Ground"! Enjoy betting on sports like cricket, football, basketball, volleyball, tennis, and more.
             </p>
           </Col>
         </Row>

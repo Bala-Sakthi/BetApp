@@ -9,12 +9,13 @@ export const IndividualNotificationApi = createApi({
     addIndividualNotification: build.mutation({
       query: ({phoneNumber, title, body, image }) => {
         const formData = new FormData();
+        formData.append('phoneNumber', phoneNumber);
         formData.append('title', title);
         formData.append('body', body);
         formData.append('image', image);
     
         return {
-          url: `admin/sendIndividualNotification/${phoneNumber}`,
+          url: `admin/sendIndividualNotification`,
           method: "POST",
           body: formData,
           headers: {

@@ -95,10 +95,7 @@ const GroupNotification = () => {
       Header: "ID",
       accessor:"s_no",
     },
-    // {
-    //   Header: "Group Name",
-    //   accessor: "groupName",
-    // },
+    
     {
       Header: "Title",
       accessor: "title",

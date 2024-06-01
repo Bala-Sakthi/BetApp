@@ -40,6 +40,12 @@ const Group = () => {
   const [addGroup] = useAddGroupMutation();
 
   console.log(phoneData);
+  console.log(groupName);
+  console.log(title);
+  console.log(body);
+  console.log(groupname);
+ 
+
 
   useEffect(() => {
     if (groupData && groupData.data) {
@@ -129,7 +135,7 @@ const Group = () => {
       const selectedPhoneNumbers = selectedphoneNumbers.map(phone => phone.value);
       
       const response = await addGroup({
-        groupname: groupname,
+        groupName: groupname,
         phoneNumbers: selectedPhoneNumbers,
       });
      
@@ -152,7 +158,7 @@ const Group = () => {
   const handleShow = () => setShow(true);
 
   const NumberOptions = phoneData ? phoneData.data.map(phoneNumber => ({ value: phoneNumber, label: phoneNumber })) : [];
-  console.log(NumberOptions);
+  // console.log(NumberOptions);
 
   const handleEmailChange = (selectedOptions) => {
     setSelectedphoneNumbers(selectedOptions);
