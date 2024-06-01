@@ -8,7 +8,7 @@ import TextInput from "../../components/TextInput";
 import { useLoginUserMutation } from "../../redux/api/AuthApi";
 import { toast } from "react-toastify";
 import BasicButton from "../../components/BasicButton";
-import login from "../../assets/images/loginlogo2.webp";
+import login from "../../assets/images/loginImage.png";
 
 const Login = () => {
   const [passwordIcon, setPasswordIcon] = useState(false);
@@ -68,7 +68,7 @@ const Login = () => {
             src={login}
             alt="adminLoginImage"
             title="adminLoginImage"
-            style={{ height: "600px", width: "900px" }}
+            style={{ height: "500px", width: "800px" }}
           />
         </Col>
 
@@ -137,50 +137,50 @@ const Login = () => {
                         <Form.Label htmlFor="password">
                           Password<span className="text-danger">*</span>
                         </Form.Label>
-                        <div className="d-flex position-relative">
-                          <Form.Control
-                            name="password"
-                            type={passwordIcon ? "text" : "password"}
-                            id="password"
-                            placeholder="Enter your password"
-                            className={`form-control ${
-                              touched.password && errors.password
-                                ? "is-invalid"
-                                : ""
-                            }`}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                          />
-                          <div
-                            className="position-absolute end-0 me-3 cursor-pointer"
-                            onClick={showPassword}
-                          >
-                            {passwordIcon ? (
-                              <AiOutlineEye />
-                            ) : (
-                              <AiOutlineEyeInvisible />
-                            )}
-                          </div>
-                        </div>
-                        {touched.password && errors.password ? (
-                          <p className="text-danger">{errors.password}</p>
-                        ) : (
-                          ""
-                        )}
                       </Col>
                     </Row>
-                    <Row className="mt-3">
-                      <Col>
-                        <BasicButton
-                          variant="warning"
-                          type="submit"
-                          disabled={isSubmitting}
-                          isLoading={isLoading}
-                          label="Login"
-                          className="w-100"
+                    <Row className="d-flex flex-row justify-between align-items-center">
+                      <Col className="d-flex flex-row justify-content-end align-items-center">
+                        <Form.Control
+                          name="password"
+                          type={passwordIcon ? "text" : "password"}
+                          size="md"
+                          id="password"
+                          placeholder="Enter your password"
+                          className={`position-relative form-control ${
+                            touched.password && errors.password
+                              ? "border-danger"
+                              : ""
+                          }`}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
                         />
+                        <div
+                          className="position-absolute m-2 pointer"
+                          onClick={showPassword}
+                        >
+                          {passwordIcon ? (
+                            <AiOutlineEye />
+                          ) : (
+                            <AiOutlineEyeInvisible />
+                          )}
+                        </div>
                       </Col>
                     </Row>
+                    {touched.password && errors.password ? (
+                      <p className="text-danger">{errors.password}</p>
+                    ) : (
+                      ""
+                    )}
+
+                    <BasicButton
+                      className="mt-3"
+                      variant={"warning"}
+                      type="submit"
+                      disabled={isSubmitting}
+                      isLoading={isLoading}
+                      label={"Login"}
+                    />
                   </Form>
                 )}
               </Formik>
