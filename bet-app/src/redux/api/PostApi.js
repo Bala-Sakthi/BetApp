@@ -29,8 +29,32 @@ export const PostApi = createApi({
         invalidatesTags: ["POSTAPI"],
       }),
      
+      addPost: build.mutation({
+        query: ({ userName, sport, matchDetails, matchDate,betAmount,image,placeOfMatch }) => {
+          const formData = new FormData();
+          formData.append('userName', userName);
+          formData.append('sport', sport);
+          formData.append('matchDetails', matchDetails);
+          formData.append('matchDate', matchDate);
+          formData.append('betAmount', betAmount);
+          formData.append('placeOfMatch', placeOfMatch);
+          formData.append('image', image);
+      
+          return {
+            url: `/post/addPost/9788825633`,
+            method: "POST",
+            body: formData,
+            headers: {
+             
+            },
+          };
+        },
+        invalidatesTags: ["POSTAPI"],
+      }),
+
+
     }),
   });
 
 
-export const { useGetPostQuery,useEditPostMutation} = PostApi;
+export const { useGetPostQuery,useEditPostMutation,useAddPostMutation} = PostApi;

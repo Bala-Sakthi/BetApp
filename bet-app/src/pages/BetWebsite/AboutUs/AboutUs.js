@@ -55,7 +55,7 @@ const AboutUs = () => {
                   letterSpacing: "1px",
                 }}
               >
-               <b> "Meet In Ground": Your Sports Betting Hub </b>
+               <b> Your Sports Betting Hub </b>
 
               </p>
 
@@ -69,7 +69,7 @@ const AboutUs = () => {
   onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
   onMouseOut={(e) => { e.target.style.color = "black"; }}
 >
-  Introducing ""Meet In Ground"" - your premier destination for all sports betting and gaming enthusiasts! We're here to redefine the way you engage with sports, offering a dynamic platform where fans can connect, compete, and celebrate their love for the game. Whether you're a frequent commuter or an occasional traveler.
+  Introducing <b>"Meet In Ground"</b> - your premier destination for all sports betting and gaming enthusiasts! We're here to redefine the way you engage with sports, offering a dynamic platform where fans can connect, compete, and celebrate their love for the game. Whether you're a frequent commuter or an occasional traveler.
 </p>
 
            
@@ -82,7 +82,7 @@ const AboutUs = () => {
                 onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
                 onMouseOut={(e) => { e.target.style.color = "black"; }}
               >
-                At "Meet In Ground", we cover a wide array of sports, including cricket, football, basketball, tennis, and more. From live match updates to comprehensive statistics, we provide you with the insights you need to make informed bets and take your gaming experience to the next level.
+                At <b>"Meet In Ground"</b>, we cover a wide array of sports, including cricket, football, basketball, tennis, and more. From live match updates to comprehensive statistics, we provide you with the insights you need to make informed bets and take your gaming experience to the next level.
               </p>
   
               <p
@@ -94,7 +94,7 @@ const AboutUs = () => {
                 onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
                 onMouseOut={(e) => { e.target.style.color = "black"; }}
               >
-              But "Meet In Ground" is more than just a betting platform - it's a community. Share your predictions, challenge friends, and accept requests from other users. Once a challenge is accepted, it's game on!
+              But <b>"Meet In Ground"</b> is more than just a betting platform - it's a community. Share your predictions, challenge friends, and accept requests from other users. Once a challenge is accepted, it's game on!
               </p>
            
           </Col>
@@ -131,7 +131,7 @@ const AboutUs = () => {
                   textAlign: "center",
                 }}
               >
-              <b> At "Meet In Ground" Bet App,</b> driven by our desire to provide better service, we aim to unify sports betting and gaming services. Our mission is to deliver a seamless platform where users can access the most competitive odds and receive intelligent, up-to-date information on their favorite sports, anytime and anywhere.
+              At <b>"Meet In Ground"</b> Bet App, driven by our desire to provide better service, we aim to unify sports betting and gaming services. Our mission is to deliver a seamless platform where users can access the most competitive odds and receive intelligent, up-to-date information on their favorite sports, anytime and anywhere.
               </p>
            
           </Col>
@@ -180,7 +180,7 @@ const AboutUs = () => {
                textAlign: "center",
              }}
            >
-          <b> Welcome to "Meet In Ground" Bet App:</b> Your Ultimate Sports Betting and Gaming Hub. At "Meet In Ground" Bet App, we are driven by our passion to deliver superior service. Our mission is to integrate sports betting and gaming services into one cohesive platform, ensuring users enjoy access to the most competitive odds and receive insightful, real-time information on their favorite sports, anytime and anywhere.
+           Welcome to <b>"Meet In Ground"</b> Bet App: Your Ultimate Sports Betting and Gaming Hub. At "Meet In Ground" Bet App, we are driven by our passion to deliver superior service. Our mission is to integrate sports betting and gaming services into one cohesive platform, ensuring users enjoy access to the most competitive odds and receive insightful, real-time information on their favorite sports, anytime and anywhere.
 
 
 

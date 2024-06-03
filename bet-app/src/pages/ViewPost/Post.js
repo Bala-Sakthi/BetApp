@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Modal } from "react-bootstrap";
 import BasicTable from "../../components/TablePaginationComponent";
-import BasicHeader from "../../components/BasicHeader";
 import { useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
 import Loader from "../../pages/Loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
@@ -11,6 +10,8 @@ import ApprovedImage from "../../assets/images/approved.png";
 import HoldImage from "../../assets/images/hold.png";
 import RejectedImage from  "../../assets/images/rejected.png";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 
 const Post = () => {
@@ -23,10 +24,16 @@ const Post = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState(""); 
   const [isSearching, setIsSearching] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({ rowData: null, status: "" });
   const { data: postData, isLoading, refetch } = useGetPostQuery({ page: currentPage, search: searchTerm });
-
-
+  const navigate = useNavigate();
   const [editPostData] = useEditPostMutation();
+
+  
+
+
+  const handleNavigateAddForm = () => navigate("/admin/add-post");
 
   useEffect(() => {
     if (postData && postData.data) {
@@ -34,7 +41,7 @@ const Post = () => {
       setStartIndex(postData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(postData.pagination.totalItems);
-      setEndIndex(postData.pagination.endIndex)
+      setEndIndex(postData.pagination.endIndex);
       setTotalPages(postData.pagination.totalPages);
     }
   }, [postData, currentPage]);
@@ -58,15 +65,8 @@ const Post = () => {
     }
   };
 
-
-  
-  
-
   const handleEditData = async (rowData, status) => {
-    const postId = rowData._id; 
-  
-  // console.log('rowData:', rowData); 
-  // console.log('postId:', postId); 
+    const postId = rowData._id;
 
     try {
       const response = await editPostData({
@@ -85,8 +85,20 @@ const Post = () => {
       console.error(error);
     }
   };
-  
-  
+
+  const handleShowModal = (rowData, status) => {
+    setModalData({ rowData, status });
+    setShowModal(true);
+  };
+
+  const handleConfirmAction = () => {
+    handleEditData(modalData.rowData, modalData.status);
+    setShowModal(false);
+  };
+
+  const handleCloseModal = () => setShowModal(false);
+
+ 
   const COLUMNS = [
     {
       Header: "ID",
@@ -170,33 +182,38 @@ const Post = () => {
           return <span>{formattedDateTime}</span>;
         },
       },
-      {
-        Header: "Actions",
-        accessor: "action",
-        Cell: ({ row }) => {
-          const rowData = row.original;
-          return (
-            <div className="d-flex align-items-center justify-content-center flex-row">
-              <img onClick={() => handleEditData(rowData, 'Approved')} src={ApprovedImage} alt="Approved" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Approved" />
-              <img onClick={() => handleEditData(rowData, 'Hold')} src={HoldImage} alt="Hold" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Hold" />
-              <img onClick={() => handleEditData(rowData, 'Rejected')} src={RejectedImage} alt="Rejected" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Rejected" />
-            </div>
-          );
-        }
+    {
+      Header: "Actions",
+      accessor: "action",
+      Cell: ({ row }) => {
+        const rowData = row.original;
+        return (
+          <div className="d-flex align-items-center justify-content-center flex-row">
+            <img onClick={() => handleShowModal(rowData, 'Approved')} src={ApprovedImage} alt="Approved" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Approved" />
+            <img onClick={() => handleShowModal(rowData, 'Hold')} src={HoldImage} alt="Hold" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Hold" />
+            <img onClick={() => handleShowModal(rowData, 'Rejected')} src={RejectedImage} alt="Rejected" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Rejected" />
+          </div>
+        );
       }
-      
+    }
   ];
-
-
-
 
   return (
     <div>
       {!isLoading ? (
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4">
-            <Col>
-              <BasicHeader HEADING="Post" />
+            <Col className="d-flex flex-row justify-content-between mt-1">
+              <h4 className="fw-bold ">Post</h4>
+              <div>
+                <Button
+                  style={{ backgroundColor: "#6B78B7", border: "none" }}
+                  className="p-2 m-1"
+                  onClick={handleNavigateAddForm}
+                >
+                  <FaPlus size={20} /><span className="d-none d-md-inline"> Add Post</span>
+                </Button>
+              </div>
             </Col>
           </Row>
           <Row className="boxShadow p-3 mb-4  d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
@@ -232,20 +249,38 @@ const Post = () => {
           </Row>
           <Row className="boxShadow p-4 mb-4">
             <BasicTable
-               COLUMNS={COLUMNS}
-               MOCK_DATA={data}
-               currentPage={currentPage}
-               startIndex={startIndex}
-               endIndex={endIndex}
-               setCurrentPage={setCurrentPage}
-               totalItems={totalItems}
-               totalPages={totalPages}
+              COLUMNS={COLUMNS}
+              MOCK_DATA={data}
+              currentPage={currentPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+              totalPages={totalPages}
             />
           </Row>
         </Container>
       ) : (
         <Loader />
       )}
+
+      {/* Modal */}
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Action</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to {modalData.status} this post?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button style={{backgroundColor:"#6B78B7"}} onClick={handleConfirmAction}>
+            Confirm
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
