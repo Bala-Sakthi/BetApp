@@ -105,6 +105,30 @@ const Post = () => {
       accessor:"s_no",
     },
     {
+      Header: "Image",
+      accessor: "image",
+      Cell: (props) => {
+          const imageUrl = props.value;
+          return imageUrl ? (
+            <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+          ) : (
+            <HiUserCircle  size={30} />
+          );
+        },
+    },
+    {
+      Header: "Post Owner Image",
+      accessor: "postOwnerImage",
+      Cell: (props) => {
+          const imageUrl = props.value;
+          return imageUrl ? (
+            <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+          ) : (
+            <HiUserCircle  size={30} />
+          );
+        },
+    },
+    {
         Header: "Sports",
         accessor:"sport",
       },
@@ -116,18 +140,7 @@ const Post = () => {
       Header: "Phone Number",
       accessor: "phoneNumber",
     },
-    {
-        Header: "Image",
-        accessor: "image",
-        Cell: (props) => {
-            const imageUrl = props.value;
-            return imageUrl ? (
-              <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-            ) : (
-              <HiUserCircle  size={30} />
-            );
-          },
-      },
+    
     {
       Header: "Match Details",
       accessor: "matchDetails",
@@ -148,18 +161,7 @@ const Post = () => {
         Header: "Status",
         accessor: "status",
       },
-      {
-        Header: "PostOwner Image",
-        accessor: "postOwnerImage",
-        Cell: (props) => {
-            const imageUrl = props.value;
-            return imageUrl ? (
-              <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-            ) : (
-              <HiUserCircle  size={30} />
-            );
-          },
-      },
+      
 
       {
         Header: "Result",

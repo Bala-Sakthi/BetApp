@@ -54,42 +54,7 @@ export const sidebarItems = [
     "order_index": 2,
     "url": "/admin/post",
   },
-  {
-    "id": 5,
-    "label": "Notification",
-    "parent_id": null,
-    "icon": <IoMdNotifications size={20}  />,
-    "order_index": 5,
-    "url": "/",
-    "style": { color: 'white' },
-    "children": [
-      {
-        "id": 6,
-        "label": "General",
-        "parent_id": null,
-        "icon": <IoPersonCircleSharp size={20}/>,
-        "order_index":1,
-        "url": "/admin/general"
-      },
-      {
-        "id": 7,
-        "label": "Individual",
-        "parent_id": null,
-        "icon":<MdPerson size={20}/>,
-        "order_index": 2,
-        "url": "/admin/individual"
-      }
-      ,
-      {
-        "id": 8,
-        "label": "Group",
-        "parent_id": null,
-        "icon":<HiMiniUserGroup size={20}/>,
-        "order_index": 3,
-        "url": "/admin/group-notification"
-      }
-    ]
-  }, 
+ 
   {
     "id": 6,
     "label": "Withdraw request",
@@ -114,4 +79,40 @@ export const sidebarItems = [
     "order_index": 7,
     "url": "/admin/transaction-history",
   },
+  {
+    "id": 9,
+    "label": "Notification",
+    "parent_id": null,
+    "icon": <IoMdNotifications size={20}  />,
+    "order_index": 5,
+    "url": "/",
+    "style": { color: 'white' },
+    "children": [
+      {
+        "id": 10,
+        "label": "General",
+        "parent_id": null,
+        "icon": <IoPersonCircleSharp size={20}/>,
+        "order_index":1,
+        "url": "/admin/general"
+      },
+      {
+        "id": 11,
+        "label": "Individual",
+        "parent_id": null,
+        "icon":<MdPerson size={20}/>,
+        "order_index": 2,
+        "url": "/admin/individual"
+      }
+      ,
+      {
+        "id": 12,
+        "label": "Group",
+        "parent_id": null,
+        "icon":<HiMiniUserGroup size={20}/>,
+        "order_index": 3,
+        "url": "/admin/group-notification"
+      }
+    ]
+  }, 
 ];

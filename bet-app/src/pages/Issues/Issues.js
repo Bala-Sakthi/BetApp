@@ -89,18 +89,6 @@ const Issue = () => {
       accessor:"s_no",
     },
     {
-      Header: "Phone Number",
-      accessor: "phoneNumber",
-    },
-    {
-      Header: "Subject",
-      accessor: "subject",
-    },
-    {
-      Header: "Message",
-      accessor: "message",
-    },
-    {
       Header: "ScreenShot Images",
       accessor: "screenshotImg",
       Cell: (props) => {
@@ -112,6 +100,19 @@ const Issue = () => {
         );
       },
     },
+    {
+      Header: "Phone Number",
+      accessor: "phoneNumber",
+    },
+    {
+      Header: "Subject",
+      accessor: "subject",
+    },
+    {
+      Header: "Message",
+      accessor: "message",
+    },
+   
     {
         Header: "Status",
         accessor: "status",

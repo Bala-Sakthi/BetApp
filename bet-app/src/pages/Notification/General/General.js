@@ -125,6 +125,14 @@ const GeneralNotification = () => {
       accessor: "s_no",
     },
     {
+      Header: "Image",
+      accessor: "image",
+      Cell: (props) => {
+        const imageUrl = props.value;
+        return <img src={imageUrl} alt="img" style={{ maxWidth: '50px', maxHeight: '50px' }} />;
+      },
+    },
+    {
       Header: "Title",
       accessor: "title",
       width: "auto",
@@ -136,14 +144,7 @@ const GeneralNotification = () => {
       width: "auto",
       minWidth: 100,
     },
-    {
-      Header: "Image",
-      accessor: "image",
-      Cell: (props) => {
-        const imageUrl = props.value;
-        return <img src={imageUrl} alt="img" style={{ maxWidth: '50px', maxHeight: '50px' }} />;
-      },
-    },
+
     {
       Header: "Created At",
       accessor: "createdAt",

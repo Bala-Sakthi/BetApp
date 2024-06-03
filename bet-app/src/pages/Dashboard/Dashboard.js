@@ -51,6 +51,18 @@ const Dashboard = () => {
         accessor: (d, i) => i + 1,
         minWidth: 10,
       },
+      {
+        Header: "Profile Img",
+        accessor: "profileImg",
+        Cell: (props) => {
+            const imageUrl = props.value;
+            return imageUrl ? (
+              <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+            ) : (
+              <HiMiniUserCircle  size={30} />
+            );
+          },
+      },
     {
         Header: "User Name",
         accessor:"userName",
@@ -71,18 +83,7 @@ const Dashboard = () => {
         Header: "Location",
         accessor: "location",
       },
-      {
-        Header: "Profile Img",
-        accessor: "profileImg",
-        Cell: (props) => {
-            const imageUrl = props.value;
-            return imageUrl ? (
-              <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-            ) : (
-              <HiMiniUserCircle  size={30} />
-            );
-          },
-      },
+      
     {
       Header: 'Created At',
       accessor: 'createdAt',

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import Logo3 from "../../assets/images/header.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +21,7 @@ function Header() {
     >
       <div className="container">
         {/* Begin Logo */}
-        <Navbar.Brand href="#" className="">
+        <Navbar.Brand href="/" className="">
           <img
             src={Logo3}
             alt="TrainsOnWheels"

@@ -21,7 +21,7 @@ function Header() {
     >
       <div className="container">
         {/* Begin Logo */}
-        <Navbar.Brand href="#" className="">
+        <Navbar.Brand href="/" className="">
           <img
             src={Logo3}
             alt="TrainsOnWheels"
@@ -44,13 +44,13 @@ function Header() {
         >
           <Nav className="">
            
-            <Nav.Link
+            {/* <Nav.Link
               className="nav-link"
               href="/"
               style={{ color: "#6B78B7", fontSize: "18px" }}
             >
               Home
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               className="nav-link"
               href="/about-us"

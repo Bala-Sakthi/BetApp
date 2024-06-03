@@ -99,6 +99,14 @@ const Transactionhistory = () => {
       minWidth: 10,
     },
     {
+      Header: "Image",
+      accessor: "image",
+      Cell: (props) => {
+        const imageUrl = props.value; 
+        return <img src={imageUrl} alt="img" style={{ maxWidth: '50px', maxHeight: '50px' }} />;
+      },
+    },
+    {
       Header: "User",
       accessor: "phoneNumber",
     },
@@ -118,14 +126,7 @@ const Transactionhistory = () => {
       Header: "Transaction Id",
       accessor: "transactionId",
     },
-    {
-      Header: "Image",
-      accessor: "image",
-      Cell: (props) => {
-        const imageUrl = props.value; 
-        return <img src={imageUrl} alt="img" style={{ maxWidth: '50px', maxHeight: '50px' }} />;
-      },
-    },
+   
     {
       Header: 'Paid On',
       accessor: 'paidOn',
