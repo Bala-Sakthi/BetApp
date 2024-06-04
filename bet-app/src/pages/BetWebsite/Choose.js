@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Chooseimage from "../../assets/images/chooseimgss.png";
+import Chooseimage from "../../assets/images/chooseimgss.webp";
 import "animate.css/animate.min.css";
 const Choose = () => {
   return (

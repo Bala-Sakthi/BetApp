@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav,} from "react-bootstrap";
-import Logo3 from "../assets/images/header.png";
+import Logo3 from "../assets/images/header.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 function Header() {

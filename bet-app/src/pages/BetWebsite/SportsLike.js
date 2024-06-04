@@ -4,7 +4,7 @@ import Volleyball from "../../assets/images/Volleyball.webp";
 import Football from "../../assets/images/Football.webp";
 import Basketball from "../../assets/images/basketball.webp";
 import { Container, Col, Row } from "react-bootstrap";
-export const OurRoute = () => {
+export const SportsLike = () => {
   return (
     <>
      <Container className="mt-4 mb-4">

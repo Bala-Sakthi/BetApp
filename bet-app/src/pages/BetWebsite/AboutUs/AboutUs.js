@@ -1,7 +1,7 @@
 
 import { Row, Col, Container} from "react-bootstrap";
-import Misson from "../../../assets/images/mission.png";
-import TeleService from "../../../assets/images/service.png";
+import Misson from "../../../assets/images/mission.webp";
+import TeleService from "../../../assets/images/service.webp";
 import Footer from "../Footer";
 import Header from "../../../components/WebsiteHeader"
 
