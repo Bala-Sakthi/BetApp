@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -20,6 +20,8 @@ const AddPost = () => {
   const [betAmount, setBetAmount] = useState("");
   const [image, setImage] = useState("");
   const [placeOfMatch, setPlaceOfMatch] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const fileInputRef = useRef(null);
   const [AddPostData,{isLoading}]=useAddPostMutation();
   
   console.log(userName);
@@ -29,6 +31,8 @@ const AddPost = () => {
   console.log(betAmount);
   console.log(image);
   console.log(placeOfMatch);
+  console.log(phoneNumber);
+
 
 
 
@@ -47,22 +51,32 @@ const AddPost = () => {
     betAmount: "",
     image: "",
     placeOfMatch:"",
+    phoneNumber:"",
    
     
   };
   const handleAddData = async () => {
     try {
+      
+      const formattedDate = new Date(matchDate);
+      const day = String(formattedDate.getDate()).padStart(2, '0');
+      const month = String(formattedDate.getMonth() + 1).padStart(2, '0');
+      const year = formattedDate.getFullYear();
+      const formattedDateString = `${day}/${month}/${year}`;
+      console.log(formattedDateString);
+
       const response = await AddPostData ({
         userName: userName,
         sport: sport,
         matchDetails:matchDetails,
-        matchDate: matchDate,
+        matchDate: formattedDateString,
         betAmount: betAmount,
         image:image,
         placeOfMatch:placeOfMatch,
+        phoneNumber:phoneNumber
        
      
-      
+    
         
       });
     
@@ -75,6 +89,7 @@ const AddPost = () => {
         setBetAmount("");
         setImage("");
         setPlaceOfMatch("")
+        setPhoneNumber("")
         toast.success(response?.data?.message, { autoClose: 1000 });
         setTimeout(() => navigate("/admin/post"), 3000);
         console.log(response.error.data);
@@ -88,6 +103,12 @@ const AddPost = () => {
       console.error(error);
    
     }
+  };
+
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+setImage(file)
   };
 
 
@@ -133,10 +154,11 @@ const AddPost = () => {
                      disabled={isSubmitting}
                       onClick={
                         (userName=== '')||
-                        sport === ''||
+                        ( sport === '')||
                         (matchDetails=== '')||
                         matchDate === ''||
                         (betAmount=== '')||
+                        (phoneNumber=== '')||
                         image === ''||
 
                           (touched.userName && errors.userName) ||
@@ -144,6 +166,7 @@ const AddPost = () => {
                         (touched.matchDetails && errors.matchDetails) ||
                         (touched.matchDate && errors.matchDate) || 
                         (touched.betAmount && errors.betAmount) ||
+                        (touched.phoneNumber && errors.phoneNumber) ||
                         (touched.image && errors.image) 
                         
                        
@@ -258,11 +281,8 @@ const AddPost = () => {
                         className={`form-control ${
                           touched.image && errors.image ? "is-invalid" : ""
                         }`}
-                        onChange={(e) => {
-                          setImage(e.target.files[0]); 
-                          handleChange(e);
-                        }}
-                        onBlur={handleBlur}
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
                         validation={
                           touched.image && errors.image ? (
                             <p className="text-danger">{errors.image}</p>
@@ -278,7 +298,36 @@ const AddPost = () => {
 
                     <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
                 
-                
+                    <Col
+                      className="m-2"
+                      lg="6"
+                      xxl="6"
+                      xl="12"
+                      md="12"
+                      sm="12"
+                    >
+                      <TextInput
+                        label="Phone Number"
+                        type="number"
+                        name="phoneNumber"
+                        className={`form-control ${
+                          touched.phoneNumber && errors.phoneNumber ? "is-invalid" : ""
+                        }`}
+                        onChange={(e) => {
+                            setPhoneNumber(e.target.value);
+                          handleChange(e);
+                        }}
+                        onBlur={handleBlur}
+                        validation={
+                          touched.phoneNumber && errors.phoneNumber ? (
+                            <p className="text-danger">{errors.phoneNumber}</p>
+                          ) : (
+                            ""
+                          )
+                        }
+                      />
+                    </Col>
+
                    
                     
                  
@@ -390,10 +439,11 @@ const AddPost = () => {
                       disabled={isSubmitting}
                       onClick={
                         (userName=== '')||
-                        sport === ''||
+                       ( sport === '')||
                         (matchDetails=== '')||
                         matchDate === ''||
                         (betAmount=== '')||
+                        (phoneNumber=== '')||
                         image === ''||
 
                           (touched.userName && errors.userName) ||
@@ -401,7 +451,8 @@ const AddPost = () => {
                         (touched.matchDetails && errors.matchDetails) ||
                         (touched.matchDate && errors.matchDate) || 
                         (touched.betAmount && errors.betAmount) ||
-                        (touched.image && errors.image) 
+                        (touched.phoneNumber && errors.phoneNumber) ||
+                        (touched.image && errors.image)  
                         
                        
                           ? handleSubmit

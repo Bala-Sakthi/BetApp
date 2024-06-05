@@ -39,6 +39,7 @@ const ReactSidebar = ({ sidebarItems, onClick }) => {
               rootStyles={{
                 backgroundColor: isActive ? '#bcc3e6' : '#FFFFFF',
                 color: isActive ? 'black' : 'black',
+                width:"260px"
               }}
               icon={item.icon}
             >

@@ -30,7 +30,7 @@ export const PostApi = createApi({
       }),
      
       addPost: build.mutation({
-        query: ({ userName, sport, matchDetails, matchDate,betAmount,image,placeOfMatch }) => {
+        query: ({ userName, sport, matchDetails, matchDate,betAmount,image,placeOfMatch,phoneNumber }) => {
           const formData = new FormData();
           formData.append('userName', userName);
           formData.append('sport', sport);
@@ -41,7 +41,24 @@ export const PostApi = createApi({
           formData.append('image', image);
       
           return {
-            url: `/post/addPost/9788825633`,
+            url: `/post/addPost/${phoneNumber}`,
+            method: "POST",
+            body: formData,
+            headers: {
+             
+            },
+          };
+        },
+        invalidatesTags: ["POSTAPI"],
+      }),
+
+
+      addBulkPost: build.mutation({
+        query: ({file }) => {
+          const formData = new FormData();
+          formData.append('file', file);
+          return {
+            url: `/post/bulkPosts`,
             method: "POST",
             body: formData,
             headers: {
@@ -57,4 +74,4 @@ export const PostApi = createApi({
   });
 
 
-export const { useGetPostQuery,useEditPostMutation,useAddPostMutation} = PostApi;
+export const { useGetPostQuery,useEditPostMutation,useAddPostMutation,useAddBulkPostMutation} = PostApi;

@@ -6,7 +6,7 @@ import { SportsLike } from "../SportsLike";
 import DownloadApp from "../Download";
 import Header from '../Header';
 import Footer from '../Footer';
-import UpArrowButton from '../../../components/UpArrow';
+
 
 const MeetInGround = () => {
   return (
@@ -18,7 +18,7 @@ const MeetInGround = () => {
       <SportsLike/>
       <DownloadApp/>
       <Footer/>
-      <UpArrowButton/>
+   
     </>
   );
 };

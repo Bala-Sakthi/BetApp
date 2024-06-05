@@ -56,6 +56,9 @@ const UserList = () => {
 
 console.log(UserListData);
 
+
+
+
   const handleClear = () => {
     setSearchInput("");
     setSearchTerm("");
@@ -71,6 +74,10 @@ console.log(UserListData);
   };
 
   
+
+
+
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -180,14 +187,14 @@ console.log(UserListData);
   return (
     <div>
       {!isLoading ? (
-        <Container fluid className="mt-3">
-          <Row className="boxShadow p-4 mb-4 mt-4">
+        <Container fluid className="mt-3 reduced-width-row" >
+          <Row className="boxShadow p-4 mb-4 mt-4  ">
             <Col>
             <BasicHeader HEADING="User List" />
             </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
-          <Row className=" boxShadow p-4  mb-3 mt-3 d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
+          <Row className="  boxShadow p-4  mb-3 mt-3 d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
            
            
            
@@ -259,7 +266,7 @@ console.log(UserListData);
            </Col>
             </Row>
 
-          <Row className="boxShadow p-4 mb-4">
+          <Row className="boxShadow p-4 mb-4 ">
             <BasicTable
                COLUMNS={COLUMNS}
                MOCK_DATA={data}

@@ -10,10 +10,10 @@ export default function DashboardLayout() {
       <MainNav />
       <Container fluid>
         <Row>
-          <Col lg={2} xxl={2} xl={2}>
+          <Col lg={2} xxl={2} xl={2}   >
             <Sidebar />
           </Col>
-          <Col lg={10} xxl={10} xl={10} md={12} sm={12}>
+          <Col lg={10} xxl={10} xl={10} md={12} sm={12} id="reduced-width-row">
             <Outlet />
           </Col>
         </Row>

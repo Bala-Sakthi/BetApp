@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Modal } from "react-bootstrap";
 import BasicTable from "../../components/TablePaginationComponent";
-import { useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
+import { useAddBulkPostMutation, useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
 import Loader from "../../pages/Loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
@@ -12,6 +12,7 @@ import RejectedImage from  "../../assets/images/rejected.webp";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
+import { FaFileImport } from "react-icons/fa";
 
 
 const Post = () => {
@@ -26,9 +27,13 @@ const Post = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({ rowData: null, status: "" });
+  const [importModalVisible, setImportModalVisible] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null); 
   const { data: postData, isLoading, refetch } = useGetPostQuery({ page: currentPage, search: searchTerm });
   const navigate = useNavigate();
   const [editPostData] = useEditPostMutation();
+  const [AddBulkPostData] = useAddBulkPostMutation();
+
 
   
 
@@ -98,7 +103,51 @@ const Post = () => {
 
   const handleCloseModal = () => setShowModal(false);
 
- 
+
+
+    // import modal function
+  const handleOpenImportModal = () => {
+    setImportModalVisible(true);
+  };
+
+  const handleCloseImportModal = () => {
+    setImportModalVisible(false);
+  };
+
+  const handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+
+
+
+
+ const handleAddData = async () => {
+    try {
+       const response = await AddBulkPostData ({
+        file: selectedFile,
+       
+        });
+    
+      if (response?.data) {
+       
+        setSelectedFile("")
+        toast.success(response?.data?.message, { autoClose: 1000 });
+        setImportModalVisible(false);
+       
+      } else {
+        toast.error(response?.error?.data.error, { autoClose: 1000 });
+        console.log("else part");
+        console.log(response.error);
+      }
+    } catch (error) {
+      console.error(error);
+   
+    }
+  };
+
+
   const COLUMNS = [
     {
       Header: "ID",
@@ -215,7 +264,19 @@ const Post = () => {
                 >
                   <FaPlus size={20} /><span className="d-none d-md-inline"> Add Post</span>
                 </Button>
+
+
+                <Button
+                  style={{ backgroundColor: "#6B78B7", border: "none" }}
+                  className="p-2 m-1"
+                  onClick={handleOpenImportModal}
+                >
+                  <FaFileImport size={20} /><span className="d-none d-md-inline">  Import</span>
+                </Button>
               </div>
+             
+              
+             
             </Col>
           </Row>
           <Row className="boxShadow p-3 mb-4  d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
@@ -280,6 +341,26 @@ const Post = () => {
           </Button>
           <Button style={{backgroundColor:"#6B78B7"}} onClick={handleConfirmAction}>
             Confirm
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
+
+
+      <Modal show={importModalVisible} onHide={handleCloseImportModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Upload File</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <input type="file" onChange={handleFileInputChange} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseImportModal}>
+            Cancel
+          </Button>
+          <Button style={{backgroundColor:"#6B78B7"}} onClick={handleAddData}>
+            Upload
           </Button>
         </Modal.Footer>
       </Modal>

@@ -66,8 +66,8 @@ const AboutUs = () => {
     color: "black",
     letterSpacing: "1px",
   }}
-  onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
-  onMouseOut={(e) => { e.target.style.color = "black"; }}
+  // onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
+  // onMouseOut={(e) => { e.target.style.color = "black"; }}
 >
   Introducing <b>"Meet In Ground"</b> - your premier destination for all sports betting and gaming enthusiasts! We're here to redefine the way you engage with sports, offering a dynamic platform where fans can connect, compete, and celebrate their love for the game. Whether you're a frequent commuter or an occasional traveler.
 </p>
@@ -79,8 +79,8 @@ const AboutUs = () => {
                   color: "black",
                   letterSpacing: "1px",
                 }}
-                onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
-                onMouseOut={(e) => { e.target.style.color = "black"; }}
+                // onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
+                // onMouseOut={(e) => { e.target.style.color = "black"; }}
               >
                 At <b>"Meet In Ground"</b>, we cover a wide array of sports, including cricket, football, basketball, tennis, and more. From live match updates to comprehensive statistics, we provide you with the insights you need to make informed bets and take your gaming experience to the next level.
               </p>
@@ -91,8 +91,8 @@ const AboutUs = () => {
                   color: "black",
                   letterSpacing: "1px",
                 }}
-                onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
-                onMouseOut={(e) => { e.target.style.color = "black"; }}
+                // onMouseOver={(e) => { e.target.style.color = "#6B78B7"; }}
+                // onMouseOut={(e) => { e.target.style.color = "black"; }}
               >
               But <b>"Meet In Ground"</b> is more than just a betting platform - it's a community. Share your predictions, challenge friends, and accept requests from other users. Once a challenge is accepted, it's game on!
               </p>

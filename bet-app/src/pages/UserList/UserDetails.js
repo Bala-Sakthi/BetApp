@@ -14,10 +14,20 @@ const UserDetails = () => {
   const [data, setData] = useState([]);
   const [requestdata, setRequestData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage1, setCurrentPage1] = useState(1);
+
   const [startIndex, setStartIndex] = useState(1);
+  const [startIndex1, setStartIndex1] = useState(1);
+
   const [endIndex, setEndIndex] = useState(1);
+  const [endIndex1, setEndIndex1] = useState(1);
+
   const [totalPages, setTotalPages] = useState(1);
+  const [totalPages1, setTotalPages1] = useState(1);
+
   const [totalItems, setTotalItem] = useState();
+  const [totalItems1, setTotalItem1] = useState();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [isSearching, setIsSearching] = useState(false);
@@ -45,13 +55,13 @@ const UserDetails = () => {
   useEffect(() => {
     if (RequsetData && RequsetData.data) {
       setRequestData(RequsetData.data);
-      setStartIndex(RequsetData.pagination.startIndex);
-      setCurrentPage(currentPage);
-      setTotalItem(RequsetData.pagination.totalItems);
-      setEndIndex(RequsetData.pagination.endIndex);
-      setTotalPages(RequsetData.pagination.totalPages);
+      setStartIndex1(RequsetData.pagination.startIndex);
+      setCurrentPage1(currentPage);
+      setTotalItem1(RequsetData.pagination.totalItems);
+      setEndIndex1(RequsetData.pagination.endIndex);
+      setTotalPages1(RequsetData.pagination.totalPages);
     }
-  }, [RequsetData, currentPage]);
+  }, [RequsetData, currentPage1]);
 
 
   const handleClear = () => {
@@ -86,18 +96,6 @@ const UserDetails = () => {
       accessor: "s_no",
     },
     {
-      Header: "Sports",
-      accessor: "sport",
-    },
-    {
-      Header: "User Name",
-      accessor: "userName",
-    },
-    {
-      Header: "Phone Number",
-      accessor: "phoneNumber",
-    },
-    {
       Header: "Image",
       accessor: "image",
       Cell: (props) => {
@@ -109,6 +107,31 @@ const UserDetails = () => {
         );
       },
     },
+    {
+      Header: "PostOwner Image",
+      accessor: "postOwnerImage",
+      Cell: (props) => {
+        const imageUrl = props.value;
+        return imageUrl ? (
+          <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+        ) : (
+          <HiMiniUserCircle size={30} />
+        );
+      },
+    },
+    {
+      Header: "Sports",
+      accessor: "sport",
+    },
+    {
+      Header: "User Name",
+      accessor: "userName",
+    },
+    {
+      Header: "Phone Number",
+      accessor: "phoneNumber",
+    },
+   
     {
       Header: "Match Details",
       accessor: "matchDetails",
@@ -129,18 +152,7 @@ const UserDetails = () => {
       Header: "Status",
       accessor: "status",
     },
-    {
-      Header: "PostOwner Image",
-      accessor: "postOwnerImage",
-      Cell: (props) => {
-        const imageUrl = props.value;
-        return imageUrl ? (
-          <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-        ) : (
-          <HiMiniUserCircle size={30} />
-        );
-      },
-    },
+   
     {
       Header: "Result",
       accessor: "result",
@@ -169,18 +181,6 @@ const UserDetails = () => {
       accessor: "s_no",
     },
     {
-      Header: "Sports",
-      accessor: "sport",
-    },
-    {
-      Header: "User Name",
-      accessor: "userName",
-    },
-    {
-      Header: "Phone Number",
-      accessor: "phoneNumber",
-    },
-    {
       Header: "Image",
       accessor: "image",
       Cell: (props) => {
@@ -192,6 +192,31 @@ const UserDetails = () => {
         );
       },
     },
+    {
+      Header: "PostOwner Image",
+      accessor: "postOwnerImage",
+      Cell: (props) => {
+        const imageUrl = props.value;
+        return imageUrl ? (
+          <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
+        ) : (
+          <HiMiniUserCircle size={30} />
+        );
+      },
+    },
+    {
+      Header: "Sports",
+      accessor: "sport",
+    },
+    {
+      Header: "User Name",
+      accessor: "userName",
+    },
+    {
+      Header: "Phone Number",
+      accessor: "phoneNumber",
+    },
+    
     {
       Header: "Match Details",
       accessor: "matchDetails",
@@ -212,18 +237,7 @@ const UserDetails = () => {
       Header: "Status",
       accessor: "status",
     },
-    {
-      Header: "PostOwner Image",
-      accessor: "postOwnerImage",
-      Cell: (props) => {
-        const imageUrl = props.value;
-        return imageUrl ? (
-          <img src={imageUrl} alt="Profile" style={{ maxWidth: '50px', maxHeight: '50px' }} />
-        ) : (
-          <HiMiniUserCircle size={30} />
-        );
-      },
-    },
+   
     {
       Header: "Result",
       accessor: "result",
@@ -345,12 +359,12 @@ const UserDetails = () => {
                 <BasicTable
                   COLUMNS={COLUMN}
                   MOCK_DATA={requestdata}
-                  currentPage={currentPage}
-                  startIndex={startIndex}
-                  endIndex={endIndex}
-                  setCurrentPage={setCurrentPage}
-                  totalItems={totalItems}
-                  totalPages={totalPages}
+                  currentPage={currentPage1}
+                  startIndex={startIndex1}
+                  endIndex={endIndex1}
+                  setCurrentPage={setCurrentPage1}
+                  totalItems={totalItems1}
+                  totalPages={totalPages1}
                 />
               </Row>
             </Tab>

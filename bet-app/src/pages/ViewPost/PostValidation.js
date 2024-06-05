@@ -11,4 +11,6 @@ export const PostSchema = Yup.object().shape({
     betAmount: Yup.mixed().required("bet Amount  Must be Required..!"),
     placeOfMatch: Yup.mixed().required("place Of Match  Must be Required..!"),
     image: Yup.mixed().required("Image Must be Required..!"),
+    phoneNumber: Yup.mixed().required("Phone Number Must be Required..!"),
+
 });
