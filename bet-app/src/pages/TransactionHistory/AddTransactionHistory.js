@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -20,6 +20,7 @@ const AddTransactionhistory = () => {
   const [transactionId, setTransactionId] = useState("");
   const [image, setImage] = useState("");
   const [paidOn, setpaidOn] = useState("");
+  const fileInputRef = useRef(null);
   const [TransactionhistoryAddData,{isLoading}]=useAddTransactionhistoryMutation();
   
   console.log(phoneNumber);
@@ -88,6 +89,12 @@ const AddTransactionhistory = () => {
       console.error(error);
    
     }
+  };
+
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+setImage(file)
   };
 
 
@@ -256,11 +263,8 @@ const AddTransactionhistory = () => {
                         className={`form-control ${
                           touched.image && errors.image ? "is-invalid" : ""
                         }`}
-                        onChange={(e) => {
-                          setImage(e.target.files[0]); 
-                          handleChange(e);
-                        }}
-                        onBlur={handleBlur}
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
                         validation={
                           touched.image && errors.image ? (
                             <p className="text-danger">{errors.image}</p>
@@ -270,7 +274,6 @@ const AddTransactionhistory = () => {
                         }
                       />
                     </Col>
-
                     </Col>
 
 
