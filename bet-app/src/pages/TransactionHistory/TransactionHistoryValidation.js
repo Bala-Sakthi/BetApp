@@ -9,4 +9,6 @@ export const TransactionHistorySchema = Yup.object().shape({
     amount: Yup.mixed().required("Amount Must be Required..!"),
     transactionId: Yup.mixed().required("Transaction Id Must be Required..!"),
     image: Yup.mixed().required("Image Must be Required..!"),
+    paidOn: Yup.mixed().required("Paid On Must be Required..!"),
+
 });
