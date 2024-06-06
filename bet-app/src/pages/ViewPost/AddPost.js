@@ -183,7 +183,7 @@ setImage(file)
                     
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -214,7 +214,7 @@ setImage(file)
 
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -244,7 +244,7 @@ setImage(file)
 
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -273,7 +273,7 @@ setImage(file)
                     </Col>
 
 
-                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
+                    <Col className="m-2" lg="12" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="Image"
                         type="file" 
@@ -300,7 +300,7 @@ setImage(file)
                 
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -333,7 +333,7 @@ setImage(file)
                  
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -365,7 +365,7 @@ setImage(file)
 
                     <Col
                       className="m-2"
-                      lg="6"
+                      lg="12"
                       xxl="6"
                       xl="12"
                       md="12"
@@ -395,7 +395,7 @@ setImage(file)
 
                    
 
-                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
+                    <Col className="m-2" lg="12" xxl="6" xl="12" md="12" sm="12">
   <TextArea
     label="Match Details"
     type=""
