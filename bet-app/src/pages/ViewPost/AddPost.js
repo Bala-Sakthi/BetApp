@@ -340,7 +340,7 @@ setImage(file)
                       sm="12"
                     >
                       <TextInput
-                        label="match Date"
+                        label="Match Date"
                         type="date"
                         name="matchDate"
                         className={`form-control ${
