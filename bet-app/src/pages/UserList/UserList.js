@@ -134,21 +134,18 @@ console.log(UserListData);
       Cell: (props) => {
         const userName = props.value;
         let phoneNumber = props.row.original.phoneNumber;
-        
-       
+  
         if (phoneNumber.startsWith("+91")) {
           phoneNumber = phoneNumber.replace("+91", "");
         }
-        
-    
+  
         return (
           <Link to={`/admin/user-details/${phoneNumber}`}>
             {userName}
           </Link>
         );
-      }
+      },
     },
-    
     {
       Header: "Phone Number",
       accessor: "phoneNumber",
@@ -164,8 +161,29 @@ console.log(UserListData);
     {
       Header: "Location",
       accessor: "location",
+      Cell: ({ value }) => {
+            const [lat, long] = value.split(",");
+             const [Location, setLocation] = React.useState('');
+                  React.useEffect(() => {
+               // Fetch Location based on lat and long when component mounts
+               fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`)
+                 .then(response => response.json())
+                 .then(data => {
+                   console.log(data);
+                   setLocation(data.display_name);
+                 })
+                 .catch(error => {
+                   console.error('Error fetching Location:', error);
+                   setLocation('Location not available');
+                 });
+             }, [lat, long]);
+         
+             return <span>{Location}</span>;
+        
+           },
+    
+
     },
-   
     {
       Header: 'Created At',
       accessor: 'createdAt',
@@ -183,6 +201,7 @@ console.log(UserListData);
       },
     },
   ];
+  
   
   return (
     <div>
