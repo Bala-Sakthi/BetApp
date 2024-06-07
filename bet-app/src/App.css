@@ -863,7 +863,13 @@ padding-left: 70px;
 @media only screen and (min-device-width: 820px) and (max-device-width: 820px)  {
   #reduced-width-row {
     
-padding-left: 70px;
+padding-left: 20px;
+   }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px)  {
+  #reduced-width-row {
+    
+padding-left: 78px;
    }
 }
 
