@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Tooltip } from "react-bootstrap";
 import BasicTable from "../../components/TablePaginationComponent";
 import BasicHeader from "../../components/BasicHeader";
 import { useGetUserListQuery } from "../../redux/api/UserListApi";
@@ -9,6 +9,8 @@ import { format } from "date-fns";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+
 
 
 const UserList = () => {
@@ -161,29 +163,32 @@ console.log(UserListData);
     {
       Header: "Location",
       accessor: "location",
-      Cell: ({ value }) => {
-            const [lat, long] = value.split(",");
-             const [Location, setLocation] = React.useState('');
-                  React.useEffect(() => {
-               // Fetch Location based on lat and long when component mounts
-               fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`)
-                 .then(response => response.json())
-                 .then(data => {
-                   console.log(data);
-                   setLocation(data.display_name);
-                 })
-                 .catch(error => {
-                   console.error('Error fetching Location:', error);
-                   setLocation('Location not available');
-                 });
-             }, [lat, long]);
-         
-             return <span>{Location}</span>;
+      Cell: ({value}) => {
         
-           },
-    
-
+        
+        const position = value.split(',').map(Number); 
+      
+        return (
+          <MapContainer 
+            center={position} 
+            zoom={13} 
+            scrollWheelZoom={false} 
+            style={{ height: "70px", width: "70px" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>{position.join(', ')}</Popup>
+              <Tooltip>{position.join(', ')}</Tooltip>
+            </Marker>
+          </MapContainer>
+        );
+      }
+      
     },
+    
     {
       Header: 'Created At',
       accessor: 'createdAt',
