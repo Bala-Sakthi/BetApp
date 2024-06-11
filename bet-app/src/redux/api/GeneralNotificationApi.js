@@ -8,7 +8,7 @@ export const GeneralNotificationApi = createApi({
   endpoints: (build) => ({
     getNotification: build.query({
       query: ({page,search}) => ({
-        url: `/admin/viewGeneralNotifications?page=${page}&search=${search}`,
+        url: `/admin/viewGeneralNotifications/${search}?page=${page}`,
         method: "GET",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",

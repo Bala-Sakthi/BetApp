@@ -163,16 +163,23 @@ console.log(UserListData);
     {
       Header: "Location",
       accessor: "location",
-      Cell: ({value}) => {
-        
-        
-        const position = value.split(',').map(Number); 
-      
+      Cell: ({ value }) => {
+        if (!value) {
+          return <span>No data found</span>;
+        }
+    
+        const position = value.split(',').map(Number);
+    
+        // Check if the position is valid
+        if (position.length !== 2 || position.some(isNaN)) {
+          return <span>No data found</span>;
+        }
+    
         return (
-          <MapContainer 
-            center={position} 
-            zoom={13} 
-            scrollWheelZoom={false} 
+          <MapContainer
+            center={position}
+            zoom={13}
+            scrollWheelZoom={false}
             style={{ height: "70px", width: "70px" }}
           >
             <TileLayer
@@ -186,8 +193,8 @@ console.log(UserListData);
           </MapContainer>
         );
       }
-      
     },
+    
     
     {
       Header: 'Created At',

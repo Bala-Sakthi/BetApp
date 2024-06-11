@@ -17,10 +17,30 @@ export const WithdrawRequestApi = createApi({
         providesTags: ["WITHDRAWREQUEST"],
       }),
      
-  
+      editWithdrawrequest: build.mutation({
+        query: ({ id, data }) => ({
+          url: `/admin/updateWithdrawRequest/${id}`,
+          method: "PATCH",
+          body: data,
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        }),
+        invalidatesTags: ["WITHDRAWREQUEST"],
+      }),
+      deleteWithdrawrequest: build.mutation({
+        query: (id) => ({
+          url: `/admin/deleteWithdrawRequests/${id}`,
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        }),
+        invalidatesTags: ["WITHDRAWREQUEST"],
+      }),
      
     }),
   });
 
 
-export const { useGetWithdrawRequestQuery} = WithdrawRequestApi;
+export const { useGetWithdrawRequestQuery,useDeleteWithdrawrequestMutation,useEditWithdrawrequestMutation,} = WithdrawRequestApi;
