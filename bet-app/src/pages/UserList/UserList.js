@@ -9,8 +9,9 @@ import { format } from "date-fns";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 
 const UserList = () => {
@@ -112,7 +113,66 @@ console.log(UserListData);
   };
   
   
+/* map location code */
 
+
+  delete L.Icon.Default.prototype._getIconUrl;
+
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  });
+  
+    
+  const LocationCell = ({ value }) => {
+    const [location, setLocation] = React.useState('');
+    const position = value ? value.split(',').map(Number) : null;
+  console.log(location);
+    React.useEffect(() => {
+      if (!position || position.length !== 2 || isNaN(position[0]) || isNaN(position[1])) {
+        setLocation('No data found');
+        return;
+      }
+  
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${position[0]}&lon=${position[1]}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data && data.display_name) {
+            setLocation(data.display_name);
+          } else {
+            setLocation('No data found');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching location:', error);
+          setLocation('No data found');
+        });
+    }, [position]);
+  
+    if (!value || !position || position.length !== 2 || isNaN(position[0]) || isNaN(position[1])) {
+      return <div style={{ position: 'relative' }}>No data found</div>;
+    }
+  
+    return (
+      <div style={{ position:"sticky" }}>
+        {location === 'No data found' ? (
+          <span>No data found</span>
+        ) : (
+          <MapContainer center={[position[0], position[1]]} zoom={13} style={{ height: '100px', width: '250px' }}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={[position[0], position[1]]}>
+              <Popup>{location}</Popup>
+            </Marker>
+          </MapContainer>
+        )}
+      </div>
+    );
+  };
+  
   const COLUMNS = [
     {
       Header: "ID",
@@ -160,39 +220,49 @@ console.log(UserListData);
       Header: "Sports",
       accessor: "sport",
     },
+    // {
+    //   Header: "Location",
+    //   accessor: "location",
+    //   Cell: ({ value }) => {
+    //     if (!value) {
+    //       return <span>No data found</span>;
+    //     }
+    
+    //     const position = value.split(',').map(Number);
+    
+    //     // Check if the position is valid
+    //     if (position.length !== 2 || position.some(isNaN)) {
+    //       return <span>No data found</span>;
+    //     }
+    
+    //     // Print latitude and longitude separately in the console
+    //     console.log('Latitude:', position[0]);
+    //     console.log('Longitude:', position[1]);
+    
+    //     return (
+    //       <MapContainer
+    //         center={position}
+    //         zoom={13}
+    //         scrollWheelZoom={false}
+    //         style={{ height: "70px", width: "70px" }}
+    //       >
+    //         <TileLayer
+    //           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    //           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    //         />
+    //         <Marker position={position}>
+    //           <Popup>{position.join(', ')}</Popup>
+    //           <Tooltip>{position.join(', ')}</Tooltip>
+    //         </Marker>
+    //       </MapContainer>
+    //     );
+    //   }
+    // },
+    
     {
       Header: "Location",
       accessor: "location",
-      Cell: ({ value }) => {
-        if (!value) {
-          return <span>No data found</span>;
-        }
-    
-        const position = value.split(',').map(Number);
-    
-        // Check if the position is valid
-        if (position.length !== 2 || position.some(isNaN)) {
-          return <span>No data found</span>;
-        }
-    
-        return (
-          <MapContainer
-            center={position}
-            zoom={13}
-            scrollWheelZoom={false}
-            style={{ height: "70px", width: "70px" }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={position}>
-              <Popup>{position.join(', ')}</Popup>
-              <Tooltip>{position.join(', ')}</Tooltip>
-            </Marker>
-          </MapContainer>
-        );
-      }
+      Cell: LocationCell,
     },
     
     

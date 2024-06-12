@@ -25,7 +25,7 @@ function Header() {
           <img
             src={Logo3}
             alt="TrainsOnWheels"
-            className="img-fluid"
+            className="img-fluid header-logo"
             style={{ maxWidth: "150px", height: "auto" }}
           />
         </Navbar.Brand>
@@ -46,6 +46,8 @@ function Header() {
             {/* <Nav.Link href="/pnr-status">Home</Nav.Link> */}
             <Nav.Link href="/about-us">About Us</Nav.Link>
             <Nav.Link href="/faq">FAQ</Nav.Link>
+            <Nav.Link href="/features">Features</Nav.Link>
+
             {/* <Nav.Link href="/live-train">Live Train</Nav.Link>
             <Nav.Link href="/advertisement">Advertisement</Nav.Link> */}
             {/* <NavDropdown title="More Features" id="basic-nav-dropdown">
