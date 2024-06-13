@@ -83,6 +83,14 @@ export default function Router() {
             </GuestGuard>
           ),
         },
+        {
+          path: "/contact",
+          element: (
+            <GuestGuard>
+              <ContactUs />
+            </GuestGuard>
+          ),
+        },
       ],
     },
     {
@@ -253,4 +261,6 @@ const PrivacyPolicy = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsi
 const Faq = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsite/Faq/Faq")));
 const AboutUs = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsite/AboutUs/AboutUs")));
 const OurFeatures = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsite/OurFeatures/OurFeatures")));
+const ContactUs = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsite/ContactUs/ContactUs")));
+
 

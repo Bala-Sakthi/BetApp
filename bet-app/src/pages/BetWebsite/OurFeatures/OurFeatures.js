@@ -23,7 +23,7 @@ const AboutUs = () => {
           <Row className="justify-content-end">
             <Col xs={12} md={6}>
          
-                <h1 style={{ textAlign: "center" }}>Our Features</h1>
+                <h1 style={{ textAlign: "center" }}>Our Features </h1>
              
             </Col>
           </Row>
@@ -65,7 +65,7 @@ const AboutUs = () => {
                   textAlign: "center",
                 }}
               >
-               "Earn money effortlessly by referring friends to our app. Share your unique referral code, and for every friend who joins, you earn rewards. Connect, compete, and profit together!"
+               "Earn money effortlessly by referring friends to our app. Share your unique referral code, and for every friend who joins, you earn rewards. Connect, compete, and profit together!".
               </p>
             </AnimatedOnScroll>
           </Col>
@@ -99,7 +99,7 @@ const AboutUs = () => {
                   textAlign: "center",
                 }}
               >
-              " Your Ultimate Companion for Games and Sports - Enjoy seamless betting, gaming, and real-time chat with opponents, all in one convenient app. Connect and compete like never before!."
+              "Your Ultimate Companion for Games and Sports - Enjoy seamless betting, gaming, and real-time chat with opponents, all in one convenient app. Connect and compete like never before!."
               </p>
             </AnimatedOnScroll>
           </Col>
@@ -148,7 +148,7 @@ const AboutUs = () => {
                   textAlign: "center",
                 }}
               >
-              " Share your thoughts and updates about tournaments, games, and all related sports activities. Post about your experiences, insights, and excitement, all in one convenient app. Connect and engage with the community like never before!"
+              "Share your thoughts and updates about tournaments, games, and all related sports activities. Post about your experiences, insights, and excitement, all in one convenient app. Connect and engage with the community like never before!".
               </p>
             </AnimatedOnScroll>
           </Col>

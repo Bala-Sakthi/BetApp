@@ -691,7 +691,37 @@ faq-toggle-icon {
   transition: all 0.3s ease;
 } */
 
-/* Aboutus page styles*/
+
+
+
+/* ContactUs page styles*/
+
+.contact-us {
+  background-image: url("/src/assets/images/ContactUs.png");
+  background-size: cover;
+  padding: 180px 10px;
+  position: relative;
+  background-position: center;
+  margin-top: 55px;
+}
+
+
+.contact-us h1 {
+  font-size: 45px;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Poppins, sans-serif" !important;
+  line-height: 70px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+
+/* Feature page styles*/
 
 .feature-row {
   background-image: url("/src/assets/images/serviceimg.png");
@@ -717,7 +747,7 @@ faq-toggle-icon {
   width: 100%;
 }
 
-
+/* Aboutus page styles*/
 
 .Aboutus-row {
   background-image: url("/src/assets/images/AboutUsimg.webp");
@@ -937,6 +967,7 @@ padding-left: 78px;
 .menu-container::-webkit-scrollbar {
   display: none;
 }
+
 
 
 
