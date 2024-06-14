@@ -1,7 +1,5 @@
 
 import { Row, Col, Container} from "react-bootstrap";
-import Misson from "../../../assets/images/mission.webp";
-import TeleService from "../../../assets/images/serviceimages.png";
 import Footer from "../Footer";
 import Header from "../../../components/WebsiteHeader"
 import Chatimage from "../../../assets/images/chatimg.png";
@@ -55,7 +53,7 @@ const AboutUs = () => {
                   textTransform: "uppercase",
                 }}
               >
-                Reffer and Earn
+                Refer and Earn
               </h2>
               <p
                 style={{

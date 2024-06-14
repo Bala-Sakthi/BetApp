@@ -697,7 +697,7 @@ faq-toggle-icon {
 /* ContactUs page styles*/
 
 .contact-us {
-  background-image: url("/src/assets/images/ContactUs.png");
+  background-image: url("/src/assets/images/ContactUs.webp");
   background-size: cover;
   padding: 180px 10px;
   position: relative;
