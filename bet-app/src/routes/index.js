@@ -221,6 +221,14 @@ export default function Router() {
             </AuthGuard>
           ),
         },
+        {
+          path: "help",
+          element: (
+            <AuthGuard>
+              <Help />
+            </AuthGuard>
+          ),
+        },
       ],
     },
     {
@@ -253,6 +261,8 @@ const TransactionHistory = LoadableWithLoader(lazy(() => import("../pages/Transa
 const AddTransactionHistory = LoadableWithLoader(lazy(() => import("../pages/TransactionHistory/AddTransactionHistory")));
 const Group = LoadableWithLoader(lazy(() => import("../pages/Notification/Group/Group")));
 const UserDetails = LoadableWithLoader(lazy(() => import("../pages/UserList/UserDetails")));
+const Help = LoadableWithLoader(lazy(() => import("../pages/Help/Help")));
+
 
 // Website routes using Loadable without loader
 const MeetInGround = LoadableWithoutLoader(lazy(() => import("../pages/BetWebsite/MeetInGround/MeetInGround")));

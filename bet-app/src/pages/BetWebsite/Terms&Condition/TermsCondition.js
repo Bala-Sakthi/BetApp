@@ -255,7 +255,7 @@ const TermCondition = () => {
               }}
             >
               If you have any questions, contact us at
-              <a href="mailto:meetinground@gmail.com">info@meetinground</a>
+              <a href="mailto:help.meetinground@gmail.com">info@meetinground</a>
             </p>
             <p
               style={{

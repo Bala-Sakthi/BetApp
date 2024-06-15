@@ -215,7 +215,7 @@ const PrivacyPolicy = () => {
                 textAlign: "start",
               }}>
              By using this Service, you signify your acceptance of this policy. If you disagree with this policy, please do not use our Service. Your continued use of the Service following the posting of changes to this policy will be deemed your acceptance of those changes. If you have any questions about this Privacy Policy, the practices of this Service, or your dealings with this Service, please contact us at 
-             <a href="mailto:meetinground@gmail.com"> info@meetinground</a>
+             <a href="help.meetinground@gmail.com"> info@meetinground</a>
 
               <p
               style={{

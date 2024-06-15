@@ -7,6 +7,7 @@ import { HiMiniUserGroup } from 'react-icons/hi2';
 import { IoIosStar, IoMdNotifications } from 'react-icons/io';
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { BiMoneyWithdraw } from 'react-icons/bi';
+import { MdHelp } from "react-icons/md";
 
 
 
@@ -73,6 +74,14 @@ export const sidebarItems = [
   },
   {
     "id": 8,
+    "label": "Help",
+    "parent_id": null,
+    "icon":<MdHelp   size={20}/>,
+    "order_index": 8,
+    "url": "/admin/help",
+  },
+  {
+    "id": 9,
     "label": "Transaction history",
     "parent_id": null,
     "icon":<MdOutlineWorkHistory  size={20}/>,
@@ -80,7 +89,7 @@ export const sidebarItems = [
     "url": "/admin/transaction-history",
   },
   {
-    "id": 9,
+    "id": 10,
     "label": "Notification",
     "parent_id": null,
     "icon": <IoMdNotifications size={20}  />,
