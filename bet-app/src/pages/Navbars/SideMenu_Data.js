@@ -7,7 +7,7 @@ import { HiMiniUserGroup } from 'react-icons/hi2';
 import { IoIosStar, IoMdNotifications } from 'react-icons/io';
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { BiMoneyWithdraw } from 'react-icons/bi';
-import { MdHelp } from "react-icons/md";
+import { FaTicket } from "react-icons/fa6";
 
 
 
@@ -74,11 +74,11 @@ export const sidebarItems = [
   },
   {
     "id": 8,
-    "label": "Help",
+    "label": "Tickets",
     "parent_id": null,
-    "icon":<MdHelp   size={20}/>,
+    "icon":<FaTicket   size={20}/>,
     "order_index": 8,
-    "url": "/admin/help",
+    "url": "/admin/tickets",
   },
   {
     "id": 9,

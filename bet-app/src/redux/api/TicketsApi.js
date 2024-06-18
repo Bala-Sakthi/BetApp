@@ -1,12 +1,12 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import customFetchBase from "./CustomFetchBase";
 
-export const HelpApi = createApi({
-    reducerPath: "HelpApi",
+export const TicketsApi = createApi({
+    reducerPath: "TicketsApi",
     baseQuery: customFetchBase,
-    tagTypes: ["HELP"],
+    tagTypes: ["TICKETS"],
     endpoints: (build) => ({
-      getHelp: build.query({
+      getTickets: build.query({
         query: ({page,search}) => ({
           url: `/admin/viewTickets/${search}?page=${page}`,
           method: "GET",
@@ -14,7 +14,7 @@ export const HelpApi = createApi({
             "Content-Type": "application/json; charset=UTF-8",
           },
         }),
-        providesTags: ["HELP"],
+        providesTags: ["TICKETS"],
       }),
 
       SendMail: build.mutation({
@@ -26,10 +26,10 @@ export const HelpApi = createApi({
             "Content-Type": "application/json; charset=UTF-8",
           },
         }),
-        invalidatesTags: ["HELP"],
+        invalidatesTags: ["TICKETS"],
       }),
      
-      editHelp: build.mutation({
+      editTickets: build.mutation({
         query: ({ id, data }) => ({
           url: `/admin/updateTicket/${id}`,
           method: "PATCH",
@@ -38,9 +38,9 @@ export const HelpApi = createApi({
             "Content-Type": "application/json; charset=UTF-8",
           },
         }),
-        invalidatesTags: ["HELP"],
+        invalidatesTags: ["TICKETS"],
       }),
-      deleteHelp: build.mutation({
+      deleteTickets: build.mutation({
         query: (id) => ({
           url: `/admin/deleteTicket/${id}`,
           method: "DELETE",
@@ -48,11 +48,11 @@ export const HelpApi = createApi({
             "Content-Type": "application/json; charset=UTF-8",
           },
         }),
-        invalidatesTags: ["HELP"],
+        invalidatesTags: ["TICKETS"],
       }),
      
     }),
   });
 
 
-export const { useGetHelpQuery,useDeleteHelpMutation,useEditHelpMutation,useSendMailMutation} = HelpApi;
+export const { useGetTicketsQuery,useDeleteTicketsMutation,useEditTicketsMutation,useSendMailMutation} = TicketsApi;

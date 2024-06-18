@@ -4,16 +4,16 @@ import { MdDelete } from "react-icons/md";
 import BasicTable from "../../components/TablePaginationComponent";
 import BasicHeader from "../../components/BasicHeader";
 import DeleteModel from "../../components/DeleteModel";
-import { useGetHelpQuery, useDeleteHelpMutation, useEditHelpMutation, useSendMailMutation } from "../../redux/api/HelpApi";
+import { useSendMailMutation, useGetTicketsQuery, useDeleteTicketsMutation, useEditTicketsMutation } from "../../redux/api/TicketsApi";
 import { toast } from "react-toastify";
-import Loader from "../../pages/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
 import { FaEdit } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { IoSend } from "react-icons/io5";
 
-const Help = () => {
+const Tickets = () => {
   const [deleteShow, setDeleteShow] = useState(false);
   const [idToDelete, setIdToDelete] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,23 +33,23 @@ const Help = () => {
   const [editId, setEditId] = useState(null);
   const [editShow, setEditShow] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-  const { data: getHelpData, isLoading, refetch } = useGetHelpQuery({ page: currentPage, search: searchTerm ,id:id});
-  const[deleteStationApi] = useDeleteHelpMutation();
-  const [EditHelpApi] = useEditHelpMutation();
+  const { data: getTicketsData, isLoading, refetch } = useGetTicketsQuery({ page: currentPage, search: searchTerm ,id:id});
+  const[deleteTicketsApi] = useDeleteTicketsMutation();
+  const [EditTicketsApi] = useEditTicketsMutation();
   const [SendMail] = useSendMailMutation();
 
-  console.log(getHelpData);
+  console.log(getTicketsData);
 
   useEffect(() => {
-    if (getHelpData && getHelpData.data) {
-      setData(getHelpData.data);
-      setStartIndex(getHelpData.pagination.startIndex);
+    if (getTicketsData && getTicketsData.data) {
+      setData(getTicketsData.data);
+      setStartIndex(getTicketsData.pagination.startIndex);
       setCurrentPage(currentPage);
-      setTotalItem(getHelpData.pagination.totalItems);
-      setEndIndex(getHelpData.pagination.endIndex)
-      setTotalPages(getHelpData.pagination.totalPages);
+      setTotalItem(getTicketsData.pagination.totalItems);
+      setEndIndex(getTicketsData.pagination.endIndex)
+      setTotalPages(getTicketsData.pagination.totalPages);
     }
-  }, [getHelpData,currentPage]);
+  }, [getTicketsData,currentPage]);
 
   const handleDropdownChange = (e) => {
     setSelectedOption(e.target.value);
@@ -123,9 +123,9 @@ const Help = () => {
     }
   };
 
-  const deleteStation = async () => {
+  const deleteTickets = async () => {
     try {
-      const response = await deleteStationApi(idToDelete);
+      const response = await deleteTicketsApi(idToDelete);
       setDeleteShow(false);
       setIdToDelete("");
       if (response?.data) {
@@ -140,7 +140,7 @@ const Help = () => {
 
   const handleEditData = async () => {
     try {
-      const response = await EditHelpApi({
+      const response = await EditTicketsApi({
         id: editId,
         data: {
           status: selectedOption,
@@ -229,7 +229,7 @@ const Help = () => {
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4">
             <Col>
-              <BasicHeader HEADING="Help" />
+              <BasicHeader HEADING="Tickets" />
             </Col>
           </Row>
           <Row className="boxShadow p-3 mb-4 d-flex flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
@@ -240,7 +240,7 @@ const Help = () => {
                 </span>
                 <input
                   type="text"
-                  placeholder="Search Helps..."
+                  placeholder="Search Ticketss..."
                   className="form-control"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
@@ -279,7 +279,7 @@ const Help = () => {
           </Row>
           <Modal show={editShow} onHide={handleEditClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Edit Help</Modal.Title>
+              <Modal.Title>Edit Tickets</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -355,14 +355,14 @@ const Help = () => {
         <Loader />
       )}
       <DeleteModel
-        YES={deleteStation}
+        YES={deleteTickets}
         DELETESTATE={deleteShow}
         ONCLICK={deleteHandleClose}
-        DESCRIPTION="Are you sure you want to delete this Help"
-        DELETETITLE="Help"
+        DESCRIPTION="Are you sure you want to delete this Tickets"
+        DELETETITLE="Tickets"
       />
     </div>
   );
 };
 
-export default Help;
+export default Tickets;

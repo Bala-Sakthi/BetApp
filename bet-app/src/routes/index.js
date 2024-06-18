@@ -222,10 +222,10 @@ export default function Router() {
           ),
         },
         {
-          path: "help",
+          path: "tickets",
           element: (
             <AuthGuard>
-              <Help />
+              <Tickets />
             </AuthGuard>
           ),
         },
@@ -261,7 +261,7 @@ const TransactionHistory = LoadableWithLoader(lazy(() => import("../pages/Transa
 const AddTransactionHistory = LoadableWithLoader(lazy(() => import("../pages/TransactionHistory/AddTransactionHistory")));
 const Group = LoadableWithLoader(lazy(() => import("../pages/Notification/Group/Group")));
 const UserDetails = LoadableWithLoader(lazy(() => import("../pages/UserList/UserDetails")));
-const Help = LoadableWithLoader(lazy(() => import("../pages/Help/Help")));
+const Tickets = LoadableWithLoader(lazy(() => import("../pages/Ticket/Tickets")));
 
 
 // Website routes using Loadable without loader

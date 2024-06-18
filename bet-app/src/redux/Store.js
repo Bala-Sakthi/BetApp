@@ -15,7 +15,7 @@ import { TransactionhistoryApi } from "./api/TransactionHistoryApi";
 import { GroupApi } from "./api/GroupApi";
 import { UserListDetailsApi } from "./api/UserDetailsApi";
 import { ContactUsApi } from "./api/ContactUsApi";
-import { HelpApi } from "./api/HelpApi";
+import { TicketsApi } from "./api/TicketsApi";
 
 
 
@@ -42,7 +42,7 @@ export const store = configureStore({
     [GroupApi.reducerPath]:GroupApi.reducer,
     [UserListDetailsApi.reducerPath]:UserListDetailsApi.reducer,
     [ContactUsApi.reducerPath]:ContactUsApi.reducer,
-    [HelpApi.reducerPath]:HelpApi.reducer,
+    [TicketsApi.reducerPath]:TicketsApi.reducer,
   
   },
   devTools: process.env.NODE_ENV === "development",
@@ -63,6 +63,6 @@ export const store = configureStore({
       GroupApi.middleware,
       UserListDetailsApi.middleware,
       ContactUsApi.middleware,
-      HelpApi.middleware,
+      TicketsApi.middleware,
     ]),
 });

@@ -1,45 +1,51 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { LuSend } from 'react-icons/lu';
+import { Button, Col, Container, Form, Row, Modal } from 'react-bootstrap';
 import Footer from '../Footer';
 import Header from '../Header';
 import { Formik } from 'formik';
 import { ContactUsSchema } from "../ContactUs/ContactUsValidation";
 import { useSendContactMutation } from '../../../redux/api/ContactUsApi';
 import { toast } from 'react-toastify';
+import Lottie from 'react-lottie';
+import successAnimation from '../../../assets/images/SuccessAnimation.json';
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [SendContact] = useSendContactMutation();
+
 
 console.log(name);
 console.log(email);
 console.log(message);
 
-
   const handleSendRequest = async () => {
-    try {
-      console.log("response1");
+    console.log("responce1");
 
+    try {
+      console.log("responce2");
       const response = await SendContact({
         name: name,
-        email:email,
-        message:message,
+        email: email,
+        message: message,
       });
-      console.log("response2");
 
       if (response?.data) {
-        console.log(response);
-        toast.success(response?.data?.message, { autoClose: 1000 });
+      console.log("responce3");
+
+        
+        // toast.success(response?.data?.message, { autoClose: 1000 });
+        setSuccessMessage(response.data.message);
+        setShowModal(true);
+        setTimeout(() => setShowModal(false), 4000);
         setName("");
         setEmail("");
-        setMessage("");
+        setMessage(""); 
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
-        console.log("else part");
-        console.log(response.error);
       }
     } catch (error) {
       console.error(error);
@@ -50,8 +56,16 @@ console.log(message);
     name: "",
     email: "",
     message: "",
+  };
 
-   };
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: successAnimation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   return (
     <>
@@ -70,7 +84,7 @@ console.log(message);
       {/* Contact Form and Map Section */}
       <Container className="mt-5 mb-5">
         <Row className="align-items-center">
-          <h2 className='text-center mt-2 mb-4' style={{ color: "#6B78B7" }}>Get a callback from Us!</h2>
+          <h2 className='text-center mt-2 mb-4' style={{ color: "#6B78B7" }}>Raise Ticket!</h2>
           <Col xs={12} lg={6} className="mb-4 mb-lg-0 align-items-center justify-content-center text-start">
             <div className="map-container">
               <iframe
@@ -86,7 +100,7 @@ console.log(message);
           </Col>
           <Col xs={12} lg={6}>
             <Formik
-                initialValues={initialValues}
+              initialValues={initialValues}
               validationSchema={ContactUsSchema}
               onSubmit={handleSendRequest}
             >
@@ -119,11 +133,11 @@ console.log(message);
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  <Form.Group controlId="eemail" className="mt-3">
+                  <Form.Group controlId="email" className="mt-3">
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
                       type="email"
-                      placeholder="Enter your Eemail.."
+                      placeholder="Enter your Email.."
                       name="email"
                       value={email}
                       onChange={(e) => {
@@ -168,7 +182,7 @@ console.log(message);
                         type="submit"
                         style={{ backgroundColor: "#6B78B7", border: "none" }}
                       >
-                        Submit <LuSend />
+                        Submit 
                       </Button>
                     </Col>
                   </Row>
@@ -178,6 +192,16 @@ console.log(message);
           </Col>
         </Row>
       </Container>
+      
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        {/* <Modal.Header closeButton>    
+        </Modal.Header> */}
+        <Modal.Body>
+        <Lottie options={defaultOptions} height={80} width={80} style={{textAlign:"center"}}/>
+       <p style={{fontSize:"18px",textAlign:"center",fontWeight:"bold"}}>{successMessage}</p>
+        </Modal.Body>
+      </Modal>
+
       <Footer />
     </>
   );
