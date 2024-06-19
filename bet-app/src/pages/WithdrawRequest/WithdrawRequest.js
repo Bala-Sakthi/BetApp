@@ -258,15 +258,17 @@ const WithdrawRequest = () => {
               <Modal.Title>Edit Withdraw Request</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form>
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                  <Form.Label>Status:</Form.Label>
-                  <Form.Control as="select" value={selectedOption} onChange={handleDropdownChange}>
-                    <option value="Pending">Pending</option>
-                    <option value="Approved">Approved</option>
-                  </Form.Control>
-                </Form.Group>
-              </Form>
+            <Form>
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Status:</Form.Label>
+    <Form.Control as="select" value={selectedOption} onChange={handleDropdownChange}>
+      <option value="">Select an option</option>
+      <option value="Pending">Pending</option>
+      <option value="Approved">Approved</option>
+    </Form.Control>
+  </Form.Group>
+</Form>
+
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleEditClose}>

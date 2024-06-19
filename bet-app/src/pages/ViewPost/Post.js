@@ -455,6 +455,7 @@ const Post = () => {
                 <Form.Group controlId="exampleForm.ControlSelect1">
                   <Form.Label>Status:</Form.Label>
                   <Form.Control as="select" value={selectedOption} onChange={handleDropdownChange}>
+                  <option value="">Select an option</option>
                     <option value="Pending">Pending</option>
                     <option value="Approved">Approved</option>
                     <option value="Hold">Hold</option>
