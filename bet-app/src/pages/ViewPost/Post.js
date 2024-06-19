@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Button, Col, Container, Row, Modal } from "react-bootstrap";
+import { Button, Col, Container, Row, Modal, Form } from "react-bootstrap";
 import BasicTable from "../../components/TablePaginationComponent";
-import { useAddBulkPostMutation, useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
+import { useAddBulkPostMutation, useDeletePostMutation, useEditPostMutation, useGetPostQuery } from "../../redux/api/PostApi";
 import Loader from "../../pages/Loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
 import { HiUserCircle } from "react-icons/hi";
-import ApprovedImage from "../../assets/images/approved.webp";
-import HoldImage from "../../assets/images/hold.webp";
-import RejectedImage from  "../../assets/images/rejected.webp";
+// import ApprovedImage from "../../assets/images/approved.webp";
+// import HoldImage from "../../assets/images/hold.webp";
+// import RejectedImage from  "../../assets/images/rejected.webp";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
+import { FaEdit, FaPlus } from "react-icons/fa";
 import { FaFileImport } from "react-icons/fa";
+import DeleteModel from "../../components/DeleteModel";
+import { MdDelete } from "react-icons/md";
+
 
 
 const Post = () => {
@@ -25,13 +28,20 @@ const Post = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState(""); 
   const [isSearching, setIsSearching] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [modalData, setModalData] = useState({ rowData: null, status: "" });
+  const { id } = useParams();
+  const [editId, setEditId] = useState(null);
+  const [editShow, setEditShow] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [deleteShow, setDeleteShow] = useState(false);
+  const [idToDelete, setIdToDelete] = useState("");
+  // const [showModal, setShowModal] = useState(false);
+  // const [modalData, setModalData] = useState({ rowData: null, status: "" });
   const [importModalVisible, setImportModalVisible] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null); 
-  const { data: postData, isLoading, refetch } = useGetPostQuery({ page: currentPage, search: searchTerm });
+  const { data: postData, isLoading, refetch } = useGetPostQuery({ page: currentPage, search: searchTerm , id:id});
   const navigate = useNavigate();
   const [editPostData] = useEditPostMutation();
+  const [deletePost] = useDeletePostMutation();
   const [AddBulkPostData] = useAddBulkPostMutation();
 
 
@@ -70,17 +80,39 @@ const Post = () => {
     }
   };
 
-  const handleEditData = async (rowData, status) => {
-    const postId = rowData._id;
 
+  const handleEditShow = (id) => {
+    setEditId(id);
+    setEditShow(true);
+  };
+
+  const handleEditClose = () => {
+    setEditShow(false);
+    setEditId(null);
+  };
+
+  const deleteHandleShow = (id) => {
+    setIdToDelete(id);
+    setDeleteShow(true);
+  };
+
+  const deleteHandleClose = () => {
+    setDeleteShow(false);
+  };
+
+
+  const handleDropdownChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
+  
+
+  const handleDeletePost = async () => {
+  
     try {
-      const response = await editPostData({
-        id: postId,
-        data: {
-          status: status,
-        },
-      });
-      
+      const response = await deletePost(idToDelete);
+      setDeleteShow(false);
+      setIdToDelete("");
       if (response?.data) {
         toast.success(response?.data?.message, { autoClose: 1000 });
       } else {
@@ -91,17 +123,59 @@ const Post = () => {
     }
   };
 
-  const handleShowModal = (rowData, status) => {
-    setModalData({ rowData, status });
-    setShowModal(true);
-  };
 
-  const handleConfirmAction = () => {
-    handleEditData(modalData.rowData, modalData.status);
-    setShowModal(false);
-  };
+  const handleEditData = async () => {
+    try {
+      const response = await editPostData({
+        id: editId,
+        data: {
+          status: selectedOption,
+        },
+      });
 
-  const handleCloseModal = () => setShowModal(false);
+      if (response?.data) {
+        toast.success(response?.data?.message, { autoClose: 1000 });
+        handleEditClose();
+        refetch(); // Refetch data after updating
+      } else {
+        toast.error(response?.error?.data.error, { autoClose: 1000 });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  // const handleEditData = async (rowData, status) => {
+  //   const postId = rowData._id;
+
+  //   try {
+  //     const response = await editPostData({
+  //       id: postId,
+  //       data: {
+  //         status: status,
+  //       },
+  //     });
+      
+  //     if (response?.data) {
+  //       toast.success(response?.data?.message, { autoClose: 1000 });
+  //     } else {
+  //       toast.error(response?.error?.data.error, { autoClose: 1000 });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  // const handleShowModal = (rowData, status) => {
+  //   setModalData({ rowData, status });
+  //   setShowModal(true);
+  // };
+
+  // const handleConfirmAction = () => {
+  //   handleEditData(modalData.rowData, modalData.status);
+  //   setShowModal(false);
+  // };
+
+  // const handleCloseModal = () => setShowModal(false);
 
 
 
@@ -233,20 +307,38 @@ const Post = () => {
           return <span>{formattedDateTime}</span>;
         },
       },
-    {
-      Header: "Actions",
-      accessor: "action",
-      Cell: ({ row }) => {
-        const rowData = row.original;
-        return (
-          <div className="d-flex align-items-center justify-content-center flex-row">
-            <img onClick={() => handleShowModal(rowData, 'Approved')} src={ApprovedImage} alt="Approved" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Approved" />
-            <img onClick={() => handleShowModal(rowData, 'Hold')} src={HoldImage} alt="Hold" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Hold" />
-            <img onClick={() => handleShowModal(rowData, 'Rejected')} src={RejectedImage} alt="Rejected" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Rejected" />
-          </div>
-        );
-      }
-    }
+
+      {
+        Header: "ACTIONS",
+        accessor: "action",
+        Cell: (props) => {
+          const rowIdx = props.row.original._id;
+          return (
+            <div className="d-flex align-items-center justify-content-center flex-row">
+              <Button variant="warning" onClick={() => handleEditShow(rowIdx)}>
+                <FaEdit />
+              </Button>
+              <Button variant="danger" className="ms-2" onClick={() => deleteHandleShow(rowIdx)}>
+                <MdDelete />
+              </Button>
+            </div>
+          );
+        },
+      },
+    // {
+    //   Header: "Actions",
+    //   accessor: "action",
+    //   Cell: ({ row }) => {
+    //     const rowData = row.original;
+    //     return (
+    //       <div className="d-flex align-items-center justify-content-center flex-row">
+    //         <img onClick={() => handleShowModal(rowData, 'Approved')} src={ApprovedImage} alt="Approved" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Approved" />
+    //         <img onClick={() => handleShowModal(rowData, 'Hold')} src={HoldImage} alt="Hold" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Hold" />
+    //         <img onClick={() => handleShowModal(rowData, 'Rejected')} src={RejectedImage} alt="Rejected" style={{ width: '30px', height: '30px', marginRight: '15px' }} title="Rejected" />
+    //       </div>
+    //     );
+    //   }
+    // }
   ];
 
   return (
@@ -322,13 +414,21 @@ const Post = () => {
               totalPages={totalPages}
             />
           </Row>
+
+          <DeleteModel
+            YES={handleDeletePost}
+            DELETESTATE={deleteShow}
+            ONCLICK={deleteHandleClose}
+            DESCRIPTION="Are you sure want to delete this Post"
+            DELETETITLE="Post"
+          />
         </Container>
       ) : (
         <Loader />
       )}
 
       {/* Modal */}
-      <Modal show={showModal} onHide={handleCloseModal} centered>
+      {/* <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Action</Modal.Title>
         </Modal.Header>
@@ -343,8 +443,36 @@ const Post = () => {
             Confirm
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
+
+<Modal show={editShow} onHide={handleEditClose} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Edit Withdraw Request</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group controlId="exampleForm.ControlSelect1">
+                  <Form.Label>Status:</Form.Label>
+                  <Form.Control as="select" value={selectedOption} onChange={handleDropdownChange}>
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Hold">Hold</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Closed">Closed</option>
+                  </Form.Control>
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleEditClose}>
+                Cancel
+              </Button>
+              <Button style={{ backgroundColor: "#6B78B7", border: "none" }} onClick={handleEditData}>
+                Update
+              </Button>
+            </Modal.Footer>
+          </Modal>
 
 
 

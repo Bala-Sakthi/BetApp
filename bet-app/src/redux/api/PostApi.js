@@ -69,9 +69,18 @@ export const PostApi = createApi({
         invalidatesTags: ["POSTAPI"],
       }),
 
-
+      deletePost: build.mutation({
+        query: (id) => ({
+          url: `/admin/deletePost/${id}`,
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        }),
+        invalidatesTags: ["POSTAPI"],
+      }),
     }),
   });
 
 
-export const { useGetPostQuery,useEditPostMutation,useAddPostMutation,useAddBulkPostMutation} = PostApi;
+export const { useGetPostQuery,useEditPostMutation,useAddPostMutation,useAddBulkPostMutation,useDeletePostMutation} = PostApi;
