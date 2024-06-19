@@ -105,7 +105,7 @@ const Post = () => {
     setSelectedOption(e.target.value);
   };
 
-  
+
 
   const handleDeletePost = async () => {
   
@@ -460,6 +460,8 @@ const Post = () => {
                     <option value="Hold">Hold</option>
                     <option value="Rejected">Rejected</option>
                     <option value="Closed">Closed</option>
+                    <option value="Fixed">Fixed</option>
+
                   </Form.Control>
                 </Form.Group>
               </Form>
