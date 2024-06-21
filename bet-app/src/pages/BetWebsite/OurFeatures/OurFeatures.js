@@ -11,7 +11,7 @@ import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 import "animate.css/animate.min.css";
 
-const AboutUs = () => {
+const OurFeatures = () => {
   // const [counterOn, setCounteron] = useState(false);
   return (
     <>
@@ -220,4 +220,4 @@ choose your opponent wisely..
   );
 };
 
-export default AboutUs;
+export default OurFeatures;

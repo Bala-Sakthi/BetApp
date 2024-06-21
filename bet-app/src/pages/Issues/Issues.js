@@ -26,7 +26,7 @@ const Issue = () => {
   const [isSearching, setIsSearching] = useState(false);
   const { data: getIssueData, isLoading, refetch } = useGetIssueQuery({ page: currentPage, search: searchTerm });
   console.log(getIssueData);
-  const[deleteStationApi] = useDeleteIssueMutation();
+  const[deleteIssueApi] = useDeleteIssueMutation();
 
 
   useEffect(() => {
@@ -67,9 +67,9 @@ const Issue = () => {
     });
   };
 
-  const deleteStation = async () => {
+  const deleteIssue = async () => {
     try {
-      const response = await deleteStationApi(idToDelete);
+      const response = await deleteIssueApi(idToDelete);
       setDeleteShow(false);
       setIdToDelete("");
       if (response?.data) {
@@ -223,7 +223,7 @@ const Issue = () => {
         <Loader />
       )}
       <DeleteModel
-        YES={deleteStation}
+        YES={deleteIssue}
         DELETESTATE={deleteShow}
         ONCLICK={deleteHandleClose}
         DESCRIPTION="Are you sure you want to delete this Issue"

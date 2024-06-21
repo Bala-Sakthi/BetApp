@@ -448,7 +448,7 @@ const Post = () => {
 
 <Modal show={editShow} onHide={handleEditClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Edit Withdraw Request</Modal.Title>
+              <Modal.Title>Edit Post</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
